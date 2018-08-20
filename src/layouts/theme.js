@@ -7,7 +7,7 @@ export const globalTheme = {
     gray: '#EFEFEF'
   },
   fonts: {
-    main: '',
+    main: 'Roboto',
     secondary: ''
   }
 };
