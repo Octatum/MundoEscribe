@@ -8,15 +8,14 @@ import { globalTheme } from './theme';
 
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={globalTheme}>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'El mundo escribe' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header siteTitle={data.site.siteMetadata.title} />
     <div>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: 'El mundo escribe' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />  
       {children()}
     </div>
   </ThemeProvider>
