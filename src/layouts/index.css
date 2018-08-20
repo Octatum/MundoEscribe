@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -68,4 +68,15 @@ table {
 	src: url("/fonts/Roboto-Bold.ttf") format("ttf");
 	font-weight: bold;
 	font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+	src: url("/fonts/Roboto-Light.ttf") format("ttf");
+	font-weight: lighter;
+	font-style: normal;
+}
+
+strong {
+  font-weight: bold;
 }
