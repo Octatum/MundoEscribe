@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import headerIcon from '../../assets/header-icon.svg';
+import headerIcon from './assets/header-icon.svg';
 
 const Container = styled.div`
   flex: 1;
@@ -41,6 +41,36 @@ const Dot = styled.div`
   background: #468EC0;
   border-radius: 50%;
 `
+
+class Navbar extends Component {
+  render() {
+    return (
+      <Container>
+        <Logo src={headerIcon}/>
+        <Links>
+          <List itemPadding='0.6em'>
+            <li>Inicio</li>
+            <li><Dot/></li>
+            <li>¿Quiénes somos?</li>
+            <li><Dot/></li>
+            <li>Lo que hacemos</li>
+            <li><Dot/></li>
+            <li>¿Cómo ayudar?</li>
+            <li><Dot/></li>
+            <li>Informes anuales</li>
+            <li><Dot/></li>
+            <li>Contacto</li>
+          </List>
+          <List itemPadding='0.2em'>
+            <li><i className='fab fa-facebook-f fa-fw fa-lg'/></li>
+            <li><i className='fab fa-instagram fa-fw fa-lg'/></li>
+            <li><i className='fab fa-twitter fa-fw fa-lg'/></li>
+          </List>
+        </Links>
+      </Container>
+    )
+  }
+}
 
 function Navbar () {
   return (
