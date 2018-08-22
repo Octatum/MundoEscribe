@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import headerIcon from '../../assets/header-icon.svg';
+import headerIcon from './assets/header-icon.svg';
 
 const Container = styled.div`
   flex: 1;
@@ -12,27 +12,30 @@ const Container = styled.div`
   padding: 0.5em 1.5em;
   background: ${props => props.theme.color.white};
   box-shadow: 0 0 15px 7px ${props => props.theme.color.black};
-`
+  z-index: 2;
+`;
 
 const Logo = styled.img`
   height: 5.5em;
-`
+`;
 
 const Links = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
   align-items: center;
-`
+`;
 
 const List = styled.ul`
   display: flex;
   list-style: none;
 
   li {
+    display: flex;
+    align-items: center;
     padding: ${props => props.itemPadding};
   }
-`
+`;
 
 const Dot = styled.div`
   display: inline-block;
@@ -40,7 +43,7 @@ const Dot = styled.div`
   width: 0.4em;
   background: #468EC0;
   border-radius: 50%;
-`
+`;
 
 function Navbar () {
   return (

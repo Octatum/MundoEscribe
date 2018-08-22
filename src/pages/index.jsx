@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import Navbar from '../components/Navbar';
+import SlideshowSection from '../components/SlideshowSection';
 
 const AppLayout = styled.div`
   display: flex;
@@ -11,9 +12,7 @@ const AppLayout = styled.div`
 const IndexPage = () => (
   <AppLayout>
     <Navbar />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <SlideshowSection />
   </AppLayout>
 )
 
