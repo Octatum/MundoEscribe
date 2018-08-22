@@ -3,6 +3,7 @@ import General from './General';
 import History from './History';
 import Mision from './Mision';
 import Vision from './Vision';
+import CollageQuote from './CollageQuote';
 
 function QuienesSomos () {
   return (
@@ -11,6 +12,7 @@ function QuienesSomos () {
       <History />
       <Mision />
       <Vision />
+      <CollageQuote />
     </React.Fragment>
   )
 }

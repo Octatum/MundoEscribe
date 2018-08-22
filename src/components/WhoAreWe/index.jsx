@@ -27,19 +27,6 @@ const Description = styled.div`
   background: ${props => props.theme.color.lightBlue};
   color: ${props => props.theme.color.white};
   margin: 1em 0;
-
-  p {
-    font-size: 2em;
-    padding: 1rem 23rem;
-  }
-
-  img {
-    position: absolute;
-    top: 65%;
-    transform: translateY(-50%);
-    right: 6rem;
-    height: 137%;
-  }
 `
 
 const Icons = styled.div`
@@ -113,9 +100,7 @@ const WhoAreWe = () => (
         </ul>
       </Details>
     </Section>
-    <Section fluid>
-      <CollageQuote/>
-    </Section>
+    
   </div>
 );
 
