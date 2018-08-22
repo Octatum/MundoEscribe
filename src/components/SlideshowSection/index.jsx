@@ -55,9 +55,9 @@ function SlideshowSection () {
         renderItem={(props) => <CustomSlide {...props} />}
         showThumbnails={false}
         showFullscreenButton={false}
-        showPlayButton={true}
-        autoplay={true}
+        showPlayButton={false}
         slideDuration={1000}
+        autoPlay
         showBullets
         lazyLoad
       />
