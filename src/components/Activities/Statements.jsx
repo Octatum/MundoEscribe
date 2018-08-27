@@ -6,7 +6,6 @@ import logo from '../assets/blue-logo.svg';
 
 const Layout = styled.div`
   flex: 1;
-  max-height: 40em;
 `;
 
 const Header = styled.h2`
@@ -25,7 +24,6 @@ const StatementList = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   counter-reset: listCounter;
-  height: 100%;
   width: 90%;
   margin: 0 5%;
   position: relative;

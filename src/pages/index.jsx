@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import SlideshowSection from '../components/SlideshowSection';
 import AboutUs from '../components/AboutUs';
 import Activities from './../components/Activities/index';
+import Projects from '../components/Projects';
 
 const AppLayout = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ const IndexPage = () => (
     <SlideshowSection />
     <AboutUs />
     <Activities />
+    <Projects/>
   </AppLayout>
 )
 
