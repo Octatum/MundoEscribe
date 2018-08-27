@@ -9,6 +9,7 @@ const Layout = styled.div`
 
 const Img = styled.img`
   width: 100%;
+  height: 35em;
 `;
 
 const SlideData = styled.div`

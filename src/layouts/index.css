@@ -20,35 +20,35 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font: inherit;
-	font-family: "Roboto", "Arial", sans-serif;
+	font-family: "Nunito", serif;
 	line-height: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-	src: url("/fonts/Roboto-Regular.ttf") format("ttf");
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto";
-	src: url("/fonts/Roboto-Italic.ttf") format("ttf");
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Italic.ttf");
 	font-weight: normal;
 	font-style: italic;
 }
 
 @font-face {
-  font-family: "Roboto";
-	src: url("/fonts/Roboto-Bold.ttf") format("ttf");
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Bold.ttf");
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-	src: url("/fonts/Roboto-Light.ttf") format("ttf");
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Light.ttf");
 	font-weight: lighter;
 	font-style: normal;
 }

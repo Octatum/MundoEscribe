@@ -3,17 +3,7 @@ import styled from 'styled-components';
 
 import Section from './../Section';
 import NoteIcon from './NoteIcon';
-import logo from '../assets/logo.svg';
-
-
-const Description = styled.div`
-  position: relative;
-  background: ${props => props.theme.color.lightBlue};
-  color: ${props => props.theme.color.white};
-  padding: 1em 0;
-  display: flex;
-  justify-content: center;
-`;
+import SectionBanner from '../SectionBanner';
 
 const Icons = styled.div`
   display: flex;
@@ -31,14 +21,7 @@ const CustomSection = Section.extend`
 const Header = styled.h2`
   font-size: 4em;
   padding: 2rem;
-`;
-
-const Image = styled.img`
-  height: 130%;
-  max-height: 11em;
-  position: absolute;
-  right: 10%;
-  top: 0;
+  color: ${({theme}) => theme.color.black};
 `;
 
 const Paragraph = styled.p`
@@ -50,10 +33,9 @@ function General () {
   return (
     <CustomSection fluid center>
       <Header>¿Qué es El mundo escribe?</Header>
-      <Description>
+      <SectionBanner>
         <Paragraph>Somos una fundación que promueve la escritura como herramienta de vida, desde la infancia y para siempre.</Paragraph>
-        <Image src={logo}/>
-      </Description>
+      </SectionBanner>
       <Icons>
         <NoteIcon><p>Historia</p></NoteIcon>
         <NoteIcon><p>Misión</p></NoteIcon>

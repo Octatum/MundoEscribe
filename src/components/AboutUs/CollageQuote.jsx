@@ -5,6 +5,13 @@ import collage from './assets/collage.png';
 import logo from '../assets/logo.svg';
 import Section from './../Section';
 
+const CustomSection = Section.extend`
+  min-height: 600px;
+  height: 100vh;
+  padding-top: 10%;
+  box-sizing: border-box;
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,12 +42,12 @@ const Container = styled.div`
 `
 
 const CollageQuote = () => (
-  <Section fluid>
+  <CustomSection fluid>
     <Container>
       <p>En la Fundación El mundo escribe sabemos que existe la posibilidad de no poder proteger a una persona de su entorno, pero sí brindarle herramientas para que pueda transformarlo y vivir de la mejor manera.</p>
       <img src={logo}/>
     </Container>
-  </Section>
+  </CustomSection>
 );
 
 export default CollageQuote;
