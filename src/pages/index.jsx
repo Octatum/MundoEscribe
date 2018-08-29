@@ -8,6 +8,7 @@ import Projects from '../components/Projects';
 import Benefits from '../components/Benefits';
 import HowToHelp from '../components/HowToHelp';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 const AppLayout = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ const IndexPage = () => (
     <Benefits />
     <HowToHelp />
     <Contact />
+    <Footer />
   </AppLayout>
 )
 
