@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import ReactModal from 'react-modal';
 
 import Section from './../Section';
 import SectionBanner from './../SectionBanner';
-import imageA from './assets/donations.svg';
-import imageB from './assets/volunteers.svg';
-import imageC from './assets/products.svg';
-import imageD from './assets/events.svg';
+import Donations from './Donations';
+import imageA from './assets/donations-logo.svg';
+import imageB from './assets/volunteers-logo.svg';
+import imageC from './assets/products-logo.svg';
+import imageD from './assets/events-logo.svg';
+
+const Modal = ({ className, ...props }) => {
+  const contentClassName = `${className}__content`;
+  const overlayClassName = `${className}__overlay`;
+  return (
+    <ReactModal
+      portalClassName={className}
+      className={contentClassName}
+      overlayClassName={overlayClassName}
+      {...props}
+    />
+  )
+}
 
 const CustomSection = Section.extend`
   flex-direction: column;
   align-items: center;
-  ${'' /* margin-top: 5em; */}
   margin-bottom: 5em;
 `
 
 const Header = styled.h2`
   font-size: 4em;
-  ${'' /* font-weight: bold; */}
   padding: 0.5rem;
   text-align: center;
 `
@@ -42,6 +55,12 @@ const Square = styled.div`
   margin: 0 1em;
   text-align: center;
   background: ${props => props.theme.color.lightBlue};
+  color: ${props => props.theme.color.white};
+  cursor: pointer;
+
+  :hover {
+    box-shadow: 0 0 10px ${props => props.theme.color.gray};
+  }
 `
 
 const SquarePicture = styled.img`
@@ -82,45 +101,99 @@ const ButtonText = styled.p`
   font-size: ${props => props.size || '1em'};
 `
 
+const StyledModal = styled(Modal)`
+  &__overlay, &__content {
+    z-index: 2;
+    transition: all 0.3s;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__content {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    ${'' /* border: 1px solid #ccc; */}
+    background: #fff;
+    box-shadow: 0 0 10px -2px ${props => props.theme.color.black};
+    overflow: auto;
+    outline: none;
+  }
+`
+
 const content = [{
   text: 'Donativos',
   image: imageA,
-  link: '/'
+  component: <Donations/>,
 }, {
   text: 'Voluntariado',
   image: imageB,
-  link: '/'
+  component: <Donations/>,
 }, {
   text: 'Productos',
   image: imageC,
-  link: '/'
+  component: <Donations/>,
 }, {
   text: 'Eventos',
   image: imageD,
-  link: '/'
+  component: <Donations/>,
 }];
 
-const HowToHelp = () => (
-  <CustomSection fluid>
-    <Header>¿Cómo ayudar?</Header>
-    <Links>
-      {content.map((item) => (
-        <Link to={item.link}>
-          <Square>
-            <SquarePicture src={item.image}/>
-            <SquareText>{item.text}</SquareText>
-          </Square>
-        </Link>
-      ))}
-    </Links>
-    <SectionBanner black>
-      <Header>Informes anuales</Header>
-      <Button>
-        <ButtonText>Informes 2018</ButtonText>
-        <ButtonText size="0.6em">(en proceso)</ButtonText>
-      </Button>
-    </SectionBanner>
-  </CustomSection>
-);
+class HowToHelp extends Component {
+  state = {
+    showModal: false,
+    modalContent: 0
+  }
+
+  openModalHandler = (index) => {
+    this.setState({
+      showModal: true,
+      modalContent: index
+    });
+  }
+
+  closeModalHandler = () => {
+    this.setState({ showModal: false });
+  }
+
+  render() {
+    return (
+      <CustomSection fluid>
+        <Header>¿Cómo ayudar?</Header>
+        <Links>
+          {content.map((item, index) => (
+            <Square onClick={() => this.openModalHandler(index)}>
+              <SquarePicture src={item.image}/>
+              <SquareText>{item.text}</SquareText>
+            </Square>
+          ))}
+        </Links>
+        <StyledModal
+          isOpen={this.state.showModal}
+          onRequestClose={this.closeModalHandler}
+          contentLabel={content[this.state.modalContent].text}
+        >
+          {content[this.state.modalContent].component}
+        </StyledModal>
+        <SectionBanner black>
+          <Header>Informes anuales</Header>
+          <Button>
+            <ButtonText>Informes 2018</ButtonText>
+            <ButtonText size="0.6em">(en proceso)</ButtonText>
+          </Button>
+        </SectionBanner>
+      </CustomSection>
+    )
+  }
+}
 
 export default HowToHelp;
