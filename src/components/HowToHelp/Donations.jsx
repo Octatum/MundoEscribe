@@ -9,7 +9,7 @@ const Container = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  background: url(${backgroundImage}) no-repeat 0% 0% fixed;
+  background: url(${backgroundImage}) no-repeat left top fixed;
   background-size: cover;
   color: ${props => props.theme.color.white};
 `
@@ -20,7 +20,6 @@ const Square = styled.div`
   right: 1em;
   height: 10em;
   width: 10em;
-  margin: 0 1em;
   text-align: center;
   background: ${props => props.theme.color.lightBlue};
 `
