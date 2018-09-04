@@ -6,19 +6,21 @@ import icon from './assets/donations-logo.svg';
 import logo from './../assets/logo.svg';
 
 const Container = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
   background: url(${backgroundImage}) no-repeat left top fixed;
   background-size: cover;
   color: ${props => props.theme.color.white};
 `
 
 const Square = styled.div`
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  height: 10em;
+  position: relative;
+  min-height: 10em;
   width: 10em;
   text-align: center;
   background: ${props => props.theme.color.lightBlue};
@@ -38,10 +40,8 @@ const SquareText = styled.p`
 `
 
 const Description = styled.div`
-  position: absolute;
-  top: 12em;
-  right: 6em;
-  width: 40%;
+  width: 50%;
+  padding: 1em 2em 0;
   text-align: center;
 `
 
