@@ -8,6 +8,17 @@ import pens from './assets/products-pens.png';
 import water from './assets/products-water.png';
 import shirts from './assets/products-shirts.png';
 
+const hexToRGB = (hex, alpha) => {
+  const r = parseInt(hex.slice(1, 3), 16),
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
+
+    if (alpha) {
+      return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+    }
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
 const Container = styled.div`
   display: flex;
   position: relative;
@@ -28,10 +39,37 @@ const PhotoGrid = styled.div`
 `
 
 const Photo = styled.div`
+  display: flex;
   height: 100%;
   width: 100%;
   background: url(${props => props.image}) no-repeat center center;
   background-size: cover;
+`
+
+const OpaqueDiv = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background: ${props => hexToRGB(props.theme.color.black, 0.8)};
+  opacity: 0;
+  transition: all 0.3s;
+
+  ${Photo}:hover & {
+    opacity: 1;
+  }
+`
+
+const PhotoName = styled.div`
+  width: 100%;
+  padding: 0.5em;
+  text-align: center;
+  background: ${props => hexToRGB(props.theme.color.lightBlue, 0.85)};
+  opacity: 0;
+  transition: all 0.3s;
+
+  ${Photo}:hover & {
+    opacity: 1;
+  }
 `
 
 const RightContainer = styled.div`
@@ -89,13 +127,31 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-const pictures = [diary, pens, water, shirts];
+const pictures = [
+  {
+    name: 'Diario',
+    url: diary
+  }, {
+    name: 'Pluma',
+    url: pens
+  }, {
+    name: 'Agua',
+    url: water
+  }, {
+    name: 'Playera',
+    url: shirts
+  }
+]
 
 const Products = () => (
   <Container>
     <PhotoGrid>
       {pictures.map((pic) => (
-        <Photo image={pic}/>
+        <Photo image={pic.url}>
+          <OpaqueDiv>
+            <PhotoName>{pic.name}</PhotoName>
+          </OpaqueDiv>
+        </Photo>
       ))}
     </PhotoGrid>
     <RightContainer>
