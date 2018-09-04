@@ -6,6 +6,7 @@ import ReactModal from 'react-modal';
 import Section from './../Section';
 import SectionBanner from './../SectionBanner';
 import Donations from './Donations';
+import Volunteers from './Volunteers';
 import imageA from './assets/donations-logo.svg';
 import imageB from './assets/volunteers-logo.svg';
 import imageC from './assets/products-logo.svg';
@@ -137,7 +138,7 @@ const content = [{
 }, {
   text: 'Voluntariado',
   image: imageB,
-  component: <Donations/>,
+  component: <Volunteers/>,
 }, {
   text: 'Productos',
   image: imageC,
