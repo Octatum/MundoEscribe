@@ -7,6 +7,8 @@ import Section from './../Section';
 import SectionBanner from './../SectionBanner';
 import Donations from './Donations';
 import Volunteers from './Volunteers';
+import Products from './Products';
+
 import imageA from './assets/donations-logo.svg';
 import imageB from './assets/volunteers-logo.svg';
 import imageC from './assets/products-logo.svg';
@@ -142,7 +144,7 @@ const content = [{
 }, {
   text: 'Productos',
   image: imageC,
-  component: <Donations/>,
+  component: <Products/>,
 }, {
   text: 'Eventos',
   image: imageD,
