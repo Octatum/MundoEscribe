@@ -8,6 +8,7 @@ import SectionBanner from './../SectionBanner';
 import Donations from './Donations';
 import Volunteers from './Volunteers';
 import Products from './Products';
+import Events from './Events';
 
 import imageA from './assets/donations-logo.svg';
 import imageB from './assets/volunteers-logo.svg';
@@ -148,7 +149,7 @@ const content = [{
 }, {
   text: 'Eventos',
   image: imageD,
-  component: <Donations/>,
+  component: <Events/>,
 }];
 
 class HowToHelp extends Component {
