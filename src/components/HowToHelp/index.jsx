@@ -23,6 +23,7 @@ const Modal = ({ className, ...props }) => {
       portalClassName={className}
       className={contentClassName}
       overlayClassName={overlayClassName}
+      closeTimeoutMS={300}
       {...props}
     />
   )
@@ -108,7 +109,16 @@ const ButtonText = styled.p`
 const StyledModal = styled(Modal)`
   &__overlay, &__content {
     z-index: 2;
+    opacity: 0;
     transition: all 0.3s;
+
+    &.ReactModal__Content--after-open, &.ReactModal__Overlay--after-open {
+      opacity: 1;
+    }
+
+    &.ReactModal__Content--before-close, &.ReactModal__Overlay--before-close {
+      opacity: 0;
+    }
   }
 
   &__overlay {
@@ -126,7 +136,6 @@ const StyledModal = styled(Modal)`
     left: 5%;
     right: 5%;
     bottom: 5%;
-    ${'' /* border: 1px solid #ccc; */}
     background: #fff;
     box-shadow: 0 0 10px -2px ${props => props.theme.color.black};
     overflow: auto;
