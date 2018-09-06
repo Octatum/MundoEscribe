@@ -108,6 +108,7 @@ const PhraseDisplay = styled.p`
   font-weight: bold;
   flex: 1;
   margin-bottom: 0.5em;
+  color: ${({theme}) => theme.color.black};
 `;
 
 const Phrases = [{
