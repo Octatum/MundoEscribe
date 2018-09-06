@@ -37,6 +37,12 @@ const List = styled.ul`
   }
 `;
 
+const Anchor = styled.a`
+  text-decoration: none;
+  color: inherit;
+  ${'' /* Styling to be added... */}
+`
+
 const Dot = styled.div`
   display: inline-block;
   height: 0.4em;
@@ -51,17 +57,17 @@ function Navbar () {
       <Logo src={headerIcon}/>
       <Links>
         <List itemPadding='0.6em'>
-          <li>Inicio</li>
+          <li><Anchor href='#top'>Inicio</Anchor></li>
           <li><Dot/></li>
-          <li>¿Quiénes somos?</li>
+          <li><Anchor href='#about'>¿Quiénes somos?</Anchor></li>
           <li><Dot/></li>
-          <li>Lo que hacemos</li>
+          <li><Anchor href='#projects'>Lo que hacemos</Anchor></li>
           <li><Dot/></li>
-          <li>¿Cómo ayudar?</li>
+          <li><Anchor href='#howToHelp'>¿Cómo ayudar?</Anchor></li>
           <li><Dot/></li>
-          <li>Informes anuales</li>
+          <li><Anchor href='#informs'>Informes anuales</Anchor></li>
           <li><Dot/></li>
-          <li>Contacto</li>
+          <li><Anchor href='#contact'>Contacto</Anchor></li>
         </List>
         <List itemPadding='0.2em'>
           <li><i className='fab fa-facebook-f fa-fw fa-lg'/></li>

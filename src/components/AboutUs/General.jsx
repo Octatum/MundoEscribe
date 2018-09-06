@@ -37,9 +37,9 @@ function General () {
         <Paragraph>Somos una fundación que promueve la escritura como herramienta de vida, desde la infancia y para siempre.</Paragraph>
       </SectionBanner>
       <Icons>
-        <NoteIcon><p>Historia</p></NoteIcon>
-        <NoteIcon><p>Misión</p></NoteIcon>
-        <NoteIcon><p>Visión</p></NoteIcon>
+        <NoteIcon href="#history"><p>Historia</p></NoteIcon>
+        <NoteIcon href="#mision"><p>Misión</p></NoteIcon>
+        <NoteIcon href="#vision"><p>Visión</p></NoteIcon>
       </Icons>
     </CustomSection>
   )

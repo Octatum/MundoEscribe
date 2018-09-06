@@ -25,7 +25,7 @@ const Image = styled.img`
 
 function SectionBanner (props) {
   return (
-    <Description black={props.black}>
+    <Description id={props.id} black={props.black}>
       {props.children}
       <Image src={logo}/>
     </Description>

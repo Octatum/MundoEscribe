@@ -9,7 +9,7 @@ const CustomSection = Section.extend`
 
 function Activities () {
   return (
-    <Section fluid>
+    <Section id='activities' fluid>
       <Statements />
     </Section>
   )

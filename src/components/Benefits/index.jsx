@@ -85,7 +85,7 @@ const content = [{
 }];
 
 const Benefits = () => (
-  <CustomSection fluid>
+  <CustomSection id='benefits' fluid>
     <Header>Beneficios</Header>
     <Grid>
       {content.map((item) => (

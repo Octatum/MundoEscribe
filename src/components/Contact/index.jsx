@@ -40,7 +40,7 @@ const Logo = styled.img`
 `
 
 const Contact = () => (
-  <CustomSection fluid>
+  <CustomSection id='contact' fluid>
     <Header>Contáctanos</Header>
     <SectionBanner>
       <BannerText>“Toda persona tiene derecho a la expresión libre de su voz.

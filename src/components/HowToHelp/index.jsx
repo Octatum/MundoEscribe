@@ -180,7 +180,7 @@ class HowToHelp extends Component {
 
   render() {
     return (
-      <CustomSection fluid>
+      <CustomSection id='howToHelp' fluid>
         <Header>¿Cómo ayudar?</Header>
         <Links>
           {content.map((item, index) => (
@@ -197,7 +197,7 @@ class HowToHelp extends Component {
         >
           {content[this.state.modalContent].component}
         </StyledModal>
-        <SectionBanner black>
+        <SectionBanner id='informs' black>
           <Header>Informes anuales</Header>
           <Button>
             <ButtonText>Informes 2018</ButtonText>

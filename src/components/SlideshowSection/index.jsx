@@ -67,10 +67,10 @@ function SlideshowSection () {
   }, {
     backgroundImage: image4,
   }];
-  
+
   return (
-    <Layout fluid>
-      <ImageGallery 
+    <Layout id='top' fluid>
+      <ImageGallery
         items={images}
         renderItem={(props) => <CustomSlide {...props} />}
         showThumbnails={false}
