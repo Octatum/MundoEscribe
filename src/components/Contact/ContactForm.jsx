@@ -39,6 +39,13 @@ const Input = styled.input`
   background: #F2F2F2;
   font-family: inherit;
   font-size: 0.8em;
+  outline: none;
+  transition: all 0.3s;
+
+  &:focus {
+    border-color: ${props => props.theme.color.lightBlue};
+    background: white;
+  }
 `
 
 const TextArea = styled.textarea`
@@ -50,6 +57,13 @@ const TextArea = styled.textarea`
   background: #F2F2F2;
   font-family: inherit;
   font-size: 0.8em;
+  outline: none;
+  transition: all 0.3s;
+
+  &:focus {
+    border-color: ${props => props.theme.color.lightBlue};
+    background: white;
+  }
 `
 
 const Button = styled.button`
