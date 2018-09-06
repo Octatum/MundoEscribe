@@ -9,6 +9,7 @@ import Benefits from '../components/Benefits';
 import HowToHelp from '../components/HowToHelp';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import Activities from './../components/Activities/index';
 
 const AppLayout = styled.div`
   display: flex;
@@ -20,7 +21,8 @@ const IndexPage = () => (
     <Navbar />
     <SlideshowSection />
     <AboutUs />
-    <Projects/>
+    <Activities />
+    <Projects />
     <Benefits />
     <HowToHelp />
     <Contact />
