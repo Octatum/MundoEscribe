@@ -108,7 +108,7 @@ const ButtonText = styled.p`
 
 const StyledModal = styled(Modal)`
   &__overlay, &__content {
-    z-index: 2;
+    z-index: 10;
     opacity: 0;
     transition: all 0.3s;
 
