@@ -59,7 +59,7 @@ const content = [{
 }];
 
 const Projects = () => (
-  <CustomSection fluid>
+  <CustomSection id='projects' fluid>
     <Header>Proyectos</Header>
     <Description>Nuestras actividades de escritura como herramienta de vida se llevan a cabo en las modalidades de:</Description>
     <ProjectLayout>

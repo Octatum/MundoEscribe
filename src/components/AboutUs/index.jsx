@@ -7,13 +7,13 @@ import CollageQuote from './CollageQuote';
 
 function QuienesSomos () {
   return (
-    <React.Fragment>
+    <div id='about'>
       <General />
       <History />
       <Mision />
       <Vision />
       <CollageQuote />
-    </React.Fragment>
+    </div>
   )
 }
 

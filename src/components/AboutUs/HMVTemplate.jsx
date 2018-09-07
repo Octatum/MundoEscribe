@@ -23,7 +23,7 @@ const ContentLayout = styled.div`
     content: "";
     position: absolute;
     bottom: -0.2em;
-    left: 0; 
+    left: 0;
     right: 0;
     margin: 0 auto;
     width: 35em;
@@ -48,7 +48,7 @@ const Title = styled.h3`
 
 const Content = styled(ReactMarkdown)`
   color: ${({theme}) => theme.color.black};
-  
+
   > * {
     font-size: 0.85em;
     line-height: 1.5em;
@@ -88,13 +88,14 @@ const Image = styled.img`
 
 function HMVTemplate ({
   title,
+  id,
   content,
   imgSrc,
   imgSrcset,
   reverse
 }) {
   return (
-    <CustomSecton>
+    <CustomSecton id={id}>
       <ContentLayout reverse={reverse}>
         <ContentSection>
           <Title rightAlign={reverse}>{title}</Title>
