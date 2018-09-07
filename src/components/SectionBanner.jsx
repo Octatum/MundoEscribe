@@ -5,7 +5,7 @@ import logo from './assets/logo.svg';
 
 const Description = styled.div`
   position: relative;
-  background: ${props => props.black ? props.theme.color.black : props.theme.color.lightBlue};
+  background: ${props => props.dark ? props.theme.color.darkGray : props.theme.color.lightBlue};
   color: ${props => props.theme.color.white};
   width: 100%;
   padding: 1em 0;
@@ -24,7 +24,7 @@ const Image = styled.img`
 
 function SectionBanner (props) {
   return (
-    <Description id={props.id} black={props.black}>
+    <Description id={props.id} dark={props.dark}>
       {props.children}
       <Image src={logo} hidden={props.hideImage}/>
     </Description>

@@ -39,9 +39,9 @@ const List = styled.ul`
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: inherit;
+  color: ${({theme}) => theme.color.black};
   ${'' /* Styling to be added... */}
-`
+`;
 
 const Dot = styled.div`
   display: inline-block;
@@ -70,9 +70,21 @@ function Navbar () {
           <li><Anchor href='#contact'>Contacto</Anchor></li>
         </List>
         <List itemPadding='0.2em'>
-          <li><i className='fab fa-facebook-f fa-fw fa-lg'/></li>
-          <li><i className='fab fa-instagram fa-fw fa-lg'/></li>
-          <li><i className='fab fa-twitter fa-fw fa-lg'/></li>
+          <li>
+            <Anchor href="https://www.facebook.com/elmundoescribe/" target="_blank">
+              <i className='fab fa-facebook-f fa-fw fa-lg'  />
+            </Anchor>
+          </li>
+          <li>
+            <Anchor href="https://www.instagram.com/elmundoescribe/" target="_blank">
+              <i className='fab fa-instagram fa-fw fa-lg'/>
+            </Anchor>
+          </li>
+          <li>
+            <Anchor href="https://twitter.com/elmundoescribe" target="_blank">
+              <i className='fab fa-twitter fa-fw fa-lg'/>
+            </Anchor>
+          </li>
         </List>
       </Links>
     </Container>

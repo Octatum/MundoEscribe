@@ -197,7 +197,7 @@ class HowToHelp extends Component {
         >
           {content[this.state.modalContent].component}
         </StyledModal>
-        <SectionBanner id='informs' black>
+        <SectionBanner id='informs' dark>
           <Header>Informes anuales</Header>
           <Button>
             <ButtonText>Informes 2018</ButtonText>
