@@ -184,7 +184,7 @@ class HowToHelp extends Component {
         <Header>¿Cómo ayudar?</Header>
         <Links>
           {content.map((item, index) => (
-            <Square onClick={() => this.openModalHandler(index)}>
+            <Square key={item.text} onClick={() => this.openModalHandler(index)}>
               <SquarePicture src={item.image}/>
               <SquareText>{item.text}</SquareText>
             </Square>

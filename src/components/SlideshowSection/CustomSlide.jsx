@@ -23,9 +23,6 @@ function CustomSlide (props) {
 }
 
 CustomSlide.propTypes = {
-  title: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
 };
 

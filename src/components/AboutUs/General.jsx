@@ -9,6 +9,7 @@ const Icons = styled.div`
   display: flex;
   justify-content: center;
   padding: 1em;
+  margin-top: 2em;
 `;
 
 const CustomSection = Section.extend`

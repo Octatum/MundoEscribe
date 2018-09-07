@@ -89,7 +89,7 @@ const Benefits = () => (
     <Header>Beneficios</Header>
     <Grid>
       {content.map((item) => (
-        <GridItem>
+        <GridItem key={item.text.substr(0, 10)}>
           <GridImage src={item.image}/>
           <GridText>{item.text}</GridText>
         </GridItem>

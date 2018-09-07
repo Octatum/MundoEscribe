@@ -36,8 +36,8 @@ const Container = styled.div`
     left: 0;
     right: 0;
     margin: 0 auto;
-    transform: translateY(-50%);
-    height: 2.5em;
+    transform: translateY(-10%);
+    height: 5em;
   }
 `
 

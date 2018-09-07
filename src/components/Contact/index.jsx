@@ -42,7 +42,7 @@ const Logo = styled.img`
 const Contact = () => (
   <CustomSection fluid>
     <Header>Contáctanos</Header>
-    <SectionBanner>
+    <SectionBanner hideImage>
       <BannerText>“Toda persona tiene derecho a la expresión libre de su voz.
       Cuestionar, buscar y crear alternativas es el camino de todo cambio.”</BannerText>
       <BannerText size="1.2em">Ángeles Favela, Fundadora</BannerText>

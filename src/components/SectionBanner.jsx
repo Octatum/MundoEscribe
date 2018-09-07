@@ -16,18 +16,17 @@ const Description = styled.div`
 `;
 
 const Image = styled.img`
-  height: 130%;
-  max-height: 11em;
+  height: 140%;
   position: absolute;
   right: 10%;
-  top: 0;
+  top: -10%;
 `;
 
 function SectionBanner (props) {
   return (
     <Description black={props.black}>
       {props.children}
-      <Image src={logo}/>
+      <Image src={logo} hidden={props.hideImage}/>
     </Description>
   )
 }

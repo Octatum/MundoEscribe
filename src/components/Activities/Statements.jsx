@@ -17,6 +17,7 @@ const Subheader = styled.div`
   color: ${({theme}) => theme.color.black};
   text-align: center;
   margin: 0.2em 0;
+  font-weight: bold;
 `;
 
 const PhrasesSection = styled.section`
