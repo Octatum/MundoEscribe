@@ -83,7 +83,7 @@ function SlideshowSection () {
       />
       <PhraseOverlay>
         <SlideTitle>Ayúdame a crear mi historia</SlideTitle>
-        <LinkButton href="#">¿Quiénes somos?</LinkButton>
+        <LinkButton href="#about">¿Quiénes somos?</LinkButton>
       </PhraseOverlay>
     </Layout>
   )
