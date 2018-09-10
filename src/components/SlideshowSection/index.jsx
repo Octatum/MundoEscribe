@@ -10,6 +10,11 @@ import image4 from './assets/4.png';
 import CustomSlide from './CustomSlide';
 import styled from 'styled-components';
 
+const breakpoints = {
+  middle: '650px',
+  small: '480px'
+};
+
 const Layout = Section.extend`
   margin-bottom: 4.2em;
   position: relative;
@@ -27,10 +32,30 @@ const Layout = Section.extend`
   }
 `;
 
+const ImageGalleryWrapper = styled.div`
+  position: relative;
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    .image-gallery-left-nav, .image-gallery-right-nav {
+      display: none;
+    }
+  }
+`
+
 const SlideTitle = styled.h2`
   position: relative;
+  padding: 1em;
   font-size: 4em;
   color: white;
+
+  @media screen and (max-width: ${breakpoints.middle}) {
+    font-size: 3em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 2.5em;
+    padding: 0.5rem 1em;
+  }
 `;
 
 const LinkButton = styled.a`
@@ -55,6 +80,7 @@ const PhraseOverlay = styled.div`
   top: 0;
   left: 0;
   flex-direction: column;
+  text-align: center;
 `;
 
 function SlideshowSection () {
@@ -70,17 +96,19 @@ function SlideshowSection () {
 
   return (
     <Layout id='top' fluid>
-      <ImageGallery
-        items={images}
-        renderItem={(props) => <CustomSlide {...props} />}
-        showThumbnails={false}
-        showFullscreenButton={false}
-        showPlayButton={false}
-        slideDuration={1000}
-        autoPlay
-        showBullets
-        lazyLoad
-      />
+      <ImageGalleryWrapper>
+        <ImageGallery
+          items={images}
+          renderItem={(props) => <CustomSlide {...props} />}
+          showThumbnails={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          slideDuration={1000}
+          autoPlay
+          showBullets
+          lazyLoad
+        />
+      </ImageGalleryWrapper>
       <PhraseOverlay>
         <SlideTitle>Ayúdame a crear mi historia</SlideTitle>
         <LinkButton href="#about">¿Quiénes somos?</LinkButton>
