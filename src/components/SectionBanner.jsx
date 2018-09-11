@@ -13,6 +13,7 @@ const Description = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
