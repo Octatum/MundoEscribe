@@ -1,19 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
+import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
 import image1 from './assets/1.png';
 import image2 from './assets/2.png';
 import image3 from './assets/3.png';
 import image4 from './assets/4.png';
 import CustomSlide from './CustomSlide';
-import styled from 'styled-components';
-
-const breakpoints = {
-  middle: '650px',
-  small: '480px'
-};
 
 const Layout = Section.extend`
   margin-bottom: 4.2em;
@@ -48,7 +44,7 @@ const SlideTitle = styled.h2`
   font-size: 4em;
   color: white;
 
-  @media screen and (max-width: ${breakpoints.middle}) {
+  @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 3em;
   }
 

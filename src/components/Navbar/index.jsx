@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import headerIcon from './assets/header-icon.svg';
-
-const breakpoints = {
-  dropdown: '970px'
-}
 
 const Container = styled.div`
   flex: 1;
