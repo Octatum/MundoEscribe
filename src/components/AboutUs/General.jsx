@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
 import NoteIcon from './NoteIcon';
 import SectionBanner from '../SectionBanner';
@@ -10,6 +11,10 @@ const Icons = styled.div`
   justify-content: center;
   padding: 1em;
   margin-top: 2em;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    justify-content: space-around;
+  }
 `;
 
 const CustomSection = Section.extend`
@@ -23,11 +28,20 @@ const Header = styled.h2`
   font-size: 4em;
   padding: 2rem;
   color: ${({theme}) => theme.color.black};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 3em;
+  }
 `;
 
 const Paragraph = styled.p`
   font-size: 2em;
   width: 50%;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 1.5em;
+    width: 70%;
+  }
 `;
 
 function General () {

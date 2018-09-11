@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import collage from './assets/collage.png';
 import logo from '../assets/logo.svg';
 import Section from './../Section';
 
 const CustomSection = Section.extend`
-  min-height: 600px;
-  height: 100vh;
-  padding-top: 10%;
+  padding: 10% 0 35%;
   box-sizing: border-box;
 `;
 
@@ -16,7 +15,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
+  height: 20em;
   padding: 4em 6em 1em;
   text-align: center;
   background: url(${collage}) no-repeat center center;
@@ -31,13 +30,25 @@ const Container = styled.div`
   }
 
   img {
-    position: absolute;
-    bottom: 2em;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    transform: translateY(-10%);
     height: 5em;
+    padding: 1em 0;
+  }
+
+  @media screen and (max-width: ${breakpoints.dropdown}) {
+    font-size: 0.8em;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    height: 23em;
+    font-size: 0.7em;
+
+    img {
+      padding: 0.5em 0;
+    }
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.6em;
   }
 `
 

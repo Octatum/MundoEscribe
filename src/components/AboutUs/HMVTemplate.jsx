@@ -3,12 +3,30 @@ import Section from './../Section';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
+import breakpoints from '../../utils/breakpoints';
 
 const CustomSecton = Section.extend`
+  position: relative;
   min-height: 37.5em;
   height: 100vh;
   align-items: center;
   justify-content: center;
+
+  :not(:nth-last-child(2))::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 0.2em;
+    background-image: radial-gradient(ellipse at center, #468ec0, #ffffff00 70%);
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    height: initial;
+    padding: 4em 0;
+  }
 `;
 
 const ContentLayout = styled.div`
@@ -19,16 +37,9 @@ const ContentLayout = styled.div`
   justify-content: space-between;
   flex: 1;
 
-  ::after {
-    content: "";
-    position: absolute;
-    bottom: -0.2em;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 35em;
-    height: 0.2em;
-    background-image: radial-gradient(ellipse at center, #468ec0, #ffffff00 70%);
+  @media screen and (max-width: ${breakpoints.small}) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -38,12 +49,24 @@ const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    max-width: 45%;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    max-width: 100%;
+  }
 `;
 
 const Title = styled.h3`
   color: ${({theme}) => theme.color.lightBlue};
   font-size: 3em;
   text-align: ${({rightAlign}) => rightAlign ? 'right' : 'inherit'};
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    text-align: center;
+  }
 `;
 
 const Content = styled(ReactMarkdown)`
@@ -68,8 +91,7 @@ const Content = styled(ReactMarkdown)`
       ::before {
         content: "•";
         position: absolute;
-        left: -0.5em;
-        font-size: 1.5em;
+        left: -1em;
         color: ${({theme}) => theme.color.lightBlue};
       }
     }
@@ -79,6 +101,14 @@ const Content = styled(ReactMarkdown)`
 const ImageSection = styled.div`
   flex: 1;
   max-width: 40%;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    max-width: 45%;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    max-width: 90%;
+  }
 `;
 
 const Image = styled.img`
