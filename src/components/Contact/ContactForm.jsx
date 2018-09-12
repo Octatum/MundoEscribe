@@ -96,7 +96,7 @@ const TextArea = styled.textarea`
 
 const Button = styled.button`
   align-self: center;
-  width: 15%;
+  width: 20%;
   border-radius: 0.4em;
   border: 0;
   margin-top: 1em;
