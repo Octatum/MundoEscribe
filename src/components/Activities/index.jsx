@@ -5,13 +5,14 @@ import Statements from './Statements';
 
 const CustomSection = Section.extend`
   flex-direction: column;
+  padding-bottom: 5em;
 `;
 
 function Activities () {
   return (
-    <Section id='activities' fluid>
+    <CustomSection id='activities' fluid>
       <Statements />
-    </Section>
+    </CustomSection>
   )
 }
 

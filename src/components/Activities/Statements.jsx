@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import SectionBanner from './../SectionBanner';
 import logo from '../assets/blue-logo.svg';
 
@@ -11,12 +12,20 @@ const Layout = styled.div`
 const Header = styled.h2`
   font-size: 3.5em;
   margin: 0.5em 0;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 3em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 2em;
+  }
 `;
 
 const Subheader = styled.div`
   color: ${({theme}) => theme.color.black};
   text-align: center;
-  margin: 0.2em 0;
+  padding: 1em;
   font-weight: bold;
 `;
 
@@ -27,14 +36,25 @@ const PhrasesSection = styled.section`
   grid-template-rows: 1.1fr 0.8fr 1.1fr;
   grid-gap: 1px 1px;
   margin: 0 2em;
-  grid-template-areas: 
-    ". p1 p1 p1 p2 p3 p3" 
-    "p6 p6 p6 . . . p4" 
+  grid-template-areas:
+    ". p1 p1 p1 p2 p3 p3"
+    "p6 p6 p6 . . . p4"
     ". . p5 p5 p5 p5 .";
   background-image: url("${logo}");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 15%;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.5fr 1fr 1fr 1.5fr;
+    grid-template-areas:
+      ". p2 ."
+      "p1 . p3"
+      "p6 . p4"
+      ". p5 .";
+    font-size: 0.7em;
+  }
 `;
 
 const PhraseLayout = styled.div`
@@ -57,6 +77,11 @@ const PhraseOne = PhraseLayout.extend`
   height: 70%;
   margin-bottom: 10%;
   align-self: end;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    margin-bottom: 0;
+    align-self: start;
+  }
 `;
 
 const PhraseTwo = PhraseLayout.extend`
@@ -65,6 +90,12 @@ const PhraseTwo = PhraseLayout.extend`
   height: 50%;
   align-self: start;
   justify-self: center;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    height: 70%;
+    width: 100%;
+    align-self: start;
+  }
 `;
 
 const PhraseThree = PhraseLayout.extend`
@@ -72,6 +103,12 @@ const PhraseThree = PhraseLayout.extend`
   height: 50%;
   width: 95%;
   align-self: end;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    height: 70%;
+    width: 100%;
+    align-self: start;
+  }
 `;
 
 const PhraseFour = PhraseLayout.extend`
@@ -79,6 +116,10 @@ const PhraseFour = PhraseLayout.extend`
   width: 85%;
   height: 70%;
   align-self: end;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    width: 100%;
+  }
 `;
 
 const PhraseFive = PhraseLayout.extend`
@@ -87,6 +128,12 @@ const PhraseFive = PhraseLayout.extend`
   width: 95%;
   align-self: center;
   justify-self: end;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    height: initial;
+    width: 100%;
+    padding-top: 1em;
+  }
 `;
 
 const PhraseSix = PhraseLayout.extend`
@@ -94,6 +141,11 @@ const PhraseSix = PhraseLayout.extend`
   width: 95%;
   justify-self: end;
   height: 70%;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    width: 100%;
+    align-self: end;
+  }
 `;
 
 const BigNumber = styled.div`
@@ -102,6 +154,11 @@ const BigNumber = styled.div`
   font-weight: bold;
   color: ${({theme}) => theme.color.lightBlue};
   margin-top: -1rem;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 4em;
+    line-height: 2rem;
+  }
 `;
 
 const PhraseDisplay = styled.p`
@@ -110,6 +167,13 @@ const PhraseDisplay = styled.p`
   flex: 1;
   margin-bottom: 0.5em;
   color: ${({theme}) => theme.color.black};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    position: relative;
+    left: 1em;
+    font-weight: normal;
+    text-align: left;
+  }
 `;
 
 const Phrases = [{
