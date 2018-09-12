@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import breakpoints from '../../utils/breakpoints';
 
 const Form = styled.form`
   flex: 1;
@@ -11,6 +12,10 @@ const Form = styled.form`
 const Data = styled.div`
   flex: 1;
   display: flex;
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    flex-direction: column;
+  }
 `
 
 const Group = styled.div`
@@ -25,10 +30,24 @@ const Field = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.3em 0;
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding: 1em 0;
+  }
 `
 
 const Label = styled.label`
   text-indent: ${props => props.indent || '1em'};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    text-indent: 1em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    text-indent: 0;
+    text-align: center;
+    font-size: 1.2em;
+  }
 `
 
 const Input = styled.input`
@@ -64,6 +83,15 @@ const TextArea = styled.textarea`
     border-color: ${props => props.theme.color.lightBlue};
     background: white;
   }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    border-radius: 1.5em;
+    padding: 1em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    min-height: 30vh;
+  }
 `
 
 const Button = styled.button`
@@ -78,6 +106,14 @@ const Button = styled.button`
   font-weight: inherit;
   font-size: 1.3em;
   cursor: pointer;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    width: 30%;
+  }
 `
 
 class ContactForm extends Component {
