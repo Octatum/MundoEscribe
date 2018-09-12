@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
 import imageA from './assets/imageA.svg';
 import imageB from './assets/imageB.svg';
@@ -28,9 +29,19 @@ const Header = styled.h2`
 
 const Grid = styled.div`
   display: grid;
-  margin: 0 7em 3em;
+  margin: 0 10% 3em;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1em 1em;
+  justify-items: center;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em 2em;
+  }
 `
 
 const GridItem = styled.div`
