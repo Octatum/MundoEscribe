@@ -10,6 +10,7 @@ const Container = styled.div`
 const Text = styled.p`
   padding: 1em;
   color: ${props => props.theme.color.gray};
+  text-align: center;
 `
 
 const Footer = () => (
