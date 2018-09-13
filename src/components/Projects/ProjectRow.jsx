@@ -35,14 +35,14 @@ const Info = styled.div`
     order: initial;
     top: 0;
     width: 100%;
-    padding: 1em 25% 3em;
+    box-sizing: border-box;
+    padding: 1em 5% 3em;
     margin-top: 0;
   }
 `
 
 // Can't use 'em' font-size because it breaks the layout when resizing
 const Header = styled.h3`
-  ${'' /* font-size: 3em; */}
   font-size: 3vw;
 
   @media screen and (max-width: ${breakpoints.medium}) {
@@ -54,8 +54,7 @@ const Header = styled.h3`
 
 // Can't use 'em' font-size because it breaks the layout when resizing
 const Bullets = styled.ul`
-  padding: 1em;
-  ${'' /* font-size: 1.2em; */}
+  padding: 0 0 1em;
   font-size: 1.4vw;
   list-style: none;
 
@@ -67,7 +66,7 @@ const Bullets = styled.ul`
   }
 
   @media screen and (max-width: ${breakpoints.medium}) {
-    width: 50%;
+    width: 65%;
     margin: 0 auto;
     font-size: 1em;
   }
