@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
 import ProjectRow from './ProjectRow';
 import imageC from './assets/creativa.png';
@@ -15,19 +16,24 @@ const CustomSection = Section.extend`
 `
 
 const Header = styled.h2`
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.1rem;
 `
 
 const Description = styled.p`
+  padding: 0 5%;
   font-weight: lighter;
 `
 
 const ProjectLayout = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5em;
+  margin: 5em 0;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    margin-top: 1em;
+  }
 `
 
 const content = [{
