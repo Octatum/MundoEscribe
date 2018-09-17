@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 import ReactModal from 'react-modal';
 
+import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
 import SectionBanner from './../SectionBanner';
 import Donations from './Donations';
@@ -39,6 +40,14 @@ const Header = styled.h2`
   font-size: 4em;
   padding: 0.5rem;
   text-align: center;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 3.5em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 3em;
+  }
 `
 
 const Links = styled.div`
@@ -50,6 +59,21 @@ const Links = styled.div`
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    margin: 1em 2em 2em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin: 1em auto;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    margin: 0 auto 2em;
   }
 `
 
@@ -66,11 +90,22 @@ const Square = styled.div`
   :hover {
     box-shadow: 0 0 10px ${props => props.theme.color.gray};
   }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    height: 7em;
+    width: 7em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    height: 8em;
+    width: 8em;
+    margin: 1em;
+  }
 `
 
 const SquarePicture = styled.img`
-  max-height: 3em;
-  max-width: 4em;
+  max-height: 40%;
+  max-width: 50%;
   padding: 1.5em;
 `
 
@@ -79,6 +114,14 @@ const SquareText = styled.p`
   bottom: 0.5em;
   width: 100%;
   font-size: 1.2em;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 1.2em;
+  }
 `
 
 const InformBar = styled.div`
