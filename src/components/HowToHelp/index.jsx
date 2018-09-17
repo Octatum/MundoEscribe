@@ -170,7 +170,7 @@ const StyledModal = styled(Modal)`
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   &__content {
@@ -184,6 +184,19 @@ const StyledModal = styled(Modal)`
     overflow: auto;
     outline: none;
   }
+`
+
+const Arrow = styled.i`
+  position: fixed;
+  width: 3%;
+  margin: 1%
+  top: 50%;
+  transform: translateY(-50%);
+  left: ${props => !props.right ? 0 : 'initial'};
+  right: ${props => props.right ? 0 : 'initial'};
+  text-align: center;
+  color: ${props => props.theme.color.white};
+  cursor: pointer;
 `
 
 const content = [{
@@ -221,6 +234,18 @@ class HowToHelp extends Component {
     this.setState({ showModal: false });
   }
 
+  changeModalHandler = (next) => {
+    let newValue = this.state.modalContent + (next ? 1 : -1);
+
+    if (next && newValue >= content.length) {
+      newValue = 0;
+    } else if (!next && newValue < 0) {
+      newValue = content.length - 1;
+    }
+
+    this.setState({ modalContent: newValue });
+  }
+
   render() {
     return (
       <CustomSection id='howToHelp' fluid>
@@ -238,7 +263,9 @@ class HowToHelp extends Component {
           onRequestClose={this.closeModalHandler}
           contentLabel={content[this.state.modalContent].text}
         >
+          <Arrow className="fas fa-angle-left fa-3x" onClick={() => this.changeModalHandler(false)}/>
           {content[this.state.modalContent].component}
+          <Arrow className="fas fa-angle-right fa-3x" onClick={() => this.changeModalHandler(true)} right/>
         </StyledModal>
         <SectionBanner id='informs' dark>
           <Header>Informes anuales</Header>
