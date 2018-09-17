@@ -60,6 +60,7 @@ const GridText = styled.p`
 const Bluebar = styled.div`
   height: 3em;
   width: 100%;
+  margin: 1em 0;
   background: ${props => props.theme.color.lightBlue};
 `
 
