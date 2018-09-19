@@ -222,6 +222,10 @@ const Return = styled.div`
   i {
     margin: 0 0.5em;
   }
+
+  @media screen and (min-width: ${breakpoints.medium}) {
+    display: none;
+  }
 `
 
 const content = [{
