@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/donations-picture.png';
 import icon from './assets/donations-logo.svg';
 import logo from './../assets/logo.svg';
@@ -16,6 +17,13 @@ const Container = styled.div`
   background: url(${backgroundImage}) no-repeat left top fixed;
   background-size: cover;
   color: ${props => props.theme.color.white};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    align-items: center;
+    padding: 5em 0 0;
+    background: ${props => props.theme.color.white};
+    color: ${props => props.theme.color.black};
+  }
 `
 
 const Square = styled.div`
@@ -24,12 +32,39 @@ const Square = styled.div`
   width: 10em;
   text-align: center;
   background: ${props => props.theme.color.lightBlue};
+  color: ${props => props.theme.color.white};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    min-height: 6em;
+    width: 6em;
+  }
 `
 
 const SquarePicture = styled.img`
   max-height: 4em;
   max-width: 6em;
   padding: 1.5em;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    max-height: 2em;
+    max-width: 3em;
+    padding: 1em;
+  }
+`
+
+const Arrow = styled.i`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: ${props => !props.right ? '-1em' : 'initial'};
+  right: ${props => props.right ? '-1em' : 'initial'};
+  font-size: 3em;
+  color: ${props => props.theme.color.black};
+  cursor: pointer;
+
+  @media screen and (min-width: ${breakpoints.medium}) {
+    display: none !important;
+  }
 `
 
 const SquareText = styled.p`
@@ -37,21 +72,43 @@ const SquareText = styled.p`
   bottom: 0.5em;
   width: 100%;
   font-size: 1.3em;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 1em;
+  }
 `
 
 const Description = styled.div`
   width: 50%;
   padding: 1em 2em 0;
   text-align: center;
+  color: ${props => props.theme.color.white};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2em 5% 2em 45%;
+    margin: 2em 0;
+    background: url(${backgroundImage}) no-repeat left top;
+    background-size: cover;
+  }
 `
 
 const Paragraph = styled.p`
   font-size: 1.2em;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 0.9em;
+  }
 `
 
 const Logo = styled.img`
   height: 6em;
   margin: 1em 0;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    display: none;
+  }
 `
 
 const Button = styled.button`
@@ -63,15 +120,22 @@ const Button = styled.button`
   border-radius: 10px;
   background: ${props => props.theme.color.lightBlue};
   font-size: inherit;
-  color: inherit;
+  color: ${props => props.theme.color.white};
   cursor: pointer;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    position: initial;
+    padding: 0.8em 5em;
+  }
 `
 
-const Donations = () => (
+const Donations = (props) => (
   <Container>
     <Square>
+      <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
       <SquarePicture src={icon}/>
       <SquareText>Donativos</SquareText>
+      <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
     </Square>
     <Description>
       <Paragraph>
@@ -91,5 +155,69 @@ const Donations = () => (
     </Button>
   </Container>
 );
+
+// class Donations extends Component {
+//   state = {
+//     width: 0,
+//   }
+//
+//   componentWillMount() {
+//     window.addEventListener("resize", this.updateDimensions);
+//   }
+//
+//   componentDidMount() {
+//     this.updateDimensions();
+//   }
+//
+//   componentWillUnmount() {
+//     window.removeEventListener("resize", this.updateDimensions);
+//   }
+//
+//   updateDimensions = () => {
+//     this.setState({ width: window.innerWidth });
+//   }
+//
+//   render() {
+//     const Content = () => {
+//       if (this.state.width > parseInt(breakpoints.medium.substring(0, breakpoints.medium.length - 2))) {
+//         return (
+//           <React.Fragment>
+//             <DesktopSquare>
+//               <SquarePicture src={icon}/>
+//               <SquareText>Donativos</SquareText>
+//             </DesktopSquare>
+//             <DesktopDescription>
+//               <DesktopParagraph>
+//                 Tus donativos económicos hacen posible que cientos de personas encuentren en la escritura un canal de expresión, una luz de esperanza y nuevos caminos para continuar el trayecto de sus vidas.
+//                 <br/>
+//                 <br/>
+//                 No importa la cantidad.
+//                 ¡Ayúdanos a llevar la escritura como herramienta de vida a la vida de muchas personas!
+//                 <br/>
+//                 <br/>
+//                 Tu apoyo como persona física o como empresa, convierte sueños en realidades.
+//               </DesktopParagraph>
+//               <DesktopLogo src={logo}/>
+//             </DesktopDescription>
+//             <DesktopButton>
+//               <p>Dona aquí</p>
+//             </DesktopButton>
+//           </React.Fragment>
+//         );
+//       }
+//       return (
+//         <React.Fragment>
+//
+//         </React.Fragment>
+//       )
+//     }
+//
+//     return (
+//       <Container>
+//         <Content/>
+//       </Container>
+//     )
+//   }
+// }
 
 export default Donations;

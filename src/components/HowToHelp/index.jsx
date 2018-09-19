@@ -168,21 +168,30 @@ const StyledModal = styled(Modal)`
     position: fixed;
     top: 0px;
     left: 0px;
-    right: 0px;
     bottom: 0px;
+    right: 0px;
     background-color: rgba(0, 0, 0, 0.7);
   }
 
   &__content {
-    position: absolute;
+    position: fixed;
     top: 5%;
     left: 5%;
-    right: 5%;
     bottom: 5%;
-    background: #fff;
+    right: 5%;
+    background: ${props => props.theme.white};
     box-shadow: 0 0 10px -2px ${props => props.theme.color.black};
     overflow: auto;
     outline: none;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    &__content {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
   }
 `
 
@@ -197,6 +206,22 @@ const Arrow = styled.i`
   text-align: center;
   color: ${props => props.theme.color.white};
   cursor: pointer;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    display: none !important;
+  }
+`
+
+const Return = styled.div`
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  color: ${props => props.theme.color.black};
+  cursor: pointer;
+
+  i {
+    margin: 0 0.5em;
+  }
 `
 
 const content = [{
@@ -246,7 +271,13 @@ class HowToHelp extends Component {
     this.setState({ modalContent: newValue });
   }
 
+  addExtraProps = (Component, extraProps) => (
+    <Component.type {...Component.props} {...extraProps}/>
+  )
+
   render() {
+    const PickModal = React.cloneElement(content[this.state.modalContent].component);
+
     return (
       <CustomSection id='howToHelp' fluid>
         <Header>¿Cómo ayudar?</Header>
@@ -263,9 +294,10 @@ class HowToHelp extends Component {
           onRequestClose={this.closeModalHandler}
           contentLabel={content[this.state.modalContent].text}
         >
+          {this.addExtraProps(content[this.state.modalContent].component, {changeModal: this.changeModalHandler})}
           <Arrow className="fas fa-angle-left fa-3x" onClick={() => this.changeModalHandler(false)}/>
-          {content[this.state.modalContent].component}
           <Arrow className="fas fa-angle-right fa-3x" onClick={() => this.changeModalHandler(true)} right/>
+          <Return onClick={this.closeModalHandler}><i className="fas fa-angle-left"/>Regresar</Return>
         </StyledModal>
         <SectionBanner id='informs' dark>
           <Header>Informes anuales</Header>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/volunteers-picture.png';
 import icon from './assets/donations-logo.svg';
 import logo from './../assets/logo.svg';
@@ -14,6 +15,14 @@ const Container = styled.div`
   background: url(${backgroundImage}) no-repeat center bottom fixed;
   background-size: cover;
   color: ${props => props.theme.color.white};
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 0 0;
+    background: ${props => props.theme.color.white};
+    color: ${props => props.theme.color.black};
+  }
 `
 
 const Square = styled.div`
