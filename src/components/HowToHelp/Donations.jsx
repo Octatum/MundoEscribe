@@ -24,6 +24,10 @@ const Container = styled.div`
     background: ${props => props.theme.color.white};
     color: ${props => props.theme.color.black};
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding: 3em 0 0;
+  }
 `
 
 const Square = styled.div`
@@ -92,6 +96,10 @@ const Description = styled.div`
     background: url(${backgroundImage}) no-repeat left top;
     background-size: cover;
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding-left: 30%;
+  }
 `
 
 const Paragraph = styled.p`
@@ -99,6 +107,10 @@ const Paragraph = styled.p`
 
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 0.9em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
   }
 `
 
@@ -126,6 +138,10 @@ const Button = styled.button`
   @media screen and (max-width: ${breakpoints.medium}) {
     position: initial;
     padding: 0.8em 5em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
   }
 `
 
@@ -155,69 +171,5 @@ const Donations = (props) => (
     </Button>
   </Container>
 );
-
-// class Donations extends Component {
-//   state = {
-//     width: 0,
-//   }
-//
-//   componentWillMount() {
-//     window.addEventListener("resize", this.updateDimensions);
-//   }
-//
-//   componentDidMount() {
-//     this.updateDimensions();
-//   }
-//
-//   componentWillUnmount() {
-//     window.removeEventListener("resize", this.updateDimensions);
-//   }
-//
-//   updateDimensions = () => {
-//     this.setState({ width: window.innerWidth });
-//   }
-//
-//   render() {
-//     const Content = () => {
-//       if (this.state.width > parseInt(breakpoints.medium.substring(0, breakpoints.medium.length - 2))) {
-//         return (
-//           <React.Fragment>
-//             <DesktopSquare>
-//               <SquarePicture src={icon}/>
-//               <SquareText>Donativos</SquareText>
-//             </DesktopSquare>
-//             <DesktopDescription>
-//               <DesktopParagraph>
-//                 Tus donativos económicos hacen posible que cientos de personas encuentren en la escritura un canal de expresión, una luz de esperanza y nuevos caminos para continuar el trayecto de sus vidas.
-//                 <br/>
-//                 <br/>
-//                 No importa la cantidad.
-//                 ¡Ayúdanos a llevar la escritura como herramienta de vida a la vida de muchas personas!
-//                 <br/>
-//                 <br/>
-//                 Tu apoyo como persona física o como empresa, convierte sueños en realidades.
-//               </DesktopParagraph>
-//               <DesktopLogo src={logo}/>
-//             </DesktopDescription>
-//             <DesktopButton>
-//               <p>Dona aquí</p>
-//             </DesktopButton>
-//           </React.Fragment>
-//         );
-//       }
-//       return (
-//         <React.Fragment>
-//
-//         </React.Fragment>
-//       )
-//     }
-//
-//     return (
-//       <Container>
-//         <Content/>
-//       </Container>
-//     )
-//   }
-// }
 
 export default Donations;

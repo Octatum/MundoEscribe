@@ -37,6 +37,10 @@ const Container = styled.div`
     background: ${props => props.theme.color.white};
     color: ${props => props.theme.color.black};
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding: 3em 0 0;
+  }
 `
 
 const Square = styled.div`
@@ -135,6 +139,10 @@ const OpaqueDiv = styled.div`
   @media screen and (max-width: ${breakpoints.medium}) {
     padding: 3em 0;
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
+  }
 `
 
 const PhotoName = styled.div`
@@ -162,6 +170,10 @@ const RightContainer = styled.div`
     font-size: 1em;
     background: #666666;
     color: ${props => props.theme.color.white};
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.9em;
   }
 `
 

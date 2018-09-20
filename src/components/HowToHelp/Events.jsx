@@ -23,6 +23,10 @@ const Container = styled.div`
     background: ${props => props.theme.color.white};
     color: ${props => props.theme.color.black};
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding: 3em 0 0;
+  }
 `
 
 const Square = styled.div`
@@ -87,7 +91,7 @@ const Description = styled.div`
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 8em 4em 4em 6em;
+  padding: 8em 4em 4em 4em;
   color: ${props => props.theme.color.white};
 
   @media screen and (max-width: ${breakpoints.medium}) {
@@ -111,6 +115,10 @@ const Info = styled.div`
     flex: 1;
     font-size: 1em;
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
+  }
 `
 
 const Header = styled.h3`
@@ -130,7 +138,11 @@ const Logo = styled.img`
   padding: 1em;
 
   @media screen and (max-width: ${breakpoints.medium}) {
+    height: 5em;
+  }
 
+  @media screen and (max-width: ${breakpoints.small}) {
+    height: 4em;
   }
 `
 

@@ -23,6 +23,10 @@ const Container = styled.div`
     background: ${props => props.theme.color.white};
     color: ${props => props.theme.color.black};
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    padding: 3em 0 0;
+  }
 `
 
 const Square = styled.div`
@@ -113,6 +117,10 @@ const Description = styled.div`
       width: 1.5em;
       margin-left: -1.5em;
     }
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
   }
 `
 
