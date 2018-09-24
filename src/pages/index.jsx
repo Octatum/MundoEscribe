@@ -10,23 +10,26 @@ import HowToHelp from '../components/HowToHelp';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Activities from './../components/Activities/index';
+import AppLayout from '../components/AppLayout';
 
-const AppLayout = styled.div`
+const PageLayout = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 const IndexPage = () => (
   <AppLayout>
-    <Navbar />
-    <SlideshowSection />
-    <AboutUs />
-    <Activities />
-    <Projects />
-    <Benefits />
-    <HowToHelp />
-    <Contact />
-    <Footer />
+    <PageLayout>
+      <Navbar />
+      <SlideshowSection />
+      <AboutUs />
+      <Activities />
+      <Projects />
+      <Benefits />
+      <HowToHelp />
+      <Contact />
+      <Footer />
+    </PageLayout>
   </AppLayout>
 )
 

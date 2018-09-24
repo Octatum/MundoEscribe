@@ -4,13 +4,14 @@ import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components';
 
 import './index.css'
-import { globalTheme } from './theme';
+import { globalTheme } from '../../utils/theme';
+import { StaticQuery } from 'gatsby';
 
-const Layout = ({ children, data }) => (
+const AppLayout = ({ children, data }) => (
   <ThemeProvider theme={globalTheme}>
-    <div>
+    <React.Fragment>
       <Helmet
-        title={data.site.siteMetadata.title}
+        title="El mundo escribe"
         meta={[
           { name: 'description', content: 'El mundo escribe' },
           { name: 'keywords', content: 'sample, something' },
@@ -22,23 +23,13 @@ const Layout = ({ children, data }) => (
           crossorigin: "anonymous"
         }]}
       />
-      {children()}
-    </div>
+      {children}
+    </React.Fragment>
   </ThemeProvider>
-)
+);
 
-Layout.propTypes = {
+AppLayout.propTypes = {
   children: PropTypes.func,
 }
 
-export default Layout
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+export default AppLayout
