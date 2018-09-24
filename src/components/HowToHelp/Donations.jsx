@@ -85,7 +85,6 @@ const SquareText = styled.p`
 const Description = styled.div`
   width: 50%;
   padding: 1em 2em 0;
-  text-align: center;
   color: ${props => props.theme.color.white};
 
   @media screen and (max-width: ${breakpoints.medium}) {
@@ -104,6 +103,7 @@ const Description = styled.div`
 
 const Paragraph = styled.p`
   font-size: 1.2em;
+  text-indent: 1em;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 0.9em;
@@ -158,8 +158,7 @@ const Donations = (props) => (
         Tus donativos económicos hacen posible que cientos de personas encuentren en la escritura un canal de expresión, una luz de esperanza y nuevos caminos para continuar el trayecto de sus vidas.
         <br/>
         <br/>
-        No importa la cantidad.
-        ¡Ayúdanos a llevar la escritura como herramienta de vida a la vida de muchas personas!
+        No importa la cantidad. ¡Ayúdanos a llevar la escritura como herramienta a la vida de muchas personas!
         <br/>
         <br/>
         Tu apoyo como persona física o como empresa, convierte sueños en realidades.

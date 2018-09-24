@@ -12,7 +12,6 @@ const CustomSection = Section.extend`
   flex-direction: column;
   text-align: center;
   margin-top: 5em;
-  margin-bottom: 5em;
 `
 
 const Header = styled.h2`
@@ -23,6 +22,7 @@ const Header = styled.h2`
 
 const Description = styled.p`
   padding: 0 5%;
+  font-size: 1.2em;
   font-weight: lighter;
 `
 
@@ -65,7 +65,7 @@ const content = [{
 }];
 
 const Projects = () => (
-  <CustomSection id='projects' fluid>
+  <CustomSection fluid>
     <Header>Proyectos</Header>
     <Description>Nuestras actividades de escritura como herramienta de vida se llevan a cabo en las modalidades de:</Description>
     <ProjectLayout>

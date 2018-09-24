@@ -109,10 +109,16 @@ class Navbar extends Component {
     open: false
   }
 
-  toggleNavbarHandler = () => {
+  toggleMenuState = () => {
     this.setState((prevState) => ({
       open: !prevState.open
     }))
+  }
+
+  closeMenu = () => {
+    this.setState(() => ({
+      open: false
+    }));
   }
 
   render() {
@@ -121,20 +127,42 @@ class Navbar extends Component {
     return (
       <Container className={this.state.open && 'open'}>
         <Logo src={headerIcon}/>
-        <ToggleButton className={toggleIconClass} onClick={this.toggleNavbarHandler}/>
+        <ToggleButton className={toggleIconClass} onClick={this.toggleMenuState}/>
         <Links>
           <NavList>
-            <li><Anchor href='#top' onClick={this.toggleNavbarHandler}>Inicio</Anchor></li>
-            <li><Dot/></li>
-            <li><Anchor href='#about' onClick={this.toggleNavbarHandler}>¿Quiénes somos?</Anchor></li>
-            <li><Dot/></li>
-            <li><Anchor href='#projects' onClick={this.toggleNavbarHandler}>Lo que hacemos</Anchor></li>
-            <li><Dot/></li>
-            <li><Anchor href='#howToHelp' onClick={this.toggleNavbarHandler}>¿Cómo ayudar?</Anchor></li>
-            <li><Dot/></li>
-            <li><Anchor href='#informs' onClick={this.toggleNavbarHandler}>Informes anuales</Anchor></li>
-            <li><Dot/></li>
-            <li><Anchor href='#contact' onClick={this.toggleNavbarHandler}>Contacto</Anchor></li>
+            <li>
+              <Anchor href='#top' onClick={this.closeMenu}>Inicio</Anchor>
+            </li>
+            <li>
+              <Dot/>
+            </li>
+            <li>
+              <Anchor href='#about' onClick={this.closeMenu}>¿Quiénes somos?</Anchor>
+            </li>
+            <li>
+              <Dot/>
+            </li>
+            <li>
+              <Anchor href='#activities' onClick={this.closeMenu}>Lo que hacemos</Anchor>
+            </li>
+            <li>
+              <Dot/>
+            </li>
+            <li>
+              <Anchor href='#howToHelp' onClick={this.closeMenu}>¿Cómo ayudar?</Anchor>
+            </li>
+            <li>
+              <Dot/>
+            </li>
+            <li>
+              <Anchor href='#informs' onClick={this.closeMenu}>Informes anuales</Anchor>
+            </li>
+            <li>
+              <Dot/>
+            </li>
+            <li>
+              <Anchor href='#contact' onClick={this.closeMenu}>Contacto</Anchor>
+            </li>
           </NavList>
           <SocialMediaList>
             <li>

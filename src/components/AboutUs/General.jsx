@@ -20,8 +20,6 @@ const Icons = styled.div`
 const CustomSection = Section.extend`
   flex-direction: column;
   text-align: ${props => props.center ? 'center' : 'inherit'};
-  margin-top: 5em;
-  margin-bottom: 5em;
 `;
 
 const Header = styled.h2`

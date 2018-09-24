@@ -7,7 +7,8 @@ import logo from '../assets/logo.svg';
 import Section from './../Section';
 
 const CustomSection = Section.extend`
-  padding: 10% 0 35%;
+  padding-top: 5%;
+  padding-bottom: 10%;
   box-sizing: border-box;
 `;
 

@@ -29,7 +29,7 @@ const AppLayout = ({ children, data }) => (
 );
 
 AppLayout.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.object,
 }
 
 export default AppLayout

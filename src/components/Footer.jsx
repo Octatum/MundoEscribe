@@ -15,7 +15,7 @@ const Text = styled.p`
 
 const Footer = () => (
   <Container>
-    <Text>Copyright © Todos los derechos reservados. El mundo escribe 2018. Desarrollado por Katartico | Octatum</Text>
+    <Text>Copyright © Todos los derechos reservados. El mundo escribe 2018.</Text>
   </Container>
 );
 

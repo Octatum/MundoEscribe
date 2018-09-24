@@ -5,7 +5,6 @@ import Statements from './Statements';
 
 const CustomSection = Section.extend`
   flex-direction: column;
-  padding-bottom: 5em;
 `;
 
 function Activities () {

@@ -17,7 +17,7 @@ Las circunstncias de cada Yo suelen encerrar a la persona en su propia tumba, Sa
 En una persona no expresada:
 - El dolor de las experiencias se acumula.
 - La rabia del enojo crece.
-- La rabia del enojo crece.
+- La violencia irrumpe y permanece.
 - Las emociones se empalman y la claridad mental se desvanece.
 `;
 

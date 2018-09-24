@@ -17,7 +17,6 @@ import imageJ from './assets/imageJ.svg';
 const CustomSection = Section.extend`
   flex-direction: column;
   text-align: center;
-  margin-top: 5em;
   margin-bottom: 5em;
 `
 
@@ -65,7 +64,7 @@ const Bluebar = styled.div`
 `
 
 const content = [{
-  text: 'Aumenta su capacidad de empatía',
+  text: 'Aumenta su capacidad de empatía.',
   image: imageA
 }, {
   text: 'Toma conciencia y responsabilidad entre sus decisiones y acciones.',
@@ -77,10 +76,10 @@ const content = [{
   text: 'No se conforma con su situación, actúa para evolucionar.',
   image: imageD
 }, {
-  text: 'Respeta al entorno, a los demás y a si mismo',
+  text: 'Respeta al entorno, a los demás y a si mismo.',
   image: imageE
 }, {
-  text: 'Desempeña mejor sus roles individuales, como estudiante, empleado, ciudadno.',
+  text: 'Desempeña mejor sus roles individuales, como estudiante, empleado, ciudadano.',
   image: imageF
 }, {
   text: 'Reconoce y potencia sus capacidades.',
@@ -89,7 +88,7 @@ const content = [{
   text: 'Se esfuerza por ser una mejor persona, hijo, hermano, padre, amigo.',
   image: imageH
 }, {
-  text: 'Maneja la frustración y el enojo de manera objetiva.',
+  text: 'Maneja la frustración y el enojo de manera productiva.',
   image: imageI
 }, {
   text: 'Sus objetivos y metas son claros y adaptables.',
@@ -98,7 +97,7 @@ const content = [{
 
 const Benefits = () => (
   <CustomSection id='benefits' fluid>
-    <Header>Beneficios</Header>
+    <Header>¿En qué se beneficia una persona que escribe?</Header>
     <Grid>
       {content.map((item) => (
         <GridItem key={item.text.substr(0, 10)}>

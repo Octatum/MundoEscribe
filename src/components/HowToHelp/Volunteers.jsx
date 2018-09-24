@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/volunteers-picture.png';
-import icon from './assets/donations-logo.svg';
+import icon from './assets/volunteers-logo.svg';
 import logo from './../assets/logo.svg';
 
 const Container = styled.div`
@@ -90,6 +90,7 @@ const Description = styled.div`
   flex: 1;
   padding: 0 3em;
   color: ${props => props.theme.color.white};
+  margin-top: 5em;
 
   li {
     padding: 0.25em 0;
@@ -144,17 +145,16 @@ const Volunteers = (props) => (
     <Square>
       <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
       <SquarePicture src={icon}/>
-      <SquareText>Voluntarios</SquareText>
+      <SquareText>Voluntariado</SquareText>
       <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
     </Square>
     <FlexContainer>
       <Description>
         <ul>
-          <li>Participa como instructor o maestro talleristas o colabora como miembro benefactor de nuestros proyectos.</li>
+          <li>Participa como instructor o intégrate a nuestro equipo de voluntariado en cualquiera de nuestros proyectos.</li>
           <li>Colabora y promueve la misión de El mundo escribe.</li>
-          <li>Actúa como enlace entre la fundación y tu empresa o grupo de amistades.
-          Vive la experiencia de ayudar a otros en el equilibrio de su expresión.</li>
-          <li>Ayídanos a recaudar material de escritura:  hojas, libretas, diarios y plumas.</li>
+          <li>Actúa como enlace entre la fundación y tu empresa o grupo de amistades. Vive la experiencia de ayudar a otros en el ejercicio de su expresión.</li>
+          <li>Ayúdanos a recaudar material de escritura:  hojas, libretas, diarios y plumas.</li>
           <li>Asiste a nuestras actividades culturales de beneficio, obras de teatro y conferencias.</li>
         </ul>
       </Description>

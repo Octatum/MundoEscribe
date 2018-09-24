@@ -21,9 +21,10 @@ const Header = styled.h2`
 `
 
 const BannerText = styled.p`
-  font-size: ${props => props.size || "1.5em"};
+  font-size: 1.5em;
   font-style: italic;
-  text-align: center;
+  align-self: flex-start;
+  margin-left: 2rem;
   width: 55%;
 
   @media screen and (max-width: ${breakpoints.medium}) {
@@ -58,13 +59,20 @@ const Logo = styled.img`
   padding-top: 7em;
 `
 
+const QuoteAuthor = styled(BannerText)`
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  padding-right: 1rem;
+  text-align: right;
+`;
+
 const Contact = () => (
   <CustomSection id='contact' fluid>
     <Header>Contáctanos</Header>
     <SectionBanner hideImage>
       <BannerText>“Toda persona tiene derecho a la expresión libre de su voz.
-      Cuestionar, buscar y crear alternativas es el camino de todo cambio.”</BannerText>
-      <BannerText size="1.2em">Ángeles Favela, Fundadora</BannerText>
+      Cuestionar, buscar y crear alternativas es el camino de todo cambio”.</BannerText>
+      <QuoteAuthor>Ángeles Favela, Fundadora</QuoteAuthor>
     </SectionBanner>
     <FormAndInfo>
       <ContactForm/>
@@ -73,9 +81,9 @@ const Contact = () => (
         <p>
           contacto@elmundoescribe.org
           <br/>
-          Tel. (81)8335 4082
+          Tel. (81) 2718 0074
           <br/>
-          Ave. San Pedro 801 L9
+          Plaza Río | Avenida San Pedro 801 L9
           <br/>
           Colonia Fuentes del Valle CP 66224
           <br/>

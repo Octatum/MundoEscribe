@@ -162,8 +162,9 @@ const BigNumber = styled.div`
 `;
 
 const PhraseDisplay = styled.p`
-  text-align: center;
+  text-align: left;
   font-weight: bold;
+  margin-left: 1em;
   flex: 1;
   margin-bottom: 0.5em;
   color: ${({theme}) => theme.color.black};
@@ -177,28 +178,28 @@ const PhraseDisplay = styled.p`
 `;
 
 const Phrases = [{
-  id: 1,
+  id: 6,
   phrase: "Al escribir aprendemos y nos descubrimos."
 }, {
-  id: 2,
-  phrase: "Se aprende a hacerlo"
+  id: 1,
+  phrase: "Quien hace, aprende."
 }, {
-  id: 3,
+  id: 2,
   phrase: "Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermandados con todas las historias."
 }, {
+  id: 3,
+  phrase: "Narrar para comprender, para crecer."
+}, {
   id: 4,
-  phrase: "Narrar para comprender, para crecer"
+  phrase: "Escribir para adueñarnos de nuestra propia voz, para caminar con la dignidad y el empoderamiento de sabernos dueños de nuestra propia historia."
 }, {
   id: 5,
-  phrase: "Escribir para adueñarnos de nuestra propia voz, para caminar con la dignidad y el empoderamiento de sabernos dueños de nuestra propia historia. "
-}, {
-  id: 6,
   phrase: "La escritura es una forma de la expresión del yo."
 }]
 
 function Statements() {
   return (
-    <Layout>
+    <Layout id='projects'>
       <SectionBanner>
         <Header>Lo que hacemos</Header>
       </SectionBanner>

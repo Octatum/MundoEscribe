@@ -73,15 +73,15 @@ const Content = styled(ReactMarkdown)`
   color: ${({theme}) => theme.color.black};
 
   > * {
-    font-size: 0.85em;
+    font-size: 0.95em;
     line-height: 1.5em;
     text-align: justify;
     margin: 1.5em 0;
   }
 
   > ul {
-    margin-top: -1.5em;
-    margin-left: 10%;
+    margin-top: -1em;
+    margin-left: 5%;
     list-style: none;
 
     > li {
