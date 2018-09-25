@@ -26,9 +26,9 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     margin: 0 3%;
   }
-`
+`;
 
-const NoteIcon = (props) => (
+const NoteIcon = props => (
   <Container onClick={props.onClick}>
     <img src={icon} />
     {props.children}

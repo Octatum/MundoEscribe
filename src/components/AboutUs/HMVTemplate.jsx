@@ -8,19 +8,22 @@ import breakpoints from '../../utils/breakpoints';
 const CustomSecton = Section.extend`
   position: relative;
   min-height: 37.5em;
-  height: 100vh;
   align-items: center;
   justify-content: center;
 
   :not(:nth-last-child(2))::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     margin: 0 auto;
     height: 0.2em;
-    background-image: radial-gradient(ellipse at center, #468ec0, #ffffff00 70%);
+    background-image: radial-gradient(
+      ellipse at center,
+      #468ec0,
+      #ffffff00 70%
+    );
   }
 
   @media screen and (max-width: ${breakpoints.small}) {
@@ -33,7 +36,7 @@ const ContentLayout = styled.div`
   position: relative;
   min-height: 75%;
   display: flex;
-  flex-direction: ${({reverse}) => reverse ? 'row-reverse' : 'row'};
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
   justify-content: space-between;
   flex: 1;
 
@@ -60,9 +63,9 @@ const ContentSection = styled.div`
 `;
 
 const Title = styled.h3`
-  color: ${({theme}) => theme.color.lightBlue};
+  color: ${({ theme }) => theme.color.lightBlue};
   font-size: 3em;
-  text-align: ${({rightAlign}) => rightAlign ? 'right' : 'inherit'};
+  text-align: ${({ rightAlign }) => (rightAlign ? 'right' : 'inherit')};
 
   @media screen and (max-width: ${breakpoints.small}) {
     text-align: center;
@@ -70,7 +73,7 @@ const Title = styled.h3`
 `;
 
 const Content = styled(ReactMarkdown)`
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
 
   > * {
     font-size: 0.95em;
@@ -89,10 +92,10 @@ const Content = styled(ReactMarkdown)`
       position: relative;
 
       ::before {
-        content: "•";
+        content: '•';
         position: absolute;
         left: -1em;
-        color: ${({theme}) => theme.color.lightBlue};
+        color: ${({ theme }) => theme.color.lightBlue};
       }
     }
   }
@@ -101,6 +104,10 @@ const Content = styled(ReactMarkdown)`
 const ImageSection = styled.div`
   flex: 1;
   max-width: 40%;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+
+  }  
 
   @media screen and (max-width: ${breakpoints.medium}) {
     max-width: 45%;
@@ -116,14 +123,7 @@ const Image = styled.img`
   max-width: 100%;
 `;
 
-function HMVTemplate ({
-  title,
-  innerRef,
-  content,
-  imgSrc,
-  imgSrcset,
-  reverse
-}) {
+function HMVTemplate({ title, innerRef, content, imgSrc, imgSrcset, reverse }) {
   return (
     <CustomSecton innerRef={innerRef}>
       <ContentLayout reverse={reverse}>
@@ -136,17 +136,17 @@ function HMVTemplate ({
         </ImageSection>
       </ContentLayout>
     </CustomSecton>
-  )
+  );
 }
 
 HMVTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  reverse: PropTypes.bool
+  reverse: PropTypes.bool,
 };
 
 HMVTemplate.defaultProps = {
-  reverse: false
+  reverse: false,
 };
 
 export default HMVTemplate;

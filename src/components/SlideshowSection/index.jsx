@@ -32,11 +32,12 @@ const ImageGalleryWrapper = styled.div`
   position: relative;
 
   @media screen and (max-width: ${breakpoints.small}) {
-    .image-gallery-left-nav, .image-gallery-right-nav {
+    .image-gallery-left-nav,
+    .image-gallery-right-nav {
       display: none;
     }
   }
-`
+`;
 
 const SlideTitle = styled.h2`
   position: relative;
@@ -56,7 +57,7 @@ const SlideTitle = styled.h2`
 
 const LinkButton = styled.a`
   position: relative;
-  background-color: ${({theme}) => theme.color.lightBlue};
+  background-color: ${({ theme }) => theme.color.lightBlue};
   border: solid 1px #ffffff;
   font-size: 0.9em;
   padding: 0.5rem 1rem;
@@ -80,15 +81,20 @@ const PhraseOverlay = styled.div`
 `;
 
 const SlideshowSection = React.forwardRef((props, forwardedRef) => {
-  const images = [{
-    backgroundImage: image1,
-  }, {
-    backgroundImage: image2,
-  }, {
-    backgroundImage: image3,
-  }, {
-    backgroundImage: image4,
-  }];
+  const images = [
+    {
+      backgroundImage: image1,
+    },
+    {
+      backgroundImage: image2,
+    },
+    {
+      backgroundImage: image3,
+    },
+    {
+      backgroundImage: image4,
+    },
+  ];
 
   const { scrollToRef } = props;
 
@@ -97,7 +103,7 @@ const SlideshowSection = React.forwardRef((props, forwardedRef) => {
       <ImageGalleryWrapper>
         <ImageGallery
           items={images}
-          renderItem={(props) => <CustomSlide {...props} />}
+          renderItem={props => <CustomSlide {...props} />}
           showThumbnails={false}
           showFullscreenButton={false}
           showPlayButton={false}
@@ -112,7 +118,7 @@ const SlideshowSection = React.forwardRef((props, forwardedRef) => {
         <LinkButton onClick={() => scrollToRef()}>¿Quiénes somos?</LinkButton>
       </PhraseOverlay>
     </Layout>
-  )
-})
+  );
+});
 
 export default SlideshowSection;

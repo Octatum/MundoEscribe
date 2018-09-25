@@ -28,7 +28,7 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding: 3em 0 0;
   }
-`
+`;
 
 const Square = styled.div`
   position: relative;
@@ -42,7 +42,7 @@ const Square = styled.div`
     min-height: 6em;
     width: 6em;
   }
-`
+`;
 
 const SquarePicture = styled.img`
   max-height: 4em;
@@ -54,14 +54,14 @@ const SquarePicture = styled.img`
     max-width: 3em;
     padding: 1em;
   }
-`
+`;
 
 const Arrow = styled.i`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: ${props => !props.right ? '-1em' : 'initial'};
-  right: ${props => props.right ? '-1em' : 'initial'};
+  left: ${props => (!props.right ? '-1em' : 'initial')};
+  right: ${props => (props.right ? '-1em' : 'initial')};
   font-size: 3em;
   color: ${props => props.theme.color.black};
   cursor: pointer;
@@ -69,7 +69,7 @@ const Arrow = styled.i`
   @media screen and (min-width: ${breakpoints.medium}) {
     display: none !important;
   }
-`
+`;
 
 const SquareText = styled.p`
   position: absolute;
@@ -80,7 +80,7 @@ const SquareText = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1em;
   }
-`
+`;
 
 const Description = styled.div`
   width: 50%;
@@ -99,7 +99,7 @@ const Description = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding-left: 30%;
   }
-`
+`;
 
 const Paragraph = styled.p`
   font-size: 1.2em;
@@ -112,7 +112,7 @@ const Paragraph = styled.p`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.8em;
   }
-`
+`;
 
 const Logo = styled.img`
   height: 6em;
@@ -121,7 +121,7 @@ const Logo = styled.img`
   @media screen and (max-width: ${breakpoints.medium}) {
     display: none;
   }
-`
+`;
 
 const Button = styled.button`
   position: absolute;
@@ -143,27 +143,38 @@ const Button = styled.button`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.8em;
   }
-`
+`;
 
-const Donations = (props) => (
+const Donations = props => (
   <Container>
     <Square>
-      <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
-      <SquarePicture src={icon}/>
+      <Arrow
+        className="fas fa-angle-left"
+        onClick={() => props.changeModal(false)}
+      />
+      <SquarePicture src={icon} />
       <SquareText>Donativos</SquareText>
-      <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
+      <Arrow
+        className="fas fa-angle-right"
+        onClick={() => props.changeModal(true)}
+        right
+      />
     </Square>
     <Description>
       <Paragraph>
-        Tus donativos económicos hacen posible que cientos de personas encuentren en la escritura un canal de expresión, una luz de esperanza y nuevos caminos para continuar el trayecto de sus vidas.
-        <br/>
-        <br/>
-        No importa la cantidad. ¡Ayúdanos a llevar la escritura como herramienta a la vida de muchas personas!
-        <br/>
-        <br/>
-        Tu apoyo como persona física o como empresa, convierte sueños en realidades.
+        Tus donativos económicos hacen posible que cientos de personas
+        encuentren en la escritura un canal de expresión, una luz de esperanza y
+        nuevos caminos para continuar el trayecto de sus vidas.
+        <br />
+        <br />
+        No importa la cantidad. ¡Ayúdanos a llevar la escritura como herramienta
+        a la vida de muchas personas!
+        <br />
+        <br />
+        Tu apoyo como persona física o como empresa, convierte sueños en
+        realidades.
       </Paragraph>
-      <Logo src={logo}/>
+      <Logo src={logo} />
     </Description>
     <Button>
       <p>Dona aquí</p>

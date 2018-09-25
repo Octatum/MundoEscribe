@@ -5,24 +5,26 @@ import Mision from './Mision';
 import Vision from './Vision';
 import CollageQuote from './CollageQuote';
 
-function QuienesSomos (props) {
+function QuienesSomos(props) {
   const {
     innerRef,
     historyRef,
     misionRef,
     visionRef,
-    iconClickHandler
+    iconClickHandler,
   } = props;
 
   return (
-    <div ref={innerRef} >
-      <General iconClickHandler={iconClickHandler}/>
+    <div ref={innerRef}>
+      <General iconClickHandler={iconClickHandler} />
       <History innerRef={historyRef} />
       <Mision innerRef={misionRef} />
       <Vision innerRef={visionRef} />
       <CollageQuote />
     </div>
-  )
+  );
 }
 
-export default React.forwardRef((props, ref) => <QuienesSomos innerRef={ref} {...props} />);
+export default React.forwardRef((props, ref) => (
+  <QuienesSomos innerRef={ref} {...props} />
+));

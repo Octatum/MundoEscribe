@@ -7,7 +7,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-`
+`;
 
 const Data = styled.div`
   flex: 1;
@@ -16,14 +16,14 @@ const Data = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     flex-direction: column;
   }
-`
+`;
 
 const Group = styled.div`
   flex: ${props => props.flex};
   display: flex;
   flex-direction: column;
   padding: 0 1em;
-`
+`;
 
 const Field = styled.div`
   flex: 1;
@@ -34,7 +34,7 @@ const Field = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding: 1em 0;
   }
-`
+`;
 
 const Label = styled.label`
   text-indent: ${props => props.indent || '1em'};
@@ -48,14 +48,14 @@ const Label = styled.label`
     text-align: center;
     font-size: 1.2em;
   }
-`
+`;
 
 const Input = styled.input`
   flex: 1;
   border: 1px solid ${props => props.theme.color.grey};
   border-radius: 1.5em;
   padding: 1em;
-  background: #F2F2F2;
+  background: #f2f2f2;
   font-family: inherit;
   font-size: 0.8em;
   outline: none;
@@ -65,7 +65,7 @@ const Input = styled.input`
     border-color: ${props => props.theme.color.lightBlue};
     background: white;
   }
-`
+`;
 
 const TextArea = styled.textarea`
   flex: 1;
@@ -73,7 +73,7 @@ const TextArea = styled.textarea`
   border: 1px solid ${props => props.theme.color.grey};
   border-radius: 3em / 45%;
   padding: 0.5em 2.5em;
-  background: #F2F2F2;
+  background: #f2f2f2;
   font-family: inherit;
   font-size: 0.8em;
   outline: none;
@@ -92,7 +92,7 @@ const TextArea = styled.textarea`
   @media screen and (max-width: ${breakpoints.small}) {
     min-height: 30vh;
   }
-`
+`;
 
 const Button = styled.button`
   align-self: center;
@@ -114,7 +114,7 @@ const Button = styled.button`
   @media screen and (max-width: ${breakpoints.small}) {
     width: 30%;
   }
-`
+`;
 
 class ContactForm extends Component {
   state = {
@@ -123,42 +123,63 @@ class ContactForm extends Component {
     phone: '',
     email: '',
     comments: '',
-  }
+  };
 
   handleChange = ({ target }) => {
     this.setState({
-      [target.name]: target.value
+      [target.name]: target.value,
     });
-  }
+  };
 
   render() {
     return (
       <Form>
         <Data>
-          <Group flex='1'>
+          <Group flex="1">
             <Field>
               <Label>Nombre</Label>
-              <Input type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
+              <Input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
             </Field>
             <Field>
               <Label>Teléfono</Label>
-              <Input type='text' name='phone' value={this.state.phone} onChange={this.handleChange}/>
+              <Input
+                type="text"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
             </Field>
             <Field>
               <Label>Correo electrónico</Label>
-              <Input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
+              <Input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
             </Field>
           </Group>
-          <Group flex='1.2'>
+          <Group flex="1.2">
             <Field>
-              <Label indent='2em'>Comentarios</Label>
-              <TextArea name='comments' value={this.state.value} onChange={this.handleChange}/>
+              <Label indent="2em">Comentarios</Label>
+              <TextArea
+                name="comments"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
             </Field>
           </Group>
         </Data>
-        <Button><p>Enviar</p></Button>
+        <Button>
+          <p>Enviar</p>
+        </Button>
       </Form>
-    )
+    );
   }
 }
 

@@ -27,7 +27,7 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding: 3em 0 0;
   }
-`
+`;
 
 const Square = styled.div`
   position: absolute;
@@ -46,7 +46,7 @@ const Square = styled.div`
     height: 6em;
     width: 6em;
   }
-`
+`;
 
 const SquarePicture = styled.img`
   max-height: 4em;
@@ -58,14 +58,14 @@ const SquarePicture = styled.img`
     max-width: 3em;
     padding: 1em;
   }
-`
+`;
 
 const Arrow = styled.i`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: ${props => !props.right ? '-1em' : 'initial'};
-  right: ${props => props.right ? '-1em' : 'initial'};
+  left: ${props => (!props.right ? '-1em' : 'initial')};
+  right: ${props => (props.right ? '-1em' : 'initial')};
   font-size: 3em;
   color: ${props => props.theme.color.black};
   cursor: pointer;
@@ -73,7 +73,7 @@ const Arrow = styled.i`
   @media screen and (min-width: ${breakpoints.medium}) {
     display: none !important;
   }
-`
+`;
 
 const SquareText = styled.p`
   position: absolute;
@@ -84,7 +84,7 @@ const SquareText = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1em;
   }
-`
+`;
 
 const Description = styled.div`
   display: flex;
@@ -102,7 +102,7 @@ const Description = styled.div`
     background: url(${backgroundImage}) no-repeat right center;
     background-size: cover;
   }
-`
+`;
 
 const Info = styled.div`
   flex: ${props => props.flex};
@@ -119,20 +119,20 @@ const Info = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.8em;
   }
-`
+`;
 
 const Header = styled.h3`
   font-size: 1.5em;
   padding: 0.5rem 0;
-`
+`;
 
 const Paragraph = styled.p`
   padding: 0.5rem 0;
-`
+`;
 
 const SmallText = Paragraph.extend`
   font-size: 0.7em;
-`
+`;
 
 const Logo = styled.img`
   padding: 1em;
@@ -144,31 +144,38 @@ const Logo = styled.img`
   @media screen and (max-width: ${breakpoints.small}) {
     height: 4em;
   }
-`
+`;
 
 const VerticalLine = styled.div`
   height: 100%;
   width: 2px;
   background: ${props => props.theme.color.lightBlue};
-`
+`;
 
-const Events = (props) => (
+const Events = props => (
   <Container>
     <Square>
-      <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
-      <SquarePicture src={icon}/>
+      <Arrow
+        className="fas fa-angle-left"
+        onClick={() => props.changeModal(false)}
+      />
+      <SquarePicture src={icon} />
       <SquareText>Eventos</SquareText>
-      <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
+      <Arrow
+        className="fas fa-angle-right"
+        onClick={() => props.changeModal(true)}
+        right
+      />
     </Square>
     <Description>
-      <Info flex='1'>
+      <Info flex="1">
         <Header>Obra de teatro</Header>
         <Paragraph>Ciclo de teatro en colaboración con casa Musa</Paragraph>
         <SmallText>* Fechas por confirmar *</SmallText>
-        <Logo src={casaMusaLogo}/>
+        <Logo src={casaMusaLogo} />
       </Info>
-      <VerticalLine/>
-      <Info flex='1.4'>
+      <VerticalLine />
+      <Info flex="1.4">
         <Header>Conferencia</Header>
         <Paragraph>Guadalupe Nettel</Paragraph>
         <SmallText>* Fechas por confirmar *</SmallText>

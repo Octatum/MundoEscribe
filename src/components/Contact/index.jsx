@@ -10,7 +10,7 @@ import logo from './assets/logo.svg';
 const CustomSection = Section.extend`
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const Header = styled.h2`
   font-size: 3em;
@@ -19,7 +19,7 @@ const Header = styled.h2`
   @media screen and (max-width: ${breakpoints.medium}) {
     padding: 1rem 0;
   }
-`
+`;
 
 const BannerText = styled.p`
   font-size: 1.5em;
@@ -31,7 +31,7 @@ const BannerText = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     width: 80%;
   }
-`
+`;
 
 const FormAndInfo = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ const FormAndInfo = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`
+`;
 
 const ContactInfo = styled.div`
   text-align: right;
@@ -51,14 +51,14 @@ const ContactInfo = styled.div`
   width: 20em;
 
   @media screen and (max-width: ${breakpoints.medium}) {
-      text-align: center;
+    text-align: center;
   }
-`
+`;
 
 const Logo = styled.img`
   width: 80%;
   padding-top: 7em;
-`
+`;
 
 const AuthorQuote = styled(BannerText)`
   font-size: 1.5rem;
@@ -67,7 +67,7 @@ const AuthorQuote = styled(BannerText)`
   text-align: right;
   flex: 1;
   align-self: flex-end;
-  
+
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1.2rem;
   }
@@ -88,27 +88,29 @@ const Banner = styled.div`
   }
 `;
 
-const Contact = ({innerRef}) => (
+const Contact = ({ innerRef }) => (
   <CustomSection innerRef={innerRef} fluid>
     <Header>Contáctanos</Header>
     <Banner>
-      <BannerText>“Toda persona tiene derecho a la expresión libre de su voz.
-      Cuestionar, buscar y crear alternativas es el camino de todo cambio”.</BannerText>
+      <BannerText>
+        “Toda persona tiene derecho a la expresión libre de su voz. Cuestionar,
+        buscar y crear alternativas es el camino de todo cambio”.
+      </BannerText>
       <AuthorQuote>Ángeles Favela, Fundadora</AuthorQuote>
     </Banner>
     <FormAndInfo>
-      <ContactForm/>
+      <ContactForm />
       <ContactInfo>
-        <Logo src={logo}/>
+        <Logo src={logo} />
         <p>
           contacto@elmundoescribe.org
-          <br/>
+          <br />
           Tel. (81) 2718 0074
-          <br/>
+          <br />
           Plaza Río | Avenida San Pedro 801 L9
-          <br/>
+          <br />
           Colonia Fuentes del Valle CP 66224
-          <br/>
+          <br />
           San Pedro, Garza García, N.L. , México
         </p>
       </ContactInfo>
@@ -116,4 +118,6 @@ const Contact = ({innerRef}) => (
   </CustomSection>
 );
 
-export default React.forwardRef((props, ref) => <Contact innerRef={ref} {...props} />);
+export default React.forwardRef((props, ref) => (
+  <Contact innerRef={ref} {...props} />
+));

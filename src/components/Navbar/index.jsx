@@ -33,7 +33,7 @@ const ToggleButton = styled.i`
   @media screen and (min-width: ${breakpoints.dropdown}) {
     display: none !important;
   }
-`
+`;
 
 const Links = styled.div`
   display: flex;
@@ -89,11 +89,11 @@ const SocialMediaList = styled.ul`
       justify-content: center;
     }
   }
-`
+`;
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
   cursor: pointer;
 `;
 
@@ -105,13 +105,13 @@ const Dot = styled.div`
   display: inline-block;
   height: 0.4em;
   width: 0.4em;
-  background: #468EC0;
+  background: #468ec0;
   border-radius: 50%;
 `;
 
 const HoverableItem = styled.div`
   position: relative;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
 
   :hover > ul {
     transform: scale(1);
@@ -140,84 +140,110 @@ const Submenu = styled.ul`
 
 class Navbar extends Component {
   state = {
-    open: false
-  }
+    open: false,
+  };
 
   toggleMenuState = () => {
-    this.setState((prevState) => ({
-      open: !prevState.open
-    }))
-  }
+    this.setState(prevState => ({
+      open: !prevState.open,
+    }));
+  };
 
   render() {
-    const toggleIconClass = (this.state.open ? 'fas fa-times' : 'fas fa-bars');
+    const toggleIconClass = this.state.open ? 'fas fa-times' : 'fas fa-bars';
     return (
       <Container className={this.state.open && 'open'}>
         <Logo src={headerIcon} />
-        <ToggleButton className={toggleIconClass} onClick={this.toggleMenuState}/>
+        <ToggleButton
+          className={toggleIconClass}
+          onClick={this.toggleMenuState}
+        />
         <Links>
           <NavList>
             <li>
-              <Anchor onClick={() => this.props.scrollToRef("startRef")}>Inicio</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef('startRef')}>
+                Inicio
+              </Anchor>
             </li>
             <li>
-              <Dot/>
+              <Dot />
             </li>
             <li>
-              <Anchor onClick={() => this.props.scrollToRef("about")}>¿Quiénes somos?</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef('about')}>
+                ¿Quiénes somos?
+              </Anchor>
             </li>
             <li>
-              <Dot/>
+              <Dot />
             </li>
             <li>
               <HoverableItem>
                 Lo que hacemos
                 <Submenu>
-                  <AnchorListItem onClick={() => this.props.scrollToRef("activities")}>Lo que hacemos</AnchorListItem>
-                  <AnchorListItem onClick={() => this.props.scrollToRef("projects")}>Proyectos</AnchorListItem>
-                  <AnchorListItem onClick={() => this.props.scrollToRef("benefits")}>Beneficios</AnchorListItem>
+                  <AnchorListItem
+                    onClick={() => this.props.scrollToRef('activities')}>
+                    Lo que hacemos
+                  </AnchorListItem>
+                  <AnchorListItem
+                    onClick={() => this.props.scrollToRef('projects')}>
+                    Proyectos
+                  </AnchorListItem>
+                  <AnchorListItem
+                    onClick={() => this.props.scrollToRef('benefits')}>
+                    Beneficios
+                  </AnchorListItem>
                 </Submenu>
               </HoverableItem>
             </li>
             <li>
-              <Dot/>
+              <Dot />
             </li>
             <li>
-              <Anchor onClick={() => this.props.scrollToRef("help")}>¿Cómo ayudar?</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef('help')}>
+                ¿Cómo ayudar?
+              </Anchor>
             </li>
             <li>
-              <Dot/>
+              <Dot />
             </li>
             <li>
-              <Anchor onClick={() => this.props.scrollToRef("report")}>Informes anuales</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef('report')}>
+                Informes anuales
+              </Anchor>
             </li>
             <li>
-              <Dot/>
+              <Dot />
             </li>
             <li>
-              <Anchor onClick={() => this.props.scrollToRef("contact")}>Contacto</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef('contact')}>
+                Contacto
+              </Anchor>
             </li>
           </NavList>
           <SocialMediaList>
             <li>
-              <Anchor href="https://www.facebook.com/elmundoescribe/" target="_blank">
-                <i className='fab fa-facebook-f fa-fw fa-lg'/>
+              <Anchor
+                href="https://www.facebook.com/elmundoescribe/"
+                target="_blank">
+                <i className="fab fa-facebook-f fa-fw fa-lg" />
               </Anchor>
             </li>
             <li>
-              <Anchor href="https://www.instagram.com/elmundoescribe/" target="_blank">
-                <i className='fab fa-instagram fa-fw fa-lg'/>
+              <Anchor
+                href="https://www.instagram.com/elmundoescribe/"
+                target="_blank">
+                <i className="fab fa-instagram fa-fw fa-lg" />
               </Anchor>
             </li>
             <li>
               <Anchor href="https://twitter.com/elmundoescribe" target="_blank">
-                <i className='fab fa-twitter fa-fw fa-lg'/>
+                <i className="fab fa-twitter fa-fw fa-lg" />
               </Anchor>
             </li>
           </SocialMediaList>
         </Links>
       </Container>
-    )
+    );
   }
 }
 

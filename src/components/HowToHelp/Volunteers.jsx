@@ -27,7 +27,7 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding: 3em 0 0;
   }
-`
+`;
 
 const Square = styled.div`
   position: relative;
@@ -41,7 +41,7 @@ const Square = styled.div`
     height: 6em;
     width: 6em;
   }
-`
+`;
 
 const SquarePicture = styled.img`
   max-height: 4em;
@@ -53,14 +53,14 @@ const SquarePicture = styled.img`
     max-width: 3em;
     padding: 1em;
   }
-`
+`;
 
 const Arrow = styled.i`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: ${props => !props.right ? '-1em' : 'initial'};
-  right: ${props => props.right ? '-1em' : 'initial'};
+  left: ${props => (!props.right ? '-1em' : 'initial')};
+  right: ${props => (props.right ? '-1em' : 'initial')};
   font-size: 3em;
   color: ${props => props.theme.color.black};
   cursor: pointer;
@@ -68,7 +68,7 @@ const Arrow = styled.i`
   @media screen and (min-width: ${breakpoints.medium}) {
     display: none !important;
   }
-`
+`;
 
 const SquareText = styled.p`
   position: absolute;
@@ -79,12 +79,12 @@ const SquareText = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1em;
   }
-`
+`;
 
 const FlexContainer = styled.div`
   display: flex;
   align-self: flex-start;
-`
+`;
 
 const Description = styled.div`
   flex: 1;
@@ -98,7 +98,7 @@ const Description = styled.div`
   }
 
   li::before {
-    content: "•";
+    content: '•';
     display: inline-block;
     width: 1em;
     margin-left: -1em;
@@ -123,7 +123,7 @@ const Description = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.8em;
   }
-`
+`;
 
 const Logo = styled.div`
   display: flex;
@@ -138,28 +138,48 @@ const Logo = styled.div`
   @media screen and (max-width: ${breakpoints.medium}) {
     display: none;
   }
-`
+`;
 
-const Volunteers = (props) => (
+const Volunteers = props => (
   <Container>
     <Square>
-      <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
-      <SquarePicture src={icon}/>
+      <Arrow
+        className="fas fa-angle-left"
+        onClick={() => props.changeModal(false)}
+      />
+      <SquarePicture src={icon} />
       <SquareText>Voluntariado</SquareText>
-      <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
+      <Arrow
+        className="fas fa-angle-right"
+        onClick={() => props.changeModal(true)}
+        right
+      />
     </Square>
     <FlexContainer>
       <Description>
         <ul>
-          <li>Participa como instructor o intégrate a nuestro equipo de voluntariado en cualquiera de nuestros proyectos.</li>
+          <li>
+            Participa como instructor o intégrate a nuestro equipo de
+            voluntariado en cualquiera de nuestros proyectos.
+          </li>
           <li>Colabora y promueve la misión de El mundo escribe.</li>
-          <li>Actúa como enlace entre la fundación y tu empresa o grupo de amistades. Vive la experiencia de ayudar a otros en el ejercicio de su expresión.</li>
-          <li>Ayúdanos a recaudar material de escritura:  hojas, libretas, diarios y plumas.</li>
-          <li>Asiste a nuestras actividades culturales de beneficio, obras de teatro y conferencias.</li>
+          <li>
+            Actúa como enlace entre la fundación y tu empresa o grupo de
+            amistades. Vive la experiencia de ayudar a otros en el ejercicio de
+            su expresión.
+          </li>
+          <li>
+            Ayúdanos a recaudar material de escritura: hojas, libretas, diarios
+            y plumas.
+          </li>
+          <li>
+            Asiste a nuestras actividades culturales de beneficio, obras de
+            teatro y conferencias.
+          </li>
         </ul>
       </Description>
       <Logo>
-        <img src={logo}/>
+        <img src={logo} />
       </Logo>
     </FlexContainer>
   </Container>

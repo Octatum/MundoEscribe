@@ -5,8 +5,8 @@ import HistoryImg from './assets/History.png';
 import HistoryImg2x from './assets/History@2x.png';
 import HistoryImg3x from './assets/History@3x.png';
 
-const title = "Historia";
-const id = "history";
+const title = 'Historia';
+const id = 'history';
 const content = `
 Desde 2011, sus fundadores promueven la escritura creativa, el lenguaje y la literatura, por lo que la fundación es ideada de la observación de beneficios y transformaciones que emergen de una persona que escribe.
 
@@ -17,14 +17,16 @@ El mundo escribe abre la puerta a la imaginación creativa para transformar el i
 Escribir para entender y avanzar.
 `;
 
-function History ({innerRef}) {
-  return <HMVTemplate
-    title={title}
-    innerRef={innerRef}
-    content={content}
-    imgSrc={HistoryImg}
-    imgSrcset={`${HistoryImg2x}, ${HistoryImg3x}`}
-  />
+function History({ innerRef }) {
+  return (
+    <HMVTemplate
+      title={title}
+      innerRef={innerRef}
+      content={content}
+      imgSrc={HistoryImg}
+      imgSrcset={`${HistoryImg2x}, ${HistoryImg3x}`}
+    />
+  );
 }
 
 export default History;

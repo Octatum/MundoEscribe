@@ -14,11 +14,11 @@ const hexToRGB = (hex, alpha) => {
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16);
 
-    if (alpha) {
-      return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
-    }
-    return "rgb(" + r + ", " + g + ", " + b + ")";
-}
+  if (alpha) {
+    return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+  }
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+};
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     padding: 3em 0 0;
   }
-`
+`;
 
 const Square = styled.div`
   min-height: 10em;
@@ -60,7 +60,7 @@ const Square = styled.div`
     min-height: 6em;
     width: 6em;
   }
-`
+`;
 
 const SquarePicture = styled.img`
   max-height: 4em;
@@ -72,14 +72,14 @@ const SquarePicture = styled.img`
     max-width: 3em;
     padding: 1em;
   }
-`
+`;
 
 const Arrow = styled.i`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: ${props => !props.right ? '-1em' : 'initial'};
-  right: ${props => props.right ? '-1em' : 'initial'};
+  left: ${props => (!props.right ? '-1em' : 'initial')};
+  right: ${props => (props.right ? '-1em' : 'initial')};
   font-size: 3em;
   color: ${props => props.theme.color.black};
   cursor: pointer;
@@ -87,7 +87,7 @@ const Arrow = styled.i`
   @media screen and (min-width: ${breakpoints.medium}) {
     display: none !important;
   }
-`
+`;
 
 const SquareText = styled.p`
   position: absolute;
@@ -98,7 +98,7 @@ const SquareText = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1em;
   }
-`
+`;
 
 const PhotoGrid = styled.div`
   display: grid;
@@ -114,7 +114,7 @@ const PhotoGrid = styled.div`
     padding: 2em;
     grid-gap: 0.5em 0.5em;
   }
-`
+`;
 
 const Photo = styled.div`
   display: flex;
@@ -122,7 +122,7 @@ const Photo = styled.div`
   width: 100%;
   background: url(${props => props.image}) no-repeat center center;
   background-size: cover;
-`
+`;
 
 const OpaqueDiv = styled.div`
   display: flex;
@@ -143,7 +143,7 @@ const OpaqueDiv = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.8em;
   }
-`
+`;
 
 const PhotoName = styled.div`
   width: 100%;
@@ -156,7 +156,7 @@ const PhotoName = styled.div`
   ${Photo}:hover & {
     opacity: 1;
   }
-`
+`;
 
 const RightContainer = styled.div`
   flex: 1;
@@ -175,7 +175,7 @@ const RightContainer = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.9em;
   }
-`
+`;
 
 const Description = styled.div`
   flex: 1;
@@ -187,7 +187,7 @@ const Description = styled.div`
     font-size: 0.8em;
     background: #666666;
   }
-`
+`;
 
 const Logo = styled.img`
   height: 6em;
@@ -196,7 +196,7 @@ const Logo = styled.img`
   @media screen and (max-width: ${breakpoints.medium}) {
     display: none;
   }
-`
+`;
 
 const Button = styled.button`
   display: flex;
@@ -220,50 +220,66 @@ const Button = styled.button`
     transform: translateX(-50%) translateY(-50%);
     font-size: 0.4em;
   }
-`
+`;
 
 const pictures = [
   {
     name: 'Diario',
-    url: diary
-  }, {
+    url: diary,
+  },
+  {
     name: 'Pluma',
-    url: pens
-  }, {
+    url: pens,
+  },
+  {
     name: 'Agua',
-    url: water
-  }, {
+    url: water,
+  },
+  {
     name: 'Playera',
-    url: shirts
-  }
-]
+    url: shirts,
+  },
+];
 
-const Products = (props) => (
+const Products = props => (
   <Container>
     <Square>
-      <Arrow className="fas fa-angle-left" onClick={() => props.changeModal(false)}/>
-      <SquarePicture src={icon}/>
+      <Arrow
+        className="fas fa-angle-left"
+        onClick={() => props.changeModal(false)}
+      />
+      <SquarePicture src={icon} />
       <SquareText>Productos</SquareText>
-      <Arrow className="fas fa-angle-right" onClick={() => props.changeModal(true)} right/>
+      <Arrow
+        className="fas fa-angle-right"
+        onClick={() => props.changeModal(true)}
+        right
+      />
     </Square>
     <PhotoGrid>
-      {pictures.map((pic) => (
+      {pictures.map(pic => (
         <Photo image={pic.url}>
           <OpaqueDiv>
             <PhotoName>{pic.name}</PhotoName>
           </OpaqueDiv>
         </Photo>
       ))}
-      <Button><i className="fas fa-shopping-cart fa-3x"/></Button>
+      <Button>
+        <i className="fas fa-shopping-cart fa-3x" />
+      </Button>
     </PhotoGrid>
     <RightContainer>
       <Description>
         <p>
-          Al comprar uno de estos productos estás apoyando a Te tempor exquisitaque an voluptate fore illum ubi tempor.
-          <br/><br/>
-          Commodo nisi quis ullamco aliqua, ex an ipsum amet anim. Labore an cernantur, dolore distinguantur mentitum tempor eiusmod. Quorum se sed eram quamquam et nulla efflorescere excepteur noster voluptate.
+          Al comprar uno de estos productos estás apoyando a Te tempor
+          exquisitaque an voluptate fore illum ubi tempor.
+          <br />
+          <br />
+          Commodo nisi quis ullamco aliqua, ex an ipsum amet anim. Labore an
+          cernantur, dolore distinguantur mentitum tempor eiusmod. Quorum se sed
+          eram quamquam et nulla efflorescere excepteur noster voluptate.
         </p>
-        <Logo src={logo}/>
+        <Logo src={logo} />
       </Description>
     </RightContainer>
   </Container>

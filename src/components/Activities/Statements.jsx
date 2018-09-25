@@ -23,7 +23,7 @@ const Header = styled.h2`
 `;
 
 const Subheader = styled.div`
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
   text-align: center;
   padding: 1em;
   font-weight: bold;
@@ -63,12 +63,12 @@ const PhraseLayout = styled.div`
   align-items: flex-end;
 
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     height: 0.2em;
     width: 100%;
-    background-color: ${({theme}) => theme.color.lightBlue};
+    background-color: ${({ theme }) => theme.color.lightBlue};
   }
 `;
 
@@ -152,7 +152,7 @@ const BigNumber = styled.div`
   font-size: 6em;
   line-height: 4rem;
   font-weight: bold;
-  color: ${({theme}) => theme.color.lightBlue};
+  color: ${({ theme }) => theme.color.lightBlue};
   margin-top: -1rem;
 
   @media screen and (max-width: ${breakpoints.medium}) {
@@ -167,7 +167,7 @@ const PhraseDisplay = styled.p`
   margin-left: 1em;
   flex: 1;
   margin-bottom: 0.5em;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
 
   @media screen and (max-width: ${breakpoints.medium}) {
     position: relative;
@@ -177,25 +177,34 @@ const PhraseDisplay = styled.p`
   }
 `;
 
-const Phrases = [{
-  id: 6,
-  phrase: "Al escribir aprendemos y nos descubrimos."
-}, {
-  id: 1,
-  phrase: "Quien hace, aprende."
-}, {
-  id: 2,
-  phrase: "Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermandados con todas las historias."
-}, {
-  id: 3,
-  phrase: "Narrar para comprender, para crecer."
-}, {
-  id: 4,
-  phrase: "Escribir para adueñarnos de nuestra propia voz, para caminar con la dignidad y el empoderamiento de sabernos dueños de nuestra propia historia."
-}, {
-  id: 5,
-  phrase: "La escritura es una forma de la expresión del yo."
-}]
+const Phrases = [
+  {
+    id: 6,
+    phrase: 'Al escribir aprendemos y nos descubrimos.',
+  },
+  {
+    id: 1,
+    phrase: 'Quien hace, aprende.',
+  },
+  {
+    id: 2,
+    phrase:
+      'Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermandados con todas las historias.',
+  },
+  {
+    id: 3,
+    phrase: 'Narrar para comprender, para crecer.',
+  },
+  {
+    id: 4,
+    phrase:
+      'Escribir para adueñarnos de nuestra propia voz, para caminar con la dignidad y el empoderamiento de sabernos dueños de nuestra propia historia.',
+  },
+  {
+    id: 5,
+    phrase: 'La escritura es una forma de la expresión del yo.',
+  },
+];
 
 function Statements() {
   return (
@@ -203,7 +212,10 @@ function Statements() {
       <SectionBanner>
         <Header>Lo que hacemos</Header>
       </SectionBanner>
-      <Subheader>Todos nuestros proyectos están encaminados a seis enunciados. Creemos y trabajamos por ello. </Subheader>
+      <Subheader>
+        Todos nuestros proyectos están encaminados a seis enunciados. Creemos y
+        trabajamos por ello.{' '}
+      </Subheader>
       <PhrasesSection>
         <PhraseOne>
           <BigNumber>{Phrases[0].id}</BigNumber>
@@ -231,7 +243,7 @@ function Statements() {
         </PhraseSix>
       </PhrasesSection>
     </Layout>
-  )
+  );
 }
 
 export default Statements;

@@ -27,14 +27,14 @@ const Modal = ({ className, ...props }) => {
       closeTimeoutMS={300}
       {...props}
     />
-  )
-}
+  );
+};
 
 const CustomSection = Section.extend`
   flex-direction: column;
   align-items: center;
   margin-bottom: 5em;
-`
+`;
 
 const Header = styled.h2`
   font-size: 4em;
@@ -48,7 +48,7 @@ const Header = styled.h2`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 3em;
   }
-`
+`;
 
 const Links = styled.div`
   display: flex;
@@ -75,7 +75,7 @@ const Links = styled.div`
   @media screen and (max-width: ${breakpoints.small}) {
     margin: 0 auto 2em;
   }
-`
+`;
 
 const Square = styled.div`
   position: relative;
@@ -101,13 +101,13 @@ const Square = styled.div`
     width: 8em;
     margin: 1em;
   }
-`
+`;
 
 const SquarePicture = styled.img`
   max-height: 40%;
   max-width: 50%;
   padding: 1.5em;
-`
+`;
 
 const SquareText = styled.p`
   position: absolute;
@@ -122,7 +122,7 @@ const SquareText = styled.p`
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 1.2em;
   }
-`
+`;
 
 const InformBar = styled.div`
   display: flex;
@@ -132,7 +132,7 @@ const InformBar = styled.div`
   margin: 3em 0;
   color: ${props => props.theme.color.white};
   background: ${props => props.theme.color.black};
-`
+`;
 
 const Button = styled.div`
   display: flex;
@@ -143,23 +143,26 @@ const Button = styled.div`
   border-radius: 10px;
   margin-bottom: 0.5em;
   background: ${props => props.theme.color.lightBlue};
-`
+`;
 
 const ButtonText = styled.p`
   font-size: ${props => props.size || '1em'};
-`
+`;
 
 const StyledModal = styled(Modal)`
-  &__overlay, &__content {
+  &__overlay,
+  &__content {
     z-index: 10;
     opacity: 0;
     transition: all 0.3s;
 
-    &.ReactModal__Content--after-open, &.ReactModal__Overlay--after-open {
+    &.ReactModal__Content--after-open,
+    &.ReactModal__Overlay--after-open {
       opacity: 1;
     }
 
-    &.ReactModal__Content--before-close, &.ReactModal__Overlay--before-close {
+    &.ReactModal__Content--before-close,
+    &.ReactModal__Overlay--before-close {
       opacity: 0;
     }
   }
@@ -193,7 +196,7 @@ const StyledModal = styled(Modal)`
       right: 0;
     }
   }
-`
+`;
 
 const Arrow = styled.i`
   position: fixed;
@@ -201,8 +204,8 @@ const Arrow = styled.i`
   margin: 1%;
   top: 50%;
   transform: translateY(-50%);
-  left: ${props => !props.right ? 0 : 'initial'};
-  right: ${props => props.right ? 0 : 'initial'};
+  left: ${props => (!props.right ? 0 : 'initial')};
+  right: ${props => (props.right ? 0 : 'initial')};
   text-align: center;
   color: ${props => props.theme.color.white};
   cursor: pointer;
@@ -210,7 +213,7 @@ const Arrow = styled.i`
   @media screen and (max-width: ${breakpoints.medium}) {
     display: none !important;
   }
-`
+`;
 
 const Return = styled.div`
   position: absolute;
@@ -226,44 +229,49 @@ const Return = styled.div`
   @media screen and (min-width: ${breakpoints.medium}) {
     display: none;
   }
-`
+`;
 
-const content = [{
-  text: 'Donativos',
-  image: imageA,
-  component: <Donations/>,
-}, {
-  text: 'Voluntariado',
-  image: imageB,
-  component: <Volunteers/>,
-}, {
-  text: 'Productos',
-  image: imageC,
-  component: <Products/>,
-}, {
-  text: 'Eventos',
-  image: imageD,
-  component: <Events/>,
-}];
+const content = [
+  {
+    text: 'Donativos',
+    image: imageA,
+    component: <Donations />,
+  },
+  {
+    text: 'Voluntariado',
+    image: imageB,
+    component: <Volunteers />,
+  },
+  {
+    text: 'Productos',
+    image: imageC,
+    component: <Products />,
+  },
+  {
+    text: 'Eventos',
+    image: imageD,
+    component: <Events />,
+  },
+];
 
 class HowToHelp extends Component {
   state = {
     showModal: false,
-    modalContent: 0
-  }
+    modalContent: 0,
+  };
 
-  openModalHandler = (index) => {
+  openModalHandler = index => {
     this.setState({
       showModal: true,
-      modalContent: index
+      modalContent: index,
     });
-  }
+  };
 
   closeModalHandler = () => {
     this.setState({ showModal: false });
-  }
+  };
 
-  changeModalHandler = (next) => {
+  changeModalHandler = next => {
     let newValue = this.state.modalContent + (next ? 1 : -1);
 
     if (next && newValue >= content.length) {
@@ -273,22 +281,26 @@ class HowToHelp extends Component {
     }
 
     this.setState({ modalContent: newValue });
-  }
+  };
 
   addExtraProps = (Component, extraProps) => (
-    <Component.type {...Component.props} {...extraProps}/>
-  )
+    <Component.type {...Component.props} {...extraProps} />
+  );
 
   render() {
-    const PickModal = React.cloneElement(content[this.state.modalContent].component);
+    const PickModal = React.cloneElement(
+      content[this.state.modalContent].component
+    );
 
     return (
       <CustomSection innerRef={this.props.innerRef} fluid>
         <Header>¿Cómo ayudar?</Header>
         <Links>
           {content.map((item, index) => (
-            <Square key={item.text} onClick={() => this.openModalHandler(index)}>
-              <SquarePicture src={item.image}/>
+            <Square
+              key={item.text}
+              onClick={() => this.openModalHandler(index)}>
+              <SquarePicture src={item.image} />
               <SquareText>{item.text}</SquareText>
             </Square>
           ))}
@@ -296,14 +308,24 @@ class HowToHelp extends Component {
         <StyledModal
           isOpen={this.state.showModal}
           onRequestClose={this.closeModalHandler}
-          contentLabel={content[this.state.modalContent].text}
-        >
-          {this.addExtraProps(content[this.state.modalContent].component, {changeModal: this.changeModalHandler})}
-          <Arrow className="fas fa-angle-left fa-3x" onClick={() => this.changeModalHandler(false)}/>
-          <Arrow className="fas fa-angle-right fa-3x" onClick={() => this.changeModalHandler(true)} right/>
-          <Return onClick={this.closeModalHandler}><i className="fas fa-angle-left"/>Regresar</Return>
+          contentLabel={content[this.state.modalContent].text}>
+          {this.addExtraProps(content[this.state.modalContent].component, {
+            changeModal: this.changeModalHandler,
+          })}
+          <Arrow
+            className="fas fa-angle-left fa-3x"
+            onClick={() => this.changeModalHandler(false)}
+          />
+          <Arrow
+            className="fas fa-angle-right fa-3x"
+            onClick={() => this.changeModalHandler(true)}
+            right
+          />
+          <Return onClick={this.closeModalHandler}>
+            <i className="fas fa-angle-left" />Regresar
+          </Return>
         </StyledModal>
-        <SectionBanner innerRef={this.props.createRef("report")} dark>
+        <SectionBanner innerRef={this.props.createRef('report')} dark>
           <Header>Informes anuales</Header>
           <Button>
             <ButtonText>Informes 2018</ButtonText>
@@ -311,8 +333,10 @@ class HowToHelp extends Component {
           </Button>
         </SectionBanner>
       </CustomSection>
-    )
+    );
   }
 }
 
-export default React.forwardRef((props, ref) => <HowToHelp innerRef={ref} {...props} />);
+export default React.forwardRef((props, ref) => (
+  <HowToHelp innerRef={ref} {...props} />
+));

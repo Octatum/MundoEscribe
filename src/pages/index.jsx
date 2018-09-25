@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 
 import Navbar from '../components/Navbar';
@@ -18,48 +18,54 @@ const PageLayout = styled.div`
 `;
 
 class IndexPage extends React.Component {
-  createSetRef = (refName) => {
-    return (elementRef) => {
+  createSetRef = refName => {
+    return elementRef => {
       console.log(refName, elementRef);
       this.refs = {
         ...this.refs,
-        [refName]: elementRef
+        [refName]: elementRef,
       };
-    }
-  }
+    };
+  };
 
-  scrollToRef = (refName) => {
+  scrollToRef = refName => {
     console.log(this.refs[refName]);
 
-    if(this.refs[refName]) {
+    if (this.refs[refName]) {
       this.refs[refName].scrollIntoView();
       window.scrollBy(0, -120);
     }
-  }
+  };
 
   render() {
     return (
       <AppLayout>
         <PageLayout>
           <Navbar scrollToRef={this.scrollToRef} />
-          <SlideshowSection ref={this.createSetRef("startRef")} scrollToRef={() => this.scrollToRef("about")} />
-          <AboutUs 
-            ref={this.createSetRef("about")}
-            iconClickHandler={this.scrollToRef}
-            historyRef={this.createSetRef("history")}
-            misionRef={this.createSetRef("mision")}
-            visionRef={this.createSetRef("vision")}
+          <SlideshowSection
+            ref={this.createSetRef('startRef')}
+            scrollToRef={() => this.scrollToRef('about')}
           />
-          <Activities ref={this.createSetRef("activities")} />
-          <Projects ref={this.createSetRef("projects")} />
-          <Benefits ref={this.createSetRef("benefits")} />
-          <HowToHelp ref={this.createSetRef("help")} createRef={this.createSetRef} />
-          <Contact ref={this.createSetRef("contact")} />
+          <AboutUs
+            ref={this.createSetRef('about')}
+            iconClickHandler={this.scrollToRef}
+            historyRef={this.createSetRef('history')}
+            misionRef={this.createSetRef('mision')}
+            visionRef={this.createSetRef('vision')}
+          />
+          <Activities ref={this.createSetRef('activities')} />
+          <Projects ref={this.createSetRef('projects')} />
+          <Benefits ref={this.createSetRef('benefits')} />
+          <HowToHelp
+            ref={this.createSetRef('help')}
+            createRef={this.createSetRef}
+          />
+          <Contact ref={this.createSetRef('contact')} />
           <Footer />
         </PageLayout>
       </AppLayout>
-    )
+    );
   }
 }
 
-export default IndexPage
+export default IndexPage;
