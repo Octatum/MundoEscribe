@@ -24,6 +24,10 @@ const Header = styled.h2`
   font-size: 3em;
   font-weight: bold;
   color: ${props => props.theme.color.lightBlue};
+  padding-bottom: 0.5em;
+  > span {
+    margin-right: -0.55em;
+  }
 `
 
 const Grid = styled.div`
@@ -95,9 +99,9 @@ const content = [{
   image: imageJ
 }];
 
-const Benefits = () => (
-  <CustomSection id='benefits' fluid>
-    <Header>¿En qué se beneficia una persona que escribe?</Header>
+const Benefits = ({innerRef}) => (
+  <CustomSection innerRef={innerRef} fluid>
+    <Header>¿En qué se beneficia una persona que escribe<span>?</span></Header>
     <Grid>
       {content.map((item) => (
         <GridItem key={item.text.substr(0, 10)}>
@@ -110,4 +114,4 @@ const Benefits = () => (
   </CustomSection>
 );
 
-export default Benefits;
+export default React.forwardRef((props, ref) => <Benefits innerRef={ref} {...props} />);

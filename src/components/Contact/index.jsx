@@ -14,6 +14,7 @@ const CustomSection = Section.extend`
 
 const Header = styled.h2`
   font-size: 3em;
+  padding-bottom: 0.5em;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     padding: 1rem 0;
@@ -59,21 +60,42 @@ const Logo = styled.img`
   padding-top: 7em;
 `
 
-const QuoteAuthor = styled(BannerText)`
-  font-size: 1.2rem;
+const AuthorQuote = styled(BannerText)`
+  font-size: 1.5rem;
   box-sizing: border-box;
   padding-right: 1rem;
   text-align: right;
+  flex: 1;
+  align-self: flex-end;
+  
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 1.2rem;
+  }
 `;
 
-const Contact = () => (
-  <CustomSection id='contact' fluid>
+const Banner = styled.div`
+  background: ${props => props.theme.color.lightBlue};
+  color: ${props => props.theme.color.white};
+  width: 100%;
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    flex-direction: column;
+  }
+`;
+
+const Contact = ({innerRef}) => (
+  <CustomSection innerRef={innerRef} fluid>
     <Header>Contáctanos</Header>
-    <SectionBanner hideImage>
+    <Banner>
       <BannerText>“Toda persona tiene derecho a la expresión libre de su voz.
       Cuestionar, buscar y crear alternativas es el camino de todo cambio”.</BannerText>
-      <QuoteAuthor>Ángeles Favela, Fundadora</QuoteAuthor>
-    </SectionBanner>
+      <AuthorQuote>Ángeles Favela, Fundadora</AuthorQuote>
+    </Banner>
     <FormAndInfo>
       <ContactForm/>
       <ContactInfo>
@@ -94,4 +116,4 @@ const Contact = () => (
   </CustomSection>
 );
 
-export default Contact;
+export default React.forwardRef((props, ref) => <Contact innerRef={ref} {...props} />);

@@ -199,7 +199,7 @@ const Phrases = [{
 
 function Statements() {
   return (
-    <Layout id='projects'>
+    <Layout>
       <SectionBanner>
         <Header>Lo que hacemos</Header>
       </SectionBanner>

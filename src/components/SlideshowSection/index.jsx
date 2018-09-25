@@ -79,7 +79,7 @@ const PhraseOverlay = styled.div`
   text-align: center;
 `;
 
-function SlideshowSection () {
+const SlideshowSection = React.forwardRef((props, forwardedRef) => {
   const images = [{
     backgroundImage: image1,
   }, {
@@ -91,7 +91,7 @@ function SlideshowSection () {
   }];
 
   return (
-    <Layout id='top' fluid>
+    <Layout fluid innerRef={forwardedRef}>
       <ImageGalleryWrapper>
         <ImageGallery
           items={images}
@@ -111,6 +111,6 @@ function SlideshowSection () {
       </PhraseOverlay>
     </Layout>
   )
-}
+})
 
 export default SlideshowSection;

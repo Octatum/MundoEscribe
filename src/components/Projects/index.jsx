@@ -17,7 +17,6 @@ const CustomSection = Section.extend`
 const Header = styled.h2`
   font-size: 3em;
   font-weight: bold;
-  padding-bottom: 0.1rem;
 `
 
 const Description = styled.p`
@@ -30,6 +29,7 @@ const ProjectLayout = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5em 0;
+  padding-top: 0.5em;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     margin-top: 1em;
@@ -64,8 +64,8 @@ const content = [{
   image: imageT
 }];
 
-const Projects = () => (
-  <CustomSection fluid>
+const Projects = ({innerRef}) => (
+  <CustomSection fluid innerRef={innerRef}>
     <Header>Proyectos</Header>
     <Description>Nuestras actividades de escritura como herramienta de vida se llevan a cabo en las modalidades de:</Description>
     <ProjectLayout>
@@ -76,4 +76,4 @@ const Projects = () => (
   </CustomSection>
 );
 
-export default Projects;
+export default React.forwardRef((props, ref) => <Projects innerRef={ref} {...props} />);

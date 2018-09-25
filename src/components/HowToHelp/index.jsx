@@ -198,7 +198,7 @@ const StyledModal = styled(Modal)`
 const Arrow = styled.i`
   position: fixed;
   width: 3%;
-  margin: 1%
+  margin: 1%;
   top: 50%;
   transform: translateY(-50%);
   left: ${props => !props.right ? 0 : 'initial'};
@@ -283,7 +283,7 @@ class HowToHelp extends Component {
     const PickModal = React.cloneElement(content[this.state.modalContent].component);
 
     return (
-      <CustomSection id='howToHelp' fluid>
+      <CustomSection innerRef={this.props.innerRef} fluid>
         <Header>¿Cómo ayudar?</Header>
         <Links>
           {content.map((item, index) => (
@@ -303,7 +303,7 @@ class HowToHelp extends Component {
           <Arrow className="fas fa-angle-right fa-3x" onClick={() => this.changeModalHandler(true)} right/>
           <Return onClick={this.closeModalHandler}><i className="fas fa-angle-left"/>Regresar</Return>
         </StyledModal>
-        <SectionBanner id='informs' dark>
+        <SectionBanner innerRef={this.props.createRef("report")} dark>
           <Header>Informes anuales</Header>
           <Button>
             <ButtonText>Informes 2018</ButtonText>
@@ -315,4 +315,4 @@ class HowToHelp extends Component {
   }
 }
 
-export default HowToHelp;
+export default React.forwardRef((props, ref) => <HowToHelp innerRef={ref} {...props} />);

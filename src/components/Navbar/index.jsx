@@ -58,7 +58,7 @@ const NavList = styled.ul`
   align-items: center;
   list-style: none;
 
-  li {
+  > li {
     display: flex;
     padding: 0.3em 0.6em;
   }
@@ -72,7 +72,7 @@ const SocialMediaList = styled.ul`
   display: flex;
   list-style: none;
 
-  li {
+  > li {
     display: flex;
     padding: 0.2em;
   }
@@ -82,7 +82,7 @@ const SocialMediaList = styled.ul`
     box-sizing: border-box;
     padding: 4em 5% 1em;
 
-    li {
+    > li {
       flex: 1;
       font-size: 1.2em;
       display: flex;
@@ -94,6 +94,11 @@ const SocialMediaList = styled.ul`
 const Anchor = styled.a`
   text-decoration: none;
   color: ${({theme}) => theme.color.black};
+  cursor: pointer;
+`;
+
+const AnchorListItem = styled(Anchor)`
+  display: block;
 `;
 
 const Dot = styled.div`
@@ -102,6 +107,35 @@ const Dot = styled.div`
   width: 0.4em;
   background: #468EC0;
   border-radius: 50%;
+`;
+
+const HoverableItem = styled.div`
+  position: relative;
+  color: ${({theme}) => theme.color.black};
+
+  :hover > ul {
+    transform: scale(1);
+  }
+`;
+
+const Submenu = styled.ul`
+  transform: scale(1, 0);
+  transition: 300ms ease-in-out transform 50ms;
+  transform-origin: top;
+  background: white;
+  list-style: none;
+  top: 0;
+  box-sizing: border-box;
+  position: absolute;
+
+  > :not(:first-of-type) {
+    padding-top: 1em;
+    text-align: center;
+  }
+
+  > :last-child {
+    padding-bottom: 0.5em;
+  }
 `;
 
 class Navbar extends Component {
@@ -115,53 +149,53 @@ class Navbar extends Component {
     }))
   }
 
-  closeMenu = () => {
-    this.setState(() => ({
-      open: false
-    }));
-  }
-
   render() {
     const toggleIconClass = (this.state.open ? 'fas fa-times' : 'fas fa-bars');
-
     return (
       <Container className={this.state.open && 'open'}>
-        <Logo src={headerIcon}/>
+        <Logo src={headerIcon} />
         <ToggleButton className={toggleIconClass} onClick={this.toggleMenuState}/>
         <Links>
           <NavList>
             <li>
-              <Anchor href='#top' onClick={this.closeMenu}>Inicio</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef("startRef")}>Inicio</Anchor>
             </li>
             <li>
               <Dot/>
             </li>
             <li>
-              <Anchor href='#about' onClick={this.closeMenu}>¿Quiénes somos?</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef("about")}>¿Quiénes somos?</Anchor>
             </li>
             <li>
               <Dot/>
             </li>
             <li>
-              <Anchor href='#activities' onClick={this.closeMenu}>Lo que hacemos</Anchor>
+              <HoverableItem>
+                Lo que hacemos
+                <Submenu>
+                  <AnchorListItem onClick={() => this.props.scrollToRef("activities")}>Lo que hacemos</AnchorListItem>
+                  <AnchorListItem onClick={() => this.props.scrollToRef("projects")}>Proyectos</AnchorListItem>
+                  <AnchorListItem onClick={() => this.props.scrollToRef("benefits")}>Beneficios</AnchorListItem>
+                </Submenu>
+              </HoverableItem>
             </li>
             <li>
               <Dot/>
             </li>
             <li>
-              <Anchor href='#howToHelp' onClick={this.closeMenu}>¿Cómo ayudar?</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef("help")}>¿Cómo ayudar?</Anchor>
             </li>
             <li>
               <Dot/>
             </li>
             <li>
-              <Anchor href='#informs' onClick={this.closeMenu}>Informes anuales</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef("report")}>Informes anuales</Anchor>
             </li>
             <li>
               <Dot/>
             </li>
             <li>
-              <Anchor href='#contact' onClick={this.closeMenu}>Contacto</Anchor>
+              <Anchor onClick={() => this.props.scrollToRef("contact")}>Contacto</Anchor>
             </li>
           </NavList>
           <SocialMediaList>

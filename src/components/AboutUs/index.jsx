@@ -5,9 +5,9 @@ import Mision from './Mision';
 import Vision from './Vision';
 import CollageQuote from './CollageQuote';
 
-function QuienesSomos () {
+function QuienesSomos ({innerRef}) {
   return (
-    <div id='about'>
+    <div ref={innerRef} >
       <General />
       <History />
       <Mision />
@@ -17,4 +17,4 @@ function QuienesSomos () {
   )
 }
 
-export default QuienesSomos;
+export default React.forwardRef((props, ref) => <QuienesSomos innerRef={ref} {...props} />);

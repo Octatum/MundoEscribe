@@ -7,12 +7,13 @@ const CustomSection = Section.extend`
   flex-direction: column;
 `;
 
-function Activities () {
+function Activities ({innerRef}) {
   return (
-    <CustomSection id='activities' fluid>
+    <CustomSection innerRef={innerRef} fluid>
       <Statements />
     </CustomSection>
   )
 }
 
-export default Activities;
+export default React.forwardRef((props, ref) => <Activities innerRef={ref} {...props} />);
+
