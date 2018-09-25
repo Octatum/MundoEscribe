@@ -48,6 +48,7 @@ const PhrasesSection = styled.section`
   @media screen and (max-width: ${breakpoints.medium}) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1.5fr 1fr 1fr 1.5fr;
+    height: auto;
     grid-template-areas:
       ". p2 ."
       "p1 . p3"
