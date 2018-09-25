@@ -90,6 +90,8 @@ const SlideshowSection = React.forwardRef((props, forwardedRef) => {
     backgroundImage: image4,
   }];
 
+  const { scrollToRef } = props;
+
   return (
     <Layout fluid innerRef={forwardedRef}>
       <ImageGalleryWrapper>
@@ -107,7 +109,7 @@ const SlideshowSection = React.forwardRef((props, forwardedRef) => {
       </ImageGalleryWrapper>
       <PhraseOverlay>
         <SlideTitle>Ayúdame a crear mi historia</SlideTitle>
-        <LinkButton href="#about">¿Quiénes somos?</LinkButton>
+        <LinkButton onClick={() => scrollToRef()}>¿Quiénes somos?</LinkButton>
       </PhraseOverlay>
     </Layout>
   )

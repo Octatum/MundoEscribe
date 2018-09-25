@@ -5,13 +5,21 @@ import Mision from './Mision';
 import Vision from './Vision';
 import CollageQuote from './CollageQuote';
 
-function QuienesSomos ({innerRef}) {
+function QuienesSomos (props) {
+  const {
+    innerRef,
+    historyRef,
+    misionRef,
+    visionRef,
+    iconClickHandler
+  } = props;
+
   return (
     <div ref={innerRef} >
-      <General />
-      <History />
-      <Mision />
-      <Vision />
+      <General iconClickHandler={iconClickHandler}/>
+      <History innerRef={historyRef} />
+      <Mision innerRef={misionRef} />
+      <Vision innerRef={visionRef} />
       <CollageQuote />
     </div>
   )

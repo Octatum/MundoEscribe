@@ -42,7 +42,11 @@ const Paragraph = styled.p`
   }
 `;
 
-function General () {
+function General (props) {
+  const {
+    iconClickHandler,
+  } = props;
+
   return (
     <CustomSection fluid center>
       <Header>¿Qué es El mundo escribe?</Header>
@@ -50,9 +54,9 @@ function General () {
         <Paragraph>Somos una fundación que promueve la escritura como herramienta de vida, desde la infancia y para siempre.</Paragraph>
       </SectionBanner>
       <Icons>
-        <NoteIcon href="#history"><p>Historia</p></NoteIcon>
-        <NoteIcon href="#mision"><p>Misión</p></NoteIcon>
-        <NoteIcon href="#vision"><p>Visión</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("history")} href="#"><p>Historia</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("mision")} href="#"><p>Misión</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("vision")} href="#"><p>Visión</p></NoteIcon>
       </Icons>
     </CustomSection>
   )

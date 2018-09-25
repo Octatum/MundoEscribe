@@ -13,10 +13,10 @@ Somos una fundación que promueve la escritura como herramienta de vida, desde l
 Toda persona tiene derecho a conocer, replantear, crear y vivir su propia historia; la escritura es una herramienta simple y útil siempre.
 `;
 
-function Mision () {
+function Mision ({innerRef}) {
   return <HMVTemplate
     title={title}
-    id={id}
+    innerRef={innerRef}
     content={content}
     imgSrc={MisionImg}
     imgSrcset={`${MisionImg2x}, ${MisionImg3x}`}

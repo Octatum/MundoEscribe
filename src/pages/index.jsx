@@ -41,8 +41,14 @@ class IndexPage extends React.Component {
       <AppLayout>
         <PageLayout>
           <Navbar scrollToRef={this.scrollToRef} />
-          <SlideshowSection ref={this.createSetRef("startRef")} />
-          <AboutUs ref={this.createSetRef("about")} />
+          <SlideshowSection ref={this.createSetRef("startRef")} scrollToRef={() => this.scrollToRef("about")} />
+          <AboutUs 
+            ref={this.createSetRef("about")}
+            iconClickHandler={this.scrollToRef}
+            historyRef={this.createSetRef("history")}
+            misionRef={this.createSetRef("mision")}
+            visionRef={this.createSetRef("vision")}
+          />
           <Activities ref={this.createSetRef("activities")} />
           <Projects ref={this.createSetRef("projects")} />
           <Benefits ref={this.createSetRef("benefits")} />

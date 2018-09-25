@@ -21,10 +21,10 @@ En una persona no expresada:
 - Las emociones se empalman y la claridad mental se desvanece.
 `;
 
-function Vision () {
+function Vision ({innerRef}) {
   return <HMVTemplate
     title={title}
-    id={id}
+    innerRef={innerRef}
     content={content}
     imgSrc={VisionImg}
     imgSrcset={`${VisionImg2x}, ${VisionImg3x}`}

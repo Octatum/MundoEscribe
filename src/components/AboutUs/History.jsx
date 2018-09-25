@@ -17,10 +17,10 @@ El mundo escribe abre la puerta a la imaginación creativa para transformar el i
 Escribir para entender y avanzar.
 `;
 
-function History () {
+function History ({innerRef}) {
   return <HMVTemplate
     title={title}
-    id={id}
+    innerRef={innerRef}
     content={content}
     imgSrc={HistoryImg}
     imgSrcset={`${HistoryImg2x}, ${HistoryImg3x}`}

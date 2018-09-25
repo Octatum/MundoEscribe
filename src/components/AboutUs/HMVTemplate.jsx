@@ -118,14 +118,14 @@ const Image = styled.img`
 
 function HMVTemplate ({
   title,
-  id,
+  innerRef,
   content,
   imgSrc,
   imgSrcset,
   reverse
 }) {
   return (
-    <CustomSecton id={id}>
+    <CustomSecton innerRef={innerRef}>
       <ContentLayout reverse={reverse}>
         <ContentSection>
           <Title rightAlign={reverse}>{title}</Title>
