@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import breakpoints from '../../utils/breakpoints';
 import icon from './assets/note-icon.svg';
 
-const Container = styled.a`
+const Container = styled.div`
   position: relative;
   margin: 0 2em;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 
   p {
     position: absolute;
@@ -27,15 +28,9 @@ const Container = styled.a`
   }
 `
 
-const Anchor = styled.a`
-  text-decoration: none;
-  color: inherit;
-  ${'' /* Styling to be added... */}
-`
-
 const NoteIcon = (props) => (
-  <Container href={props.href}>
-    <img src={icon}/>
+  <Container onClick={props.onClick}>
+    <img src={icon} />
     {props.children}
   </Container>
 );

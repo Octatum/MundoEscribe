@@ -20,6 +20,7 @@ const PageLayout = styled.div`
 class IndexPage extends React.Component {
   createSetRef = (refName) => {
     return (elementRef) => {
+      console.log(refName, elementRef);
       this.refs = {
         ...this.refs,
         [refName]: elementRef

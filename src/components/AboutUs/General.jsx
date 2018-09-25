@@ -54,9 +54,9 @@ function General (props) {
         <Paragraph>Somos una fundación que promueve la escritura como herramienta de vida, desde la infancia y para siempre.</Paragraph>
       </SectionBanner>
       <Icons>
-        <NoteIcon onClick={() => iconClickHandler("history")} href="#"><p>Historia</p></NoteIcon>
-        <NoteIcon onClick={() => iconClickHandler("mision")} href="#"><p>Misión</p></NoteIcon>
-        <NoteIcon onClick={() => iconClickHandler("vision")} href="#"><p>Visión</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("history")}><p>Historia</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("mision")}><p>Misión</p></NoteIcon>
+        <NoteIcon onClick={() => iconClickHandler("vision")}><p>Visión</p></NoteIcon>
       </Icons>
     </CustomSection>
   )
