@@ -28,6 +28,14 @@ const Header = styled.h2`
   > span {
     margin-right: -0.55em;
   }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 2em;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    font-size: 1.7em;
+  }
 `;
 
 const Grid = styled.div`

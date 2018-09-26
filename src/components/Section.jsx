@@ -7,7 +7,7 @@ const Section = styled.section`
   margin: 0 ${({ fluid }) => (fluid ? 0 : 7.3)}em;
 
   @media screen and (max-width: ${breakpoints.dropdown}) {
-    margin: 0 ${({fluid}) => fluid ? 0 : 3}em;
+    margin: 0 ${({ fluid }) => (fluid ? 0 : 3)}em;
   }
 
   @media screen and (max-width: ${breakpoints.medium}) {

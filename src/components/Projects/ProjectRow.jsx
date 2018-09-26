@@ -13,7 +13,6 @@ const Container = styled.div`
 
   @media screen and (max-width: ${breakpoints.dropdown}) {
     margin: ${props => (props.right ? '0 0 0 2rem' : '0 2rem 0 0')};
-    
   }
 
   @media screen and (max-width: ${breakpoints.medium}) {

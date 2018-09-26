@@ -41,16 +41,20 @@ const ImageGalleryWrapper = styled.div`
 
 const SlideTitle = styled.h2`
   position: relative;
-  padding: 1em;
+  padding: 1rem;
   font-size: 4em;
   color: white;
 
-  @media screen and (max-width: ${breakpoints.medium}) {
+  @media screen and (max-width: ${breakpoints.dropdown}) {
     font-size: 3em;
   }
 
-  @media screen and (max-width: ${breakpoints.small}) {
+  @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 2.5em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 1.5em;
     padding: 0.5rem 1em;
   }
 `;
@@ -60,11 +64,15 @@ const LinkButton = styled.a`
   background-color: ${({ theme }) => theme.color.lightBlue};
   border: solid 1px #ffffff;
   font-size: 0.9em;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   color: white;
   border-radius: 0.6em;
   text-decoration: none;
   margin-top: 1rem;
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    margin-top: 0;
+  }
 `;
 
 const PhraseOverlay = styled.div`

@@ -216,7 +216,7 @@ const Arrow = styled.i`
 `;
 
 const Return = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 1em;
   left: 1em;
   color: ${props => props.theme.color.black};
@@ -299,7 +299,8 @@ class HowToHelp extends Component {
           {content.map((item, index) => (
             <Square
               key={item.text}
-              onClick={() => this.openModalHandler(index)}>
+              onClick={() => this.openModalHandler(index)}
+            >
               <SquarePicture src={item.image} />
               <SquareText>{item.text}</SquareText>
             </Square>
@@ -308,7 +309,8 @@ class HowToHelp extends Component {
         <StyledModal
           isOpen={this.state.showModal}
           onRequestClose={this.closeModalHandler}
-          contentLabel={content[this.state.modalContent].text}>
+          contentLabel={content[this.state.modalContent].text}
+        >
           {this.addExtraProps(content[this.state.modalContent].component, {
             changeModal: this.changeModalHandler,
           })}

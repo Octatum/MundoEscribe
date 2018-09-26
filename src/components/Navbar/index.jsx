@@ -27,11 +27,16 @@ const Logo = styled.img`
 const ToggleButton = styled.i`
   float: right;
   font-size: 3em;
-  padding: 1rem;
+  padding: 0.5em;
   cursor: pointer;
 
   @media screen and (min-width: ${breakpoints.dropdown}) {
     display: none !important;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    margin-top: 0.5em;
+    font-size: 2em;
   }
 `;
 
@@ -181,15 +186,18 @@ class Navbar extends Component {
                 Lo que hacemos
                 <Submenu>
                   <AnchorListItem
-                    onClick={() => this.props.scrollToRef('activities')}>
+                    onClick={() => this.props.scrollToRef('activities')}
+                  >
                     Lo que hacemos
                   </AnchorListItem>
                   <AnchorListItem
-                    onClick={() => this.props.scrollToRef('projects')}>
+                    onClick={() => this.props.scrollToRef('projects')}
+                  >
                     Proyectos
                   </AnchorListItem>
                   <AnchorListItem
-                    onClick={() => this.props.scrollToRef('benefits')}>
+                    onClick={() => this.props.scrollToRef('benefits')}
+                  >
                     Beneficios
                   </AnchorListItem>
                 </Submenu>
@@ -224,14 +232,16 @@ class Navbar extends Component {
             <li>
               <Anchor
                 href="https://www.facebook.com/elmundoescribe/"
-                target="_blank">
+                target="_blank"
+              >
                 <i className="fab fa-facebook-f fa-fw fa-lg" />
               </Anchor>
             </li>
             <li>
               <Anchor
                 href="https://www.instagram.com/elmundoescribe/"
-                target="_blank">
+                target="_blank"
+              >
                 <i className="fab fa-instagram fa-fw fa-lg" />
               </Anchor>
             </li>

@@ -23,7 +23,7 @@ const hexToRGB = (hex, alpha) => {
 const Container = styled.div`
   display: flex;
   position: relative;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
@@ -101,11 +101,16 @@ const SquareText = styled.p`
 `;
 
 const PhotoGrid = styled.div`
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1em 1em;
+  display: flex;
+  flex-flow: row wrap;
   width: 50%;
+  
+  @supports (display: grid) {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em 1em;
+  }
 
   @media screen and (max-width: ${breakpoints.medium}) {
     position: relative;
@@ -117,11 +122,19 @@ const PhotoGrid = styled.div`
 `;
 
 const Photo = styled.div`
+  flex: 1;
+  min-width: 50%;
+  max-width: 50%;
   display: flex;
   height: 100%;
   width: 100%;
   background: url(${props => props.image}) no-repeat center center;
   background-size: cover;
+
+  @supports (display: grid) {
+    flex: initial;
+    max-width: unset;
+  }
 `;
 
 const OpaqueDiv = styled.div`
@@ -284,4 +297,5 @@ const Products = props => (
     </RightContainer>
   </Container>
 );
+
 export default Products;

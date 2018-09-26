@@ -23,13 +23,17 @@ const Header = styled.h2`
 
 const BannerText = styled.p`
   font-size: 1.5em;
-  font-style: italic;
-  align-self: flex-start;
-  margin-left: 2rem;
-  width: 55%;
+  align-self: center;
+  text-align: center;
+  width: 70%;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     width: 80%;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    width: 90%;
+    font-size: 1.2em;
   }
 `;
 
@@ -82,10 +86,15 @@ const Banner = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  flex-direction: column;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     flex-direction: column;
   }
+`;
+
+const ItalicSpan = styled.span`
+  font-style: italic;
 `;
 
 const Contact = ({ innerRef }) => (
@@ -93,10 +102,13 @@ const Contact = ({ innerRef }) => (
     <Header>Contáctanos</Header>
     <Banner>
       <BannerText>
-        “Toda persona tiene derecho a la expresión libre de su voz. Cuestionar,
-        buscar y crear alternativas es el camino de todo cambio”.
+        <ItalicSpan>
+          “Toda persona tiene derecho a la expresión libre de su voz.
+          Cuestionar, buscar y crear alternativas es el camino de todo cambio”.
+        </ItalicSpan>{' '}
+        Ángeles Favela, Fundadora
       </BannerText>
-      <AuthorQuote>Ángeles Favela, Fundadora</AuthorQuote>
+      <AuthorQuote />
     </Banner>
     <FormAndInfo>
       <ContactForm />

@@ -17,22 +17,19 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 20em;
-  padding: 4em 6em 1em;
+  padding: 4em 6em;
   text-align: center;
   background: url(${collage}) no-repeat center center;
   background-size: cover;
   color: ${props => props.theme.color.white};
   flex: 1;
   position: relative;
+  align-items: center;
+  justify-content: space-between;
 
   p {
     font-size: 2em;
     padding: 1rem 0;
-  }
-
-  img {
-    height: 5em;
-    padding: 1em 0;
   }
 
   @media screen and (max-width: ${breakpoints.dropdown}) {
@@ -42,14 +39,20 @@ const Container = styled.div`
   @media screen and (max-width: ${breakpoints.medium}) {
     height: 23em;
     font-size: 0.7em;
-
-    img {
-      padding: 0.5em 0;
-    }
   }
 
   @media screen and (max-width: ${breakpoints.small}) {
     font-size: 0.6em;
+    height: 30em;
+  }
+`;
+
+const Img = styled.img`
+  height: 5em;
+  padding: 1em 0;
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    padding: 0.5em 0;
   }
 `;
 
@@ -61,7 +64,7 @@ const CollageQuote = () => (
         poder proteger a una persona de su entorno, pero sí brindarle
         herramientas para que pueda transformarlo y vivir de la mejor manera.
       </p>
-      <img src={logo} />
+      <Img src={logo} />
     </Container>
   </CustomSection>
 );

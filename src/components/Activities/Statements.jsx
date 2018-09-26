@@ -46,14 +46,14 @@ const PhrasesSection = styled.section`
   background-size: 15%;
 
   @media screen and (max-width: ${breakpoints.medium}) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1.5fr 1fr 1fr 1.5fr;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1.6fr 0.7fr 0.7fr 1.5fr;
     height: auto;
     grid-template-areas:
-      ". p2 ."
-      "p1 . p3"
-      "p6 . p4"
-      ". p5 .";
+      ". p2 p2 p2 ."
+      "p1 p1 . p3 p3"
+      "p6 p6 . p4 p4"
+      ". p5 p5 p5 .";
     font-size: 0.7em;
   }
 `;
@@ -172,7 +172,7 @@ const PhraseDisplay = styled.p`
 
   @media screen and (max-width: ${breakpoints.medium}) {
     position: relative;
-    left: 1em;
+    margin-left: 0.5em;
     font-weight: normal;
     text-align: left;
   }
@@ -190,7 +190,7 @@ const Phrases = [
   {
     id: 2,
     phrase:
-      'Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermandados con todas las historias.',
+      'Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermanados con todas las historias.',
   },
   {
     id: 3,

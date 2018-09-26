@@ -30,6 +30,10 @@ const Header = styled.h2`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 3em;
   }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 2em;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -39,6 +43,11 @@ const Paragraph = styled.p`
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 1.5em;
     width: 70%;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 1em;
+    width: 90%;
   }
 `;
 

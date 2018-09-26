@@ -106,8 +106,7 @@ const ImageSection = styled.div`
   max-width: 40%;
 
   @media screen and (max-width: ${breakpoints.medium}) {
-
-  }  
+  }
 
   @media screen and (max-width: ${breakpoints.medium}) {
     max-width: 45%;
