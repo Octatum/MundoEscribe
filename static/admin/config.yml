@@ -1,6 +1,5 @@
 backend:
   name: git-gateway
-  branch: dev
 
 media_folder: static/assets/uploads
 public_folder: /assets/uploads
@@ -10,7 +9,7 @@ collections:
   - name: "texts"
     label: "Textos"
     folder: "content/texts"
-    create: true
+    create: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "text"}
@@ -40,7 +39,7 @@ collections:
   - name: "productImage"
     label: "Imágenes de productos"
     folder: "content/image"
-    create: true
+    create: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "productImage"}
@@ -50,7 +49,7 @@ collections:
   - name: "helpImage"
     label: "Imágenes de 'Cómo Ayudar'"
     folder: "content/helpImage"
-    create: true
+    create: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "helpImage"}
