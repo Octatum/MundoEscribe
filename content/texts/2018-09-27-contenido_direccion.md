@@ -6,9 +6,9 @@ content: |-
 
 
 
-  _Tel. (81) 2718 0074_
+  Tel. (81) 2718 0074
 
-  __
+
 
   Plaza Río | Avenida San Pedro 801 L9
 
