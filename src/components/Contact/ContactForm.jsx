@@ -4,7 +4,7 @@ import breakpoints from '../../utils/breakpoints';
 
 const Form = styled.form`
   flex: 1;
-  display: flex;
+  display: ${({hidden}) => hidden ? 'hidden' : 'flex'};
   flex-direction: column;
   width: 100%;
 `;
@@ -105,7 +105,6 @@ const Button = styled.button`
   color: ${props => props.theme.color.white};
   font-weight: inherit;
   font-size: 1.3em;
-  cursor: pointer;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     width: 25%;
@@ -115,6 +114,12 @@ const Button = styled.button`
     width: 30%;
   }
 `;
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 class ContactForm extends Component {
   state = {
@@ -131,23 +136,63 @@ class ContactForm extends Component {
     });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const self = this;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...self.state
+      })
+    })
+    .then(() => {
+      this.setState(() => {
+        return {
+          messageSent: true
+        };
+      }, () => {
+        alert("¡Tu mensaje ha sido enviado!");
+      })
+    })
+    .catch(error => alert(error));
+  };
+
   render() {
     return (
-      <Form>
+      <Form
+        name="contacto"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={this.handleChange} />
+          </label>
+        </p>
         <Data>
           <Group flex="1">
             <Field>
               <Label>Nombre</Label>
               <Input
+                disabled={this.state.messageSent}
                 type="text"
                 name="name"
                 value={this.state.name}
                 onChange={this.handleChange}
+                required
               />
             </Field>
             <Field>
               <Label>Teléfono</Label>
               <Input
+                disabled={this.state.messageSent}
                 type="text"
                 name="phone"
                 value={this.state.phone}
@@ -157,10 +202,12 @@ class ContactForm extends Component {
             <Field>
               <Label>Correo electrónico</Label>
               <Input
-                type="text"
+                disabled={this.state.messageSent}
+                type="email"
                 name="email"
                 value={this.state.email}
                 onChange={this.handleChange}
+                required
               />
             </Field>
           </Group>
@@ -168,14 +215,18 @@ class ContactForm extends Component {
             <Field>
               <Label indent="2em">Comentarios</Label>
               <TextArea
+                disabled={this.state.messageSent}
                 name="comments"
                 value={this.state.value}
                 onChange={this.handleChange}
+                required
               />
             </Field>
           </Group>
         </Data>
-        <Button>
+        <Button        
+          disabled={this.state.messageSent}
+        >
           <p>Enviar</p>
         </Button>
       </Form>
