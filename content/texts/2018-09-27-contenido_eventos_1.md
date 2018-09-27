@@ -1,10 +1,10 @@
 ---
 type: text
-title: contenido_eventos_2
+title: contenido_eventos_1
 content: |-
-  ## Conferencia
+  # Obra de teatro
 
-  Guadalupe Nettel
+  ## Ciclo de teatro en colaboración con casa Musa
 
   \*Fechas por confirmar\*
 ---
