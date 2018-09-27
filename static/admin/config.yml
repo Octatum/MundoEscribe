@@ -15,7 +15,7 @@ collections:
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "text"}
       - {label: "Título", name: "title", widget: "string"}
-      - {label: "Contenido", name: "content", widget: "string"}
+      - {label: "Contenido", name: "content", widget: "markdown"}
 
   - name: "reports"
     label: "Reportes"
