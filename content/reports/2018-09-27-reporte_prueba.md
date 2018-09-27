@@ -1,6 +1,6 @@
 ---
 type: report
-title: reporte_prueba
+title: Reporte prueba
 file: /assets/uploads/pdf-test.pdf
 ---
 
