@@ -187,6 +187,7 @@ class ContactForm extends Component {
                 disabled={this.state.messageSent}
                 type="text"
                 name="name"
+                autoComplete="name"
                 value={this.state.name}
                 onChange={this.handleChange}
                 required
@@ -198,6 +199,7 @@ class ContactForm extends Component {
                 disabled={this.state.messageSent}
                 type="text"
                 name="phone"
+                autoComplete="tel-national"
                 value={this.state.phone}
                 onChange={this.handleChange}
               />
@@ -208,6 +210,7 @@ class ContactForm extends Component {
                 disabled={this.state.messageSent}
                 type="email"
                 name="email"
+                autoComplete="email"
                 value={this.state.email}
                 onChange={this.handleChange}
                 required

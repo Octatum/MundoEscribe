@@ -4,7 +4,6 @@ import Markdown from 'react-markdown';
 import { graphql, StaticQuery } from 'gatsby';
 
 import breakpoints from '../../utils/breakpoints';
-import backgroundImage from './assets/events-picture.png';
 import icon from './assets/events-logo.svg';
 
 const Container = styled.div`
@@ -12,7 +11,7 @@ const Container = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  background: url(${backgroundImage}) no-repeat right center;
+  background: url('${({backgroundImage}) => backgroundImage}') no-repeat right center;
   background-size: cover;
   color: ${props => props.theme.color.white};
 
@@ -100,7 +99,7 @@ const Description = styled.div`
     box-sizing: border-box;
     padding: 2em 3%;
     margin: 2em 0;
-    background: url(${backgroundImage}) no-repeat right center;
+    background: url('${({backgroundImage}) => backgroundImage}') no-repeat right center;
     background-size: cover;
   }
 `;
@@ -137,6 +136,10 @@ const MarkdownContent = styled(Markdown)`
     font-size: 0.7em;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   @media screen and (max-width: ${breakpoints.medium}) {
     flex: 1;
     font-size: 1em;
@@ -148,47 +151,55 @@ const MarkdownContent = styled(Markdown)`
 `;
 
 const Events = props => (
-  <Container>
-    <Square>
-      <Arrow
-        className="fas fa-angle-left"
-        onClick={() => props.changeModal(false)}
-      />
-      <SquarePicture src={icon} />
-      <SquareText>Eventos</SquareText>
-      <Arrow
-        className="fas fa-angle-right"
-        onClick={() => props.changeModal(true)}
-        right
-      />
-    </Square>
-    <Description>
-      <StaticQuery
-        query={graphql`
-          {
-            eventoIzq: markdownRemark(
-              frontmatter: { title: { eq: "contenido_eventos_1" } }
-            ) {
-              frontmatter {
-                content
-              }
-            }
-
-            evento2: markdownRemark(
-              frontmatter: { title: { eq: "contenido_eventos_2" } }
-            ) {
-              frontmatter {
-                content
-              }
-            }
+  <StaticQuery
+    query={graphql`
+      {
+        eventoIzq: markdownRemark(
+          frontmatter: { title: { eq: "contenido_eventos_1" } }
+        ) {
+          frontmatter {
+            content
           }
-        `}
-        render={({ eventoIzq, evento2 }) => {
-          const { content } = eventoIzq.frontmatter;
-          console.log(content);
-          const { content: content2 } = evento2.frontmatter;
+        }
 
-          return (
+        evento2: markdownRemark(
+          frontmatter: { title: { eq: "contenido_eventos_2" } }
+        ) {
+          frontmatter {
+            content
+          }
+        }
+
+        backgroundImage: markdownRemark(
+          frontmatter: { title: { eq: "imagen_eventos" } }
+        ) {
+          frontmatter {
+            image
+          }
+        }
+      }
+    `}
+    render={({ eventoIzq, evento2, backgroundImage }) => {
+      const { content } = eventoIzq.frontmatter;
+      const { content: content2 } = evento2.frontmatter;
+      const { image } = backgroundImage.frontmatter;
+
+      return (
+        <Container backgroundImage={image}>
+          <Square>
+            <Arrow
+              className="fas fa-angle-left"
+              onClick={() => props.changeModal(false)}
+            />
+            <SquarePicture src={icon} />
+            <SquareText>Eventos</SquareText>
+            <Arrow
+              className="fas fa-angle-right"
+              onClick={() => props.changeModal(true)}
+              right
+            />
+          </Square>
+          <Description backgroundImage={image}>
             <React.Fragment>
               <Info flex="1">
                 <MarkdownContent>{content}</MarkdownContent>
@@ -198,11 +209,11 @@ const Events = props => (
                 <MarkdownContent>{content2}</MarkdownContent>
               </Info>
             </React.Fragment>
-          );
-        }}
-      />
-    </Description>
-  </Container>
+          </Description>
+        </Container>
+      );
+    }}
+  />
 );
 
 export default Events;

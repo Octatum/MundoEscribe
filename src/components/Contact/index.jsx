@@ -89,13 +89,17 @@ const Contact = ({ innerRef }) => (
   <StaticQuery
     query={graphql`
       {
-        quote: markdownRemark(frontmatter: { title: { eq: "contenido_cita" } }) {
+        quote: markdownRemark(
+          frontmatter: { title: { eq: "contenido_cita" } }
+        ) {
           frontmatter {
             content
           }
         }
 
-        address: markdownRemark(frontmatter: { title: { eq: "contenido_direccion" } }) {
+        address: markdownRemark(
+          frontmatter: { title: { eq: "contenido_direccion" } }
+        ) {
           frontmatter {
             content
           }
@@ -116,9 +120,7 @@ const Contact = ({ innerRef }) => (
             <ContactForm />
             <ContactInfo>
               <Logo src={logo} />
-              <Markdown>
-                {addressContent}
-              </Markdown>
+              <Markdown>{addressContent}</Markdown>
             </ContactInfo>
           </FormAndInfo>
         </CustomSection>

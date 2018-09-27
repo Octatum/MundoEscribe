@@ -184,7 +184,6 @@ const Donations = props => (
         `}
         render={({ markdownRemark }) => {
           const { content } = markdownRemark.frontmatter;
-          console.log(content);
 
           return <Paragraph>{content}</Paragraph>;
         }}

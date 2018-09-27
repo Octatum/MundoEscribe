@@ -31,6 +31,13 @@ module.exports = {
         name: 'image'
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/helpImage`,
+        name: 'helpImage'
+      }
+    },
     'gatsby-transformer-remark'
   ],
 }
