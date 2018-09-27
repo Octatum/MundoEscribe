@@ -44,5 +44,5 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "productImage"}
-      - {label: "Nombre", name: "name", widget: "string"}
+      - {label: "Nombre", name: "title", widget: "string"}
       - {label: "Imagen", name: "image", widget: "image"}
