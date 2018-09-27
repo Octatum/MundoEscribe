@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components';
 
 import './index.css';
 import { globalTheme } from '../../utils/theme';
-import { StaticQuery } from 'gatsby';
 
 const AppLayout = ({ children, data }) => (
   <ThemeProvider theme={globalTheme}>
@@ -27,13 +26,13 @@ const AppLayout = ({ children, data }) => (
           {
             rel: 'shorcut icon',
             href: '/favicon.ico',
-            type: 'image/x-icon'
+            type: 'image/x-icon',
           },
           {
             rel: 'icon',
             href: '/favicon.ico',
-            type: 'image/x-icon'
-          }
+            type: 'image/x-icon',
+          },
         ]}
       />
       {children}

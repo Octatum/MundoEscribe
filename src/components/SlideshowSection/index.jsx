@@ -6,11 +6,8 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
-import image1 from './assets/1.png';
-import image2 from './assets/2.png';
-import image3 from './assets/3.png';
-import image4 from './assets/4.png';
 import CustomSlide from './CustomSlide';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Layout = Section.extend`
   margin-bottom: 4.2em;
@@ -99,43 +96,68 @@ const PhraseOverlay = styled.div`
 `;
 
 const SlideshowSection = React.forwardRef((props, forwardedRef) => {
-  const images = [
-    {
-      backgroundImage: image1,
-    },
-    {
-      backgroundImage: image2,
-    },
-    {
-      backgroundImage: image3,
-    },
-    {
-      backgroundImage: image4,
-    },
-  ];
-
   const { scrollToRef } = props;
 
   return (
-    <Layout fluid innerRef={forwardedRef}>
-      <ImageGalleryWrapper>
-        <ImageGallery
-          items={images}
-          renderItem={props => <CustomSlide {...props} />}
-          showThumbnails={false}
-          showFullscreenButton={false}
-          showPlayButton={false}
-          slideDuration={1000}
-          autoPlay
-          showBullets
-          lazyLoad
-        />
-      </ImageGalleryWrapper>
-      <PhraseOverlay>
-        <SlideTitle>Ayúdame a crear mi historia</SlideTitle>
-        <LinkButton onClick={() => scrollToRef()}>¿Quiénes somos?</LinkButton>
-      </PhraseOverlay>
-    </Layout>
+    <StaticQuery
+      query={graphql`
+        {
+          allMarkdownRemark(
+            filter: { frontmatter: { type: { eq: "slides" } } }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  backgroundImage: image
+                }
+              }
+            }
+          }
+
+          header: markdownRemark(
+            frontmatter: { title: { eq: "encabezado_slideshow" } }
+          ) {
+            frontmatter {
+              title
+              content
+            }
+          }
+        }
+      `}
+      render={({ allMarkdownRemark, header }) => {
+        const { edges } = allMarkdownRemark;
+        const headerContent = header.frontmatter.content;
+        const images = edges.map(({ node }) => ({
+          title: node.frontmatter.title,
+          backgroundImage: node.frontmatter.backgroundImage,
+        }));
+
+        return (
+          <Layout fluid innerRef={forwardedRef}>
+            <ImageGalleryWrapper>
+              <ImageGallery
+                items={images}
+                renderItem={props => <CustomSlide {...props} />}
+                showThumbnails={false}
+                showFullscreenButton={false}
+                showPlayButton={false}
+                slideDuration={1000}
+                autoPlay
+                showBullets
+                lazyLoad
+              />
+            </ImageGalleryWrapper>
+            <PhraseOverlay>
+              <SlideTitle>{headerContent}</SlideTitle>
+              <LinkButton onClick={() => scrollToRef()}>
+                ¿Quiénes somos?
+              </LinkButton>
+            </PhraseOverlay>
+          </Layout>
+        );
+      }}
+    />
   );
 });
 

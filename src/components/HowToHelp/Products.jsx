@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
+import { graphql, StaticQuery } from 'gatsby';
 
 import breakpoints from '../../utils/breakpoints';
 import icon from './assets/products-logo.svg';
 import logo from './../assets/logo.svg';
-import diary from './assets/products-diary.png';
-import pens from './assets/products-pens.png';
-import water from './assets/products-water.png';
-import shirts from './assets/products-shirts.png';
 
 const hexToRGB = (hex, alpha) => {
   const r = parseInt(hex.slice(1, 3), 16),
@@ -19,6 +17,12 @@ const hexToRGB = (hex, alpha) => {
   }
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
+
+const MarkdownContent = styled(Markdown)`
+  > p:not(:first-child) {
+    padding-top: 1em;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -165,6 +169,7 @@ const PhotoName = styled.div`
   background: ${props => hexToRGB(props.theme.color.lightBlue, 0.85)};
   opacity: 0;
   transition: all 0.3s;
+  text-transform: capitalize;
 
   ${Photo}:hover & {
     opacity: 1;
@@ -235,67 +240,82 @@ const Button = styled.button`
   }
 `;
 
-const pictures = [
-  {
-    name: 'Diario',
-    url: diary,
-  },
-  {
-    name: 'Pluma',
-    url: pens,
-  },
-  {
-    name: 'Agua',
-    url: water,
-  },
-  {
-    name: 'Playera',
-    url: shirts,
-  },
-];
+const Products = props => {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          allMarkdownRemark(
+            filter: { frontmatter: { type: { eq: "productImage" } } }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  image
+                }
+              }
+            }
+          }
 
-const Products = props => (
-  <Container>
-    <Square>
-      <Arrow
-        className="fas fa-angle-left"
-        onClick={() => props.changeModal(false)}
-      />
-      <SquarePicture src={icon} />
-      <SquareText>Productos</SquareText>
-      <Arrow
-        className="fas fa-angle-right"
-        onClick={() => props.changeModal(true)}
-        right
-      />
-    </Square>
-    <PhotoGrid>
-      {pictures.map(pic => (
-        <Photo image={pic.url}>
-          <OpaqueDiv>
-            <PhotoName>{pic.name}</PhotoName>
-          </OpaqueDiv>
-        </Photo>
-      ))}
-      <Button>
-        <i className="fas fa-shopping-cart fa-3x" />
-      </Button>
-    </PhotoGrid>
-    <RightContainer>
-      <Description>
-        <p>
-          Al comprar uno de estos productos estás apoyando a Te tempor
-          exquisitaque an voluptate fore illum ubi tempor.
-          <br />
-          <br />
-          Commodo nisi quis ullamco aliqua, ex an ipsum amet anim. Labore an
-          cernantur, dolore distinguantur mentitum tempor eiusmod. Quorum se sed
-          eram quamquam et nulla efflorescere excepteur noster voluptate.
-        </p>
-        <Logo src={logo} />
-      </Description>
-    </RightContainer>
-  </Container>
-);
+          markdownRemark(
+            frontmatter: { title: { eq: "contenido_productos" } }
+          ) {
+            frontmatter {
+              content
+            }
+          }
+        }
+      `}
+      render={({ allMarkdownRemark, markdownRemark }) => {
+        const { edges } = allMarkdownRemark;
+        const pictures = edges.map(({ node }) => ({
+          title: node.frontmatter.title,
+          image: node.frontmatter.image,
+        }));
+        const { content } = markdownRemark.frontmatter;
+
+        return (
+          <Container>
+            <Square>
+              <Arrow
+                className="fas fa-angle-left"
+                onClick={() => props.changeModal(false)}
+              />
+              <SquarePicture src={icon} />
+              <SquareText>Productos</SquareText>
+              <Arrow
+                className="fas fa-angle-right"
+                onClick={() => props.changeModal(true)}
+                right
+              />
+            </Square>
+            <PhotoGrid>
+              <React.Fragment>
+                {pictures.map(pic => (
+                  <Photo image={pic.image}>
+                    <OpaqueDiv>
+                      <PhotoName>{pic.title}</PhotoName>
+                    </OpaqueDiv>
+                  </Photo>
+                ))}
+              </React.Fragment>
+
+              <Button>
+                <i className="fas fa-shopping-cart fa-3x" />
+              </Button>
+            </PhotoGrid>
+            <RightContainer>
+              <Description>
+                <MarkdownContent>{content}</MarkdownContent>
+                <Logo src={logo} />
+              </Description>
+            </RightContainer>
+          </Container>
+        );
+      }}
+    />
+  );
+};
 
 export default Products;

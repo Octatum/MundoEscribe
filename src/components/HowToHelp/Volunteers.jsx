@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
+import { graphql, StaticQuery } from 'gatsby';
 
 import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/volunteers-picture.png';
@@ -157,29 +159,27 @@ const Volunteers = props => (
     </Square>
     <FlexContainer>
       <Description>
-        <ul>
-          <li>
-            Participa como instructor o intégrate a nuestro equipo de
-            voluntariado en cualquiera de nuestros proyectos.
-          </li>
-          <li>Colabora y promueve la misión de El mundo escribe.</li>
-          <li>
-            Actúa como enlace entre la fundación y tu empresa o grupo de
-            amistades. Vive la experiencia de ayudar a otros en el ejercicio de
-            su expresión.
-          </li>
-          <li>
-            Ayúdanos a recaudar material de escritura: hojas, libretas, diarios
-            y plumas.
-          </li>
-          <li>
-            Asiste a nuestras actividades culturales de beneficio, obras de
-            teatro y conferencias.
-          </li>
-        </ul>
+        <StaticQuery
+          query={graphql`
+            {
+              markdownRemark(
+                frontmatter: { title: { eq: "contenido_voluntariado" } }
+              ) {
+                frontmatter {
+                  content
+                }
+              }
+            }
+          `}
+          render={({ markdownRemark }) => {
+            const { frontmatter } = markdownRemark;
+
+            return <Markdown>{frontmatter.content}</Markdown>;
+          }}
+        />
       </Description>
       <Logo>
-        <img src={logo} />
+        <img src={logo} alt="" />
       </Logo>
     </FlexContainer>
   </Container>

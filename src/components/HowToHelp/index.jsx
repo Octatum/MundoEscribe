@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 import ReactModal from 'react-modal';
 
 import breakpoints from '../../utils/breakpoints';
@@ -15,6 +14,7 @@ import imageA from './assets/donations-logo.svg';
 import imageB from './assets/volunteers-logo.svg';
 import imageC from './assets/products-logo.svg';
 import imageD from './assets/events-logo.svg';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Modal = ({ className, ...props }) => {
   const contentClassName = `${className}__content`;
@@ -124,17 +124,7 @@ const SquareText = styled.p`
   }
 `;
 
-const InformBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 3em 0;
-  color: ${props => props.theme.color.white};
-  background: ${props => props.theme.color.black};
-`;
-
-const Button = styled.div`
+const Button = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,10 +133,12 @@ const Button = styled.div`
   border-radius: 10px;
   margin-bottom: 0.5em;
   background: ${props => props.theme.color.lightBlue};
+  text-decoration: none;
 `;
 
-const ButtonText = styled.p`
-  font-size: ${props => props.size || '1em'};
+const ButtonText = styled.div`
+  padding: 0.5em 0;
+  color: white;
 `;
 
 const StyledModal = styled(Modal)`
@@ -288,10 +280,6 @@ class HowToHelp extends Component {
   );
 
   render() {
-    const PickModal = React.cloneElement(
-      content[this.state.modalContent].component
-    );
-
     return (
       <CustomSection innerRef={this.props.innerRef} fluid>
         <Header>¿Cómo ayudar?</Header>
@@ -329,10 +317,33 @@ class HowToHelp extends Component {
         </StyledModal>
         <SectionBanner innerRef={this.props.createRef('report')} dark>
           <Header>Informes anuales</Header>
-          <Button>
-            <ButtonText>Informes 2018</ButtonText>
-            <ButtonText size="0.6em">(en proceso)</ButtonText>
-          </Button>
+
+          <StaticQuery
+            query={graphql`
+              {
+                markdownRemark(frontmatter: { type: { eq: "report" } }) {
+                  frontmatter {
+                    title
+                    file
+                  }
+                }
+              }
+            `}
+            render={({ markdownRemark }) => {
+              return (
+                <Button
+                  href={markdownRemark ? markdownRemark.frontmatter.file : '#'}
+                  target={markdownRemark && '_blank'}
+                >
+                  <ButtonText>
+                    {markdownRemark
+                      ? markdownRemark.frontmatter.title
+                      : 'En proceso'}
+                  </ButtonText>
+                </Button>
+              );
+            }}
+          />
         </SectionBanner>
       </CustomSection>
     );

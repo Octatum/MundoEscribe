@@ -4,7 +4,7 @@ import breakpoints from '../../utils/breakpoints';
 
 const Form = styled.form`
   flex: 1;
-  display: ${({hidden}) => hidden ? 'hidden' : 'flex'};
+  display: ${({ hidden }) => (hidden ? 'hidden' : 'flex')};
   flex-direction: column;
   width: 100%;
 `;
@@ -117,8 +117,8 @@ const Button = styled.button`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 class ContactForm extends Component {
@@ -140,24 +140,27 @@ class ContactForm extends Component {
     e.preventDefault();
     const form = e.target;
     const self = this;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...self.state
-      })
+        'form-name': form.getAttribute('name'),
+        ...self.state,
+      }),
     })
-    .then(() => {
-      this.setState(() => {
-        return {
-          messageSent: true
-        };
-      }, () => {
-        alert("¡Tu mensaje ha sido enviado!");
+      .then(() => {
+        this.setState(
+          () => {
+            return {
+              messageSent: true,
+            };
+          },
+          () => {
+            alert('¡Tu mensaje ha sido enviado!');
+          }
+        );
       })
-    })
-    .catch(error => alert(error));
+      .catch(error => alert(error));
   };
 
   render() {
@@ -172,7 +175,7 @@ class ContactForm extends Component {
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
-            Don’t fill this out:{" "}
+            Don’t fill this out:{' '}
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </p>
@@ -224,9 +227,7 @@ class ContactForm extends Component {
             </Field>
           </Group>
         </Data>
-        <Button        
-          disabled={this.state.messageSent}
-        >
+        <Button disabled={this.state.messageSent}>
           <p>Enviar</p>
         </Button>
       </Form>

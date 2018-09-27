@@ -21,7 +21,6 @@ const PageLayout = styled.div`
 class IndexPage extends React.Component {
   createSetRef = refName => {
     return elementRef => {
-      console.log(refName, elementRef);
       this.refs = {
         ...this.refs,
         [refName]: elementRef,
@@ -30,8 +29,6 @@ class IndexPage extends React.Component {
   };
 
   scrollToRef = refName => {
-    console.log(this.refs[refName]);
-
     if (this.refs[refName]) {
       this.refs[refName].scrollIntoView();
       window.scrollBy(0, -120);

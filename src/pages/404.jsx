@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AppLayout from '../components/AppLayout';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Link from 'gatsby-link';
 

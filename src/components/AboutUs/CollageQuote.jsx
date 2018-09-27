@@ -5,6 +5,7 @@ import breakpoints from '../../utils/breakpoints';
 import collage from './assets/collage.png';
 import logo from '../assets/logo.svg';
 import Section from './../Section';
+import { StaticQuery, graphql } from 'gatsby';
 
 const CustomSection = Section.extend`
   padding-top: 5%;
@@ -59,11 +60,23 @@ const Img = styled.img`
 const CollageQuote = () => (
   <CustomSection fluid>
     <Container>
-      <p>
-        En la Fundación El mundo escribe sabemos que existe la posibilidad de no
-        poder proteger a una persona de su entorno, pero sí brindarle
-        herramientas para que pueda transformarlo y vivir de la mejor manera.
-      </p>
+      <StaticQuery
+        query={graphql`
+          {
+            markdownRemark(frontmatter: { title: { eq: "contenido_banner" } }) {
+              frontmatter {
+                content
+              }
+            }
+          }
+        `}
+        render={({ markdownRemark }) => {
+          const { content } = markdownRemark.frontmatter;
+
+          return <p>{content}</p>;
+        }}
+      />
+
       <Img src={logo} />
     </Container>
   </CustomSection>

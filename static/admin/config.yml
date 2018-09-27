@@ -46,3 +46,13 @@ collections:
       - {label: "Type", name: "type", widget: "hidden", default: "productImage"}
       - {label: "Nombre", name: "title", widget: "string"}
       - {label: "Imagen", name: "image", widget: "image"}
+
+  - name: "helpImage"
+    label: "Imágenes de 'Cómo Ayudar'"
+    folder: "content/helpImage"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "helpImage"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}

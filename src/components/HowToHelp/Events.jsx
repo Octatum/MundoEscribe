@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
+import { graphql, StaticQuery } from 'gatsby';
 
 import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/events-picture.png';
 import icon from './assets/events-logo.svg';
-import casaMusaLogo from './assets/casa-musa-logo.svg';
 
 const Container = styled.div`
   display: flex;
@@ -113,36 +114,6 @@ const Info = styled.div`
 
   @media screen and (max-width: ${breakpoints.medium}) {
     flex: 1;
-    font-size: 1em;
-  }
-
-  @media screen and (max-width: ${breakpoints.small}) {
-    font-size: 0.8em;
-  }
-`;
-
-const Header = styled.h3`
-  font-size: 1.5em;
-  padding: 0.5rem 0;
-`;
-
-const Paragraph = styled.p`
-  padding: 0.5rem 0;
-`;
-
-const SmallText = Paragraph.extend`
-  font-size: 0.7em;
-`;
-
-const Logo = styled.img`
-  padding: 1em;
-
-  @media screen and (max-width: ${breakpoints.medium}) {
-    height: 5em;
-  }
-
-  @media screen and (max-width: ${breakpoints.small}) {
-    height: 4em;
   }
 `;
 
@@ -150,6 +121,30 @@ const VerticalLine = styled.div`
   height: 100%;
   width: 2px;
   background: ${props => props.theme.color.lightBlue};
+`;
+
+const MarkdownContent = styled(Markdown)`
+  h1 {
+    font-size: 1.5em;
+    padding: 0.5rem 0;
+  }
+
+  h2 {
+    padding: 0.5rem 0;
+  }
+
+  p {
+    font-size: 0.7em;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    flex: 1;
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: ${breakpoints.small}) {
+    font-size: 0.8em;
+  }
 `;
 
 const Events = props => (
@@ -168,18 +163,44 @@ const Events = props => (
       />
     </Square>
     <Description>
-      <Info flex="1">
-        <Header>Obra de teatro</Header>
-        <Paragraph>Ciclo de teatro en colaboración con casa Musa</Paragraph>
-        <SmallText>* Fechas por confirmar *</SmallText>
-        <Logo src={casaMusaLogo} />
-      </Info>
-      <VerticalLine />
-      <Info flex="1.4">
-        <Header>Conferencia</Header>
-        <Paragraph>Guadalupe Nettel</Paragraph>
-        <SmallText>* Fechas por confirmar *</SmallText>
-      </Info>
+      <StaticQuery
+        query={graphql`
+          {
+            eventoIzq: markdownRemark(
+              frontmatter: { title: { eq: "contenido_eventos_1" } }
+            ) {
+              frontmatter {
+                content
+              }
+            }
+
+            evento2: markdownRemark(
+              frontmatter: { title: { eq: "contenido_eventos_2" } }
+            ) {
+              frontmatter {
+                content
+              }
+            }
+          }
+        `}
+        render={({ eventoIzq, evento2 }) => {
+          const { content } = eventoIzq.frontmatter;
+          console.log(content);
+          const { content: content2 } = evento2.frontmatter;
+
+          return (
+            <React.Fragment>
+              <Info flex="1">
+                <MarkdownContent>{content}</MarkdownContent>
+              </Info>
+              <VerticalLine />
+              <Info flex="1.4">
+                <MarkdownContent>{content2}</MarkdownContent>
+              </Info>
+            </React.Fragment>
+          );
+        }}
+      />
     </Description>
   </Container>
 );

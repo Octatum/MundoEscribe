@@ -30,7 +30,7 @@ const Container = styled.div`
 
 const NoteIcon = props => (
   <Container onClick={props.onClick}>
-    <img src={icon} />
+    <img src={icon} alt="" />
     {props.children}
   </Container>
 );

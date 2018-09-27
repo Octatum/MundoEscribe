@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
 
 import breakpoints from '../../utils/breakpoints';
 import Section from './../Section';
-import SectionBanner from './../SectionBanner';
 import ContactForm from './ContactForm';
 import logo from './assets/logo.svg';
+import { StaticQuery, graphql } from 'gatsby';
 
 const CustomSection = Section.extend`
   flex-direction: column;
@@ -21,11 +22,15 @@ const Header = styled.h2`
   }
 `;
 
-const BannerText = styled.p`
+const BannerText = styled(Markdown)`
   font-size: 1.5em;
   align-self: center;
   text-align: center;
   width: 70%;
+
+  em {
+    font-style: italic;
+  }
 
   @media screen and (max-width: ${breakpoints.medium}) {
     width: 80%;
@@ -64,19 +69,6 @@ const Logo = styled.img`
   padding-top: 7em;
 `;
 
-const AuthorQuote = styled(BannerText)`
-  font-size: 1.5rem;
-  box-sizing: border-box;
-  padding-right: 1rem;
-  text-align: right;
-  flex: 1;
-  align-self: flex-end;
-
-  @media screen and (max-width: ${breakpoints.medium}) {
-    font-size: 1.2rem;
-  }
-`;
-
 const Banner = styled.div`
   background: ${props => props.theme.color.lightBlue};
   color: ${props => props.theme.color.white};
@@ -93,41 +85,46 @@ const Banner = styled.div`
   }
 `;
 
-const ItalicSpan = styled.span`
-  font-style: italic;
-`;
-
 const Contact = ({ innerRef }) => (
-  <CustomSection innerRef={innerRef} fluid>
-    <Header>Contáctanos</Header>
-    <Banner>
-      <BannerText>
-        <ItalicSpan>
-          “Toda persona tiene derecho a la expresión libre de su voz.
-          Cuestionar, buscar y crear alternativas es el camino de todo cambio”.
-        </ItalicSpan>{' '}
-        Ángeles Favela, Fundadora
-      </BannerText>
-      <AuthorQuote />
-    </Banner>
-    <FormAndInfo>
-      <ContactForm />
-      <ContactInfo>
-        <Logo src={logo} />
-        <p>
-          contacto@elmundoescribe.org
-          <br />
-          Tel. (81) 2718 0074
-          <br />
-          Plaza Río | Avenida San Pedro 801 L9
-          <br />
-          Colonia Fuentes del Valle CP 66224
-          <br />
-          San Pedro, Garza García, N.L. , México
-        </p>
-      </ContactInfo>
-    </FormAndInfo>
-  </CustomSection>
+  <StaticQuery
+    query={graphql`
+      {
+        quote: markdownRemark(frontmatter: { title: { eq: "contenido_cita" } }) {
+          frontmatter {
+            content
+          }
+        }
+
+        address: markdownRemark(frontmatter: { title: { eq: "contenido_direccion" } }) {
+          frontmatter {
+            content
+          }
+        }
+      }
+    `}
+    render={({ quote, address }) => {
+      const { content } = quote.frontmatter;
+      const { content: addressContent } = address.frontmatter;
+
+      return (
+        <CustomSection innerRef={innerRef} fluid>
+          <Header>Contáctanos</Header>
+          <Banner>
+            <BannerText>{content}</BannerText>
+          </Banner>
+          <FormAndInfo>
+            <ContactForm />
+            <ContactInfo>
+              <Logo src={logo} />
+              <Markdown>
+                {addressContent}
+              </Markdown>
+            </ContactInfo>
+          </FormAndInfo>
+        </CustomSection>
+      );
+    }}
+  />
 );
 
 export default React.forwardRef((props, ref) => (

@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
+import { graphql, StaticQuery } from 'gatsby';
 
 import breakpoints from '../../utils/breakpoints';
 import backgroundImage from './assets/donations-picture.png';
@@ -101,9 +103,16 @@ const Description = styled.div`
   }
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled(Markdown)`
   font-size: 1.2em;
-  text-indent: 1em;
+
+  > p:first-of-type {
+    text-indent: 1em;
+  }
+
+  > :not(:first-child) {
+    padding-top: 1em;
+  }
 
   @media screen and (max-width: ${breakpoints.medium}) {
     font-size: 0.9em;
@@ -161,19 +170,25 @@ const Donations = props => (
       />
     </Square>
     <Description>
-      <Paragraph>
-        Tus donativos económicos hacen posible que cientos de personas
-        encuentren en la escritura un canal de expresión, una luz de esperanza y
-        nuevos caminos para continuar el trayecto de sus vidas.
-        <br />
-        <br />
-        No importa la cantidad. ¡Ayúdanos a llevar la escritura como herramienta
-        a la vida de muchas personas!
-        <br />
-        <br />
-        Tu apoyo como persona física o como empresa, convierte sueños en
-        realidades.
-      </Paragraph>
+      <StaticQuery
+        query={graphql`
+          {
+            markdownRemark(
+              frontmatter: { title: { eq: "contenido_donativos" } }
+            ) {
+              frontmatter {
+                content
+              }
+            }
+          }
+        `}
+        render={({ markdownRemark }) => {
+          const { content } = markdownRemark.frontmatter;
+          console.log(content);
+
+          return <Paragraph>{content}</Paragraph>;
+        }}
+      />
       <Logo src={logo} />
     </Description>
     <Button>
