@@ -24,6 +24,16 @@ const AppLayout = ({ children, data }) => (
               'sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ',
             crossorigin: 'anonymous',
           },
+          {
+            rel: 'shorcut icon',
+            href: '/favicon.ico',
+            type: 'image/x-icon'
+          },
+          {
+            rel: 'icon',
+            href: '/favicon.ico',
+            type: 'image/x-icon'
+          }
         ]}
       />
       {children}

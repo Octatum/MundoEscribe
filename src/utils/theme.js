@@ -1,3 +1,4 @@
+// Desarrollado por Octatum en conjunto con Katartico.
 export const globalTheme = {
   color: {
     white: '#ffffff',

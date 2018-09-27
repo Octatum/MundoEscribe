@@ -1,3 +1,4 @@
+// Desarrollado por Octatum en conjunto con Katartico.
 import React from 'react';
 import styled from 'styled-components';
 

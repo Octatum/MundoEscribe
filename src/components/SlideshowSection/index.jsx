@@ -1,3 +1,4 @@
+// Desarrollado por Octatum en conjunto con Katartico.
 import React from 'react';
 import styled from 'styled-components';
 import ImageGallery from 'react-image-gallery';
@@ -14,6 +15,7 @@ import CustomSlide from './CustomSlide';
 const Layout = Section.extend`
   margin-bottom: 4.2em;
   position: relative;
+  margin-top: 6.6em;
 
   > div {
     flex: 1;
@@ -25,6 +27,14 @@ const Layout = Section.extend`
         flex: 1;
       }
     }
+  }
+
+  @media screen and (max-width: ${breakpoints.dropdown}) {
+    margin-top: 6.6em;
+  }
+
+  @media screen and (max-width: ${breakpoints.medium}) {
+    margin-top: 6.6em;
   }
 `;
 

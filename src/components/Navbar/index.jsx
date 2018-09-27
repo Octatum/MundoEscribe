@@ -4,16 +4,22 @@ import styled from 'styled-components';
 import breakpoints from '../../utils/breakpoints';
 import headerIcon from './assets/header-icon.svg';
 
-const Container = styled.div`
+const NavContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+`;
+
+const Container = styled.nav`
   flex: 1;
   display: flex;
   align-items: center;
-  position: sticky;
   top: 0;
   padding: 0.5em 1.5em;
   background: ${props => props.theme.color.white};
   box-shadow: 0 0 15px 7px ${props => props.theme.color.black};
-  z-index: 5;
 
   @media screen and (max-width: ${breakpoints.dropdown}) {
     display: block;
@@ -154,105 +160,121 @@ class Navbar extends Component {
     }));
   };
 
+  handleAnchorClick = section => {
+    this.setState(
+      {
+        open: false,
+      },
+      () => {
+        this.props.scrollToRef(section);
+      }
+    );
+  };
+
   render() {
     const toggleIconClass = this.state.open ? 'fas fa-times' : 'fas fa-bars';
     return (
-      <Container className={this.state.open && 'open'}>
-        <Logo src={headerIcon} />
-        <ToggleButton
-          className={toggleIconClass}
-          onClick={this.toggleMenuState}
-        />
-        <Links>
-          <NavList>
-            <li>
-              <Anchor onClick={() => this.props.scrollToRef('startRef')}>
-                Inicio
-              </Anchor>
-            </li>
-            <li>
-              <Dot />
-            </li>
-            <li>
-              <Anchor onClick={() => this.props.scrollToRef('about')}>
-                ¿Quiénes somos?
-              </Anchor>
-            </li>
-            <li>
-              <Dot />
-            </li>
-            <li>
-              <HoverableItem>
-                Lo que hacemos
-                <Submenu>
-                  <AnchorListItem
-                    onClick={() => this.props.scrollToRef('activities')}
-                  >
-                    Lo que hacemos
-                  </AnchorListItem>
-                  <AnchorListItem
-                    onClick={() => this.props.scrollToRef('projects')}
-                  >
-                    Proyectos
-                  </AnchorListItem>
-                  <AnchorListItem
-                    onClick={() => this.props.scrollToRef('benefits')}
-                  >
-                    Beneficios
-                  </AnchorListItem>
-                </Submenu>
-              </HoverableItem>
-            </li>
-            <li>
-              <Dot />
-            </li>
-            <li>
-              <Anchor onClick={() => this.props.scrollToRef('help')}>
-                ¿Cómo ayudar?
-              </Anchor>
-            </li>
-            <li>
-              <Dot />
-            </li>
-            <li>
-              <Anchor onClick={() => this.props.scrollToRef('report')}>
-                Informes anuales
-              </Anchor>
-            </li>
-            <li>
-              <Dot />
-            </li>
-            <li>
-              <Anchor onClick={() => this.props.scrollToRef('contact')}>
-                Contacto
-              </Anchor>
-            </li>
-          </NavList>
-          <SocialMediaList>
-            <li>
-              <Anchor
-                href="https://www.facebook.com/elmundoescribe/"
-                target="_blank"
-              >
-                <i className="fab fa-facebook-f fa-fw fa-lg" />
-              </Anchor>
-            </li>
-            <li>
-              <Anchor
-                href="https://www.instagram.com/elmundoescribe/"
-                target="_blank"
-              >
-                <i className="fab fa-instagram fa-fw fa-lg" />
-              </Anchor>
-            </li>
-            <li>
-              <Anchor href="https://twitter.com/elmundoescribe" target="_blank">
-                <i className="fab fa-twitter fa-fw fa-lg" />
-              </Anchor>
-            </li>
-          </SocialMediaList>
-        </Links>
-      </Container>
+      <NavContainer>
+        <Container className={this.state.open && 'open'}>
+          <Logo src={headerIcon} />
+          <ToggleButton
+            className={toggleIconClass}
+            onClick={this.toggleMenuState}
+          />
+          <Links>
+            <NavList>
+              <li>
+                <Anchor onClick={() => this.handleAnchorClick('startRef')}>
+                  Inicio
+                </Anchor>
+              </li>
+              <li>
+                <Dot />
+              </li>
+              <li>
+                <Anchor onClick={() => this.handleAnchorClick('about')}>
+                  ¿Quiénes somos?
+                </Anchor>
+              </li>
+              <li>
+                <Dot />
+              </li>
+              <li>
+                <HoverableItem>
+                  Lo que hacemos
+                  <Submenu>
+                    <AnchorListItem
+                      onClick={() => this.handleAnchorClick('activities')}
+                    >
+                      Lo que hacemos
+                    </AnchorListItem>
+                    <AnchorListItem
+                      onClick={() => this.handleAnchorClick('projects')}
+                    >
+                      Proyectos
+                    </AnchorListItem>
+                    <AnchorListItem
+                      onClick={() => this.handleAnchorClick('benefits')}
+                    >
+                      Beneficios
+                    </AnchorListItem>
+                  </Submenu>
+                </HoverableItem>
+              </li>
+              <li>
+                <Dot />
+              </li>
+              <li>
+                <Anchor onClick={() => this.handleAnchorClick('help')}>
+                  ¿Cómo ayudar?
+                </Anchor>
+              </li>
+              <li>
+                <Dot />
+              </li>
+              <li>
+                <Anchor onClick={() => this.handleAnchorClick('report')}>
+                  Informes anuales
+                </Anchor>
+              </li>
+              <li>
+                <Dot />
+              </li>
+              <li>
+                <Anchor onClick={() => this.handleAnchorClick('contact')}>
+                  Contacto
+                </Anchor>
+              </li>
+            </NavList>
+            <SocialMediaList>
+              <li>
+                <Anchor
+                  href="https://www.facebook.com/elmundoescribe/"
+                  target="_blank"
+                >
+                  <i className="fab fa-facebook-f fa-fw fa-lg" />
+                </Anchor>
+              </li>
+              <li>
+                <Anchor
+                  href="https://www.instagram.com/elmundoescribe/"
+                  target="_blank"
+                >
+                  <i className="fab fa-instagram fa-fw fa-lg" />
+                </Anchor>
+              </li>
+              <li>
+                <Anchor
+                  href="https://twitter.com/elmundoescribe"
+                  target="_blank"
+                >
+                  <i className="fab fa-twitter fa-fw fa-lg" />
+                </Anchor>
+              </li>
+            </SocialMediaList>
+          </Links>
+        </Container>
+      </NavContainer>
     );
   }
 }

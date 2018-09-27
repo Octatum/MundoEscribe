@@ -104,7 +104,7 @@ const PhotoGrid = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 50%;
-  
+
   @supports (display: grid) {
     display: grid;
     grid-template-rows: repeat(2, 1fr);

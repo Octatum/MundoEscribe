@@ -1,3 +1,4 @@
+// Desarrollado por Octatum en conjunto con Katartico.
 const breakpoints = {
   small: '576px',
   medium: '768px',

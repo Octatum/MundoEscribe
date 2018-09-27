@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: dev
+
+media_folder: static/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+
+  - name: "texts"
+    label: "Textos"
+    folder: "content/texts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "text"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Contenido", name: "content", widget: "string"}
+
+  - name: "reports"
+    label: "Reportes"
+    folder: "content/reports"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "report"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Archivo", name: "file", widget: "file"}
+
+  - name: "slides"
+    label: "Slides de presentacion"
+    folder: "content/slides"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "slides"}
+      - {label: "Titulo", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+
+  - name: "productImage"
+    label: "Imágenes de productos"
+    folder: "content/image"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "productImage"}
+      - {label: "Nombre", name: "name", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
