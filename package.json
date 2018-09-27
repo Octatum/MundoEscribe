@@ -10,6 +10,8 @@
     "gatsby-plugin-netlify-cms": "^3.0.3",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.0.0",
+    "gatsby-source-filesystem": "^2.0.1",
+    "gatsby-transformer-remark": "^2.1.4",
     "moment": "^2.22.2",
     "netlify-cms": "^2.1.2",
     "prop-types": "^15.6.2",
