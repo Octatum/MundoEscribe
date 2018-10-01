@@ -6,6 +6,5 @@ items:
   - Espacios públicos
   - Bibliotecas
   - Apoyo a talentos emergentes
-  - Contenido de prueba
 ---
 
