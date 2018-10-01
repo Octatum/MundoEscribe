@@ -56,3 +56,18 @@ collections:
       - {label: "Type", name: "type", widget: "hidden", default: "helpImage"}
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Imagen", name: "image", widget: "image"}
+
+  - name: "contentList"
+    label: "Listas de contenido"
+    folder: "content/contentList"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Type", name: "type", widget: "hidden", default: "contentList"}
+      - {label: "Título", name: "title", widget: "string"}
+      - label: "Contenido"
+        name: "content"
+        widget: "list"
+        allow_add: true
+        field: 
+          - { label: "Elemento", name: "element", widget: "string" }
