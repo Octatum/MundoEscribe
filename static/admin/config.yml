@@ -69,5 +69,4 @@ collections:
         name: "content"
         widget: "list"
         allow_add: true
-        field: 
-          - { label: "Elemento", name: "element", widget: "string" }
+        default: [""]

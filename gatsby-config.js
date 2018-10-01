@@ -38,6 +38,13 @@ module.exports = {
         name: 'helpImage'
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/contentList`,
+        name: 'contentList'
+      }
+    },
     'gatsby-transformer-remark'
   ],
 }
