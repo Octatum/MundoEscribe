@@ -1,7 +1,7 @@
 ---
 type: contentList
 title: contenido_escritura_creativa
-content:
+items:
   - Instituciones educativas
   - Espacios públicos
   - Bibliotecas

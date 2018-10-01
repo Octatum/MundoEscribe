@@ -7,6 +7,7 @@ import ProjectRow from './ProjectRow';
 import imageC from './assets/creativa.png';
 import imageE from './assets/expresiva.png';
 import imageT from './assets/terapeutica.png';
+import { StaticQuery, graphql } from 'gatsby';
 
 const CustomSection = Section.extend`
   flex-direction: column;
@@ -36,51 +37,60 @@ const ProjectLayout = styled.div`
   }
 `;
 
-const content = [
-  {
-    title: 'Escritura expresiva',
-    bullets: [
-      'Centros de readaptación social',
-      'Casas de migrantes',
-      'Orfanatos y asilos',
-      'Lugares marginados',
-    ],
-    image: imageC,
-  },
-  {
-    title: 'Escritura creativa',
-    bullets: [
-      'Instituciones educativas',
-      'Espacios públicos',
-      'Bilbiotecas',
-      'Apoyo a talentos emergentes',
-    ],
-    image: imageE,
-  },
-  {
-    title: 'Escritura terapéutica',
-    bullets: [
-      'Hospitales',
-      'Centros de apoyo a la mujer',
-      'Necesidades especiales',
-    ],
-    image: imageT,
-  },
-];
 
 const Projects = ({ innerRef }) => (
-  <CustomSection fluid innerRef={innerRef}>
-    <Header>Proyectos</Header>
-    <Description>
-      Nuestras actividades de escritura como herramienta de vida se llevan a
-      cabo en las modalidades de:
-    </Description>
-    <ProjectLayout>
-      {content.map((project, index) => (
-        <ProjectRow key={index} content={project} right={index % 2 === 0} />
-      ))}
-    </ProjectLayout>
-  </CustomSection>
+  <StaticQuery 
+    query={graphql`
+      {
+        allMarkdownRemark (filter: {frontmatter: {type: {eq: "contentList"}}}){
+          edges {
+            node {
+              frontmatter {
+                title
+                type
+                items
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={({allMarkdownRemark}) => {
+      const nodes = allMarkdownRemark.edges.map(({node}) => ({...node}));
+      const content = [
+        {
+          title: 'Escritura expresiva',
+          bullets: nodes.filter(d => d.frontmatter.title === "contenido_escritura_expresiva")[0].frontmatter.items,
+          image: imageC,
+        },
+        {
+          title: 'Escritura creativa',
+          bullets: nodes.filter(d => d.frontmatter.title === "contenido_escritura_creativa")[0].frontmatter.items,
+          image: imageE,
+        },
+        {
+          title: 'Escritura terapéutica',
+          bullets: nodes.filter(d => d.frontmatter.title === "contenido_escritura_terapéutica")[0].frontmatter.items,
+          image: imageT,
+        },
+      ];
+
+      return (
+        <CustomSection fluid innerRef={innerRef}>
+          <Header>Proyectos</Header>
+          <Description>
+            Nuestras actividades de escritura como herramienta de vida se llevan a
+            cabo en las modalidades de:
+          </Description>
+          <ProjectLayout>
+            {content.map((project, index) => (
+              <ProjectRow key={index} content={project} right={index % 2 === 0} />
+            ))}
+          </ProjectLayout>
+        </CustomSection>
+      );
+    }}
+  />
 );
 
 export default React.forwardRef((props, ref) => (

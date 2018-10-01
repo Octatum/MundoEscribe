@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  branch: "dev"
 
 media_folder: static/assets/uploads
 public_folder: /assets/uploads
@@ -59,7 +60,7 @@ collections:
   - name: "contentList"
     label: "Listas de contenido"
     folder: "content/contentList"
-    create: true
+    create: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Type", name: "type", widget: "hidden", default: "contentList"}
