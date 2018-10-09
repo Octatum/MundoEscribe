@@ -1,6 +1,6 @@
 ---
 type: helpImage
 title: imagen_eventos
-image: /assets/uploads/events-picture.png
+image: /assets/uploads/img_1866.jpg
 ---
 
