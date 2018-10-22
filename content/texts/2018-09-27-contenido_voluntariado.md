@@ -7,8 +7,8 @@ content: >-
 
   * Colabora y promueve la misión de El mundo escribe.
 
-  * Actúa como enlace entre la fundación y tu empresa o grupo de amistades. Vive
-  la experiencia de ayudar a otros en el ejercicio de su expresión.
+  * Actúa como enlace entre la fundación y tu empresa, o grupo de amistades.
+  Vive la experiencia de ayudar a otros, en el ejercicio de su expresión.
 
   * Ayúdanos a recaudar material de escritura: hojas, libretas, diarios y
   plumas.
