@@ -19,6 +19,6 @@ content: >-
   adquieran el hábito de la escritura.
 
 
-  **Escribir para entender y avanzar.**
+  _**Escribir para entender y avanzar.**_
 ---
 
