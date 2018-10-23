@@ -24,7 +24,8 @@ content: >-
   * Las emociones se empalman y la claridad mental se desvanece.
 
 
-  La escritura, una botella al mar, nos permite ser y sabernos “comunicados”,
-  “expresados”, “en relación”, es decir, personas en plenitud.
+  La escritura, una botella al mar, nos permite ser y sabernos
+  _**comunicados**_, _**expresados**_, en relación con el mundo, es decir,
+  personas en plenitud.
 ---
 
