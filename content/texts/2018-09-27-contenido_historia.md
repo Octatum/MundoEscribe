@@ -2,7 +2,7 @@
 type: text
 title: contenido_historia
 content: >-
-  Desde 2011, su fundadora promueve la escritura creativa, el lenguaje y la
+  Desde 2011, sus fundadores promueven la escritura creativa, el lenguaje y la
   literatura, el proyecto surge de la observación de los beneficios y
   transformaciones que obtiene una persona que escribe.
 
@@ -19,6 +19,6 @@ content: >-
   adquieran el hábito de la escritura.
 
 
-  _**Escribir para entender y avanzar.**_
+  **_Escribir para entender y avanzar._**
 ---
 
