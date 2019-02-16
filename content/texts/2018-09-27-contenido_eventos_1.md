@@ -2,26 +2,22 @@
 type: text
 title: contenido_eventos_1
 content: >-
-  # Obra de teatro
+  # Escribamos juntas
 
 
-  ## A beneficio
+  ## Taller de escritura expresiva sin costo
 
 
-  _**Bajo la verde sombra**_
+  **_8 sedes y horarios_**
 
 
-  Obra de Hernán Galindo en estreno de temporada. Un romántico relato sobre el
-  amor, el deseo y los secretos entre generaciones; un hombre mayor y dos
-  mujeres que viven al lado de un río en Veracruz; dos muchachos que revelan un
-  conflicto en una barca; todo ello conformando los antecedentes de una familia
-  el día en que celebran los 50 años de casados. Una obra que llega al corazón.
+  Dirigido a mujeres con padecimiento de cáncer de mama en cualquiera de sus
+  etapas, incluso sobrevivientes.
 
 
-  Lunes 29 de octubre / Hora: 9 p.m.  / Costo: $300 pesos 
+  Informes: contacto@elmundoescribe.org
 
 
-  Separa tus boletos: contacto@elmundoescribe.org | (81) 2718-0074, (81)
-  8335-4082
+  Gracias #PromesaAvon
 ---
 
