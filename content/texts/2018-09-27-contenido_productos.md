@@ -2,14 +2,9 @@
 type: text
 title: contenido_productos
 content: >-
-  Al comprar uno de estos productos estás apoyando a Te tempor exquisitaque an
-  voluptate fore illum ubi tempor.
-
-
-
-
-  Commodo nisi quis ullamco aliqua, ex an ipsum amet anim. Labore an cernantur,
-  dolore distinguantur mentitum tempor eiusmod. Quorum se sed eram quamquam et
-  nulla efflorescere excepteur noster voluptate.
+  Al comprar uno de estos productos estás apoyando a los proyectos e
+  intervenciones que llevamos a cabo en diversos lugares y públicos. Gracias a
+  ti, más personas estarán en contacto con la herramienta que puede cambiar su
+  vida: la escritura.
 ---
 
