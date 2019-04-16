@@ -7,4 +7,3 @@ content: >-
   ti, más personas estarán en contacto con la herramienta que puede cambiar su
   vida: la escritura.
 ---
-

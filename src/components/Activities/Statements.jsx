@@ -126,9 +126,9 @@ const PhraseFour = PhraseLayout.extend`
 const PhraseFive = PhraseLayout.extend`
   grid-area: p5;
   height: 80%;
-  width: 95%;
+  width: 80%;
   align-self: center;
-  justify-self: end;
+  justify-self: center;
 
   @media screen and (max-width: ${breakpoints.medium}) {
     height: initial;
@@ -181,7 +181,7 @@ const PhraseDisplay = styled.p`
 const Phrases = [
   {
     id: 6,
-    phrase: 'Al escribir aprendemos y nos descubrimos.',
+    phrase: 'Al escribir aprendemos, elegimos y tomamos decisiones.',
   },
   {
     id: 1,
@@ -190,16 +190,15 @@ const Phrases = [
   {
     id: 2,
     phrase:
-      'Escribir para erradicar el miedo, para reconocérnos únicos y a la vez, hermanados con todas las historias.',
+      'Escribir para erradicar el miedo, para reconocernos únicos, y a la vez, hermanados con todas las historias.',
   },
   {
     id: 3,
-    phrase: 'Narrar para comprender, para crecer.',
+    phrase: 'Narrar para comprender y crecer.',
   },
   {
     id: 4,
-    phrase:
-      'Escribir para adueñarnos de nuestra propia voz, para caminar con la dignidad y el empoderamiento de sabernos dueños de nuestra propia historia.',
+    phrase: 'Escribir para ser dueños de nuestra voz e historia.',
   },
   {
     id: 5,
@@ -214,8 +213,8 @@ function Statements() {
         <Header>Lo que hacemos</Header>
       </SectionBanner>
       <Subheader>
-        Todos nuestros proyectos están encaminados a seis enunciados. Creemos y
-        trabajamos por ello.{' '}
+        Todos nuestros proyectos están inspirados en seis enunciados. Así
+        creemos y trabajamos.{' '}
       </Subheader>
       <PhrasesSection>
         <PhraseOne>

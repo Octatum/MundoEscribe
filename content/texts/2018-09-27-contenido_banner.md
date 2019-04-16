@@ -7,4 +7,3 @@ content: >-
   propio y de su entorno y que le permita desarrollar su potencial individual de
   la mejor manera.
 ---
-

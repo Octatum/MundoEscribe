@@ -21,4 +21,3 @@ content: >-
 
   **_Escribir para entender y avanzar._**
 ---
-

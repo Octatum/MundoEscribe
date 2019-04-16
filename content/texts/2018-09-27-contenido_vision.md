@@ -28,4 +28,3 @@ content: >-
   _**comunicados**_, _**expresados**_, en relación con el mundo, es decir,
   personas en plenitud.
 ---
-
