@@ -81,11 +81,11 @@ const content = [
     image: imageA,
   },
   {
-    text: 'Toma conciencia y responsabilidad entre sus decisiones y acciones.',
+    text: 'Toma conciencia y responsabilidad de sus decisiones y acciones.',
     image: imageB,
   },
   {
-    text: 'Su nivel de bienestar y felicidad aumenta.',
+    text: 'Aumenta su nivel de bienestar y felicidad.',
     image: imageC,
   },
   {
@@ -93,7 +93,7 @@ const content = [
     image: imageD,
   },
   {
-    text: 'Respeta al entorno, a los demás y a si mismo.',
+    text: 'Respeta al entorno, a los demás y a sí mismo.',
     image: imageE,
   },
   {
@@ -114,7 +114,7 @@ const content = [
     image: imageI,
   },
   {
-    text: 'Sus objetivos y metas son claros y adaptables.',
+    text: 'Precisa sus metas y objetivos.',
     image: imageJ,
   },
 ];
