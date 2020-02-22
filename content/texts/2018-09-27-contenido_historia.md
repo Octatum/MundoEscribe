@@ -1,6 +1,6 @@
 ---
 type: text
-title: contenido_historia
+title: contenido_nuestra razón de ser
 content: >-
   La fundación nace del análisis y la observación directa de los beneficios y
   transformaciones que emergen de una persona que escribe.
