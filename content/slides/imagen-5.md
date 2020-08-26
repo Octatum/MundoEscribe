@@ -1,6 +1,6 @@
 ---
 type: slides
-title: Imagen 5
+title: Imagen cinco
 image: /assets/uploads/senjuti-kundu-jfolijrnvey-unsplash.jpg
 ---
 
